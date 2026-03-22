@@ -4,6 +4,7 @@ import com.hbm.nucleartech.HBM;
 import com.hbm.nucleartech.handler.ArmorModHandler;
 import com.hbm.nucleartech.hazard.HazardItem;
 import com.hbm.nucleartech.item.custom.*;
+import com.hbm.nucleartech.explosion.NuclearBombType;
 import com.hbm.nucleartech.item.special.CustomLoreItem;
 import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.item.Item;
@@ -16,6 +17,20 @@ public class RegisterItems {
 
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, HBM.MOD_ID);
+
+
+    public static final RegistryObject<Item> NUKE_TACTICAL = ITEMS.register("nuke_tactical",
+            () -> new NukeItem(NuclearBombType.TACTICAL, new Item.Properties()));
+
+    public static final RegistryObject<Item> NUKE_STANDARD = ITEMS.register("nuke_standard",
+            () -> new NukeItem(NuclearBombType.STANDARD, new Item.Properties()));
+
+    public static final RegistryObject<Item> NUKE_THERMONUCLEAR = ITEMS.register("nuke_thermonuclear",
+            () -> new NukeItem(NuclearBombType.THERMONUCLEAR, new Item.Properties()));
+
+    public static final RegistryObject<Item> NUKE_BUNKER_BUSTER = ITEMS.register("nuke_bunker_buster",
+            () -> new NukeItem(NuclearBombType.BUNKER_BUSTER, new Item.Properties()));
+
 
     public static final RegistryObject<Item> PLATE_IRON = ITEMS.register("plate_iron",
             () -> new Item(new Item.Properties()));

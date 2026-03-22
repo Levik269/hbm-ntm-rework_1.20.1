@@ -107,6 +107,10 @@ public class RegisterBlocks {
                     UniformInt.of(2, 6)
             ));
 
+    public static final RegistryObject<Block> M350_CONCRETE = registerBlock("m350_concrete",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)
+                    .strength(1000.0f, 1200.0f)  // hardness=1000, resistance=1200
+            ));
 
     public static final RegistryObject<Block> RADIATION_DECONTAMINATOR = registerBlock("radiation_decontaminator",
             () -> new DeconRadBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)

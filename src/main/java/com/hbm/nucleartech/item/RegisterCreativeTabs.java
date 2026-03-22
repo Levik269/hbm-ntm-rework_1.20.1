@@ -20,6 +20,9 @@ public class RegisterCreativeTabs {
                     .title(Component.translatable("creativetab.resources_and_parts"))
                     .displayItems((itemDisplayParameters, output) -> {
 
+
+
+
                         output.accept(RegisterItems.INGOT_TITANIUM.get());
                         output.accept(RegisterItems.INGOT_BERYLLIUM.get());
                         output.accept(RegisterItems.INGOT_URANIUM.get());
@@ -70,6 +73,8 @@ public class RegisterCreativeTabs {
                     .title(Component.translatable("creativetab.ntm_blocks"))
                     .displayItems((itemDisplayParameters, output) -> {
 
+                        output.accept(RegisterBlocks.M350_CONCRETE.get());
+
                         output.accept(RegisterBlocks.BLOCK_WASTE.get());
                         output.accept(RegisterBlocks.BLOCK_URANIUM.get());
                         output.accept(RegisterBlocks.BLOCK_TITANIUM.get());
@@ -97,6 +102,13 @@ public class RegisterCreativeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(RegisterBlocks.RADIATION_DECONTAMINATOR.get()))
                     .title(Component.translatable("creativetab.ntm_machines"))
                     .displayItems((itemDisplayParameters, output) -> {
+
+
+                        output.accept(RegisterItems.NUKE_TACTICAL.get());
+                        output.accept(RegisterItems.NUKE_STANDARD.get());
+                        output.accept(RegisterItems.NUKE_THERMONUCLEAR.get());
+                        output.accept(RegisterItems.NUKE_BUNKER_BUSTER.get());
+
                         output.accept(RegisterBlocks.RADIATION_DECONTAMINATOR.get());
                     })
                     .build());

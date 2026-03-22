@@ -64,6 +64,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(RegisterItems.HAZMAT_CHESTPLATE_GREY);
         simpleItem(RegisterItems.HAZMAT_LEGGINGS_GREY);
         simpleItem(RegisterItems.HAZMAT_BOOTS_GREY);
+
+        simpleItem(RegisterItems.NUKE_TACTICAL);
+        simpleItem(RegisterItems.NUKE_STANDARD);
+        simpleItem(RegisterItems.NUKE_THERMONUCLEAR);
+        simpleItem(RegisterItems.NUKE_BUNKER_BUSTER);
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
