@@ -20,8 +20,11 @@ import java.util.List;
 
 public class HBMConfiguredFeatures {
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_ORE_THORIUM_KEY = registerKey("ore_thorium");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_ORE_COPPER_KEY = registerKey("ore_copper");
     public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_ORE_TITANIUM_KEY = registerKey("ore_titanium");
     public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_ORE_URANIUM_KEY = registerKey("ore_uranium");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_ORE_COBALT_KEY = registerKey("ore_cobalt");
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
 
@@ -38,9 +41,29 @@ public class HBMConfiguredFeatures {
                         RegisterBlocks.ORE_URANIUM.get().defaultBlockState()),
                 OreConfiguration.target(deepslateReplaceables, RegisterBlocks.DEEPSLATE_ORE_URANIUM.get().defaultBlockState()));
 
+        List<OreConfiguration.TargetBlockState> overworldThoriumOres = List.of(
+                OreConfiguration.target(stoneReplaceables,
+                        RegisterBlocks.ORE_THORIUM.get().defaultBlockState()),
+                OreConfiguration.target(deepslateReplaceables,
+                        RegisterBlocks.DEEPSLATE_ORE_THORIUM.get().defaultBlockState()));
+
+        List<OreConfiguration.TargetBlockState> overworldCopperOres = List.of(
+                OreConfiguration.target(stoneReplaceables,
+                        RegisterBlocks.ORE_COPPER.get().defaultBlockState()),
+                OreConfiguration.target(deepslateReplaceables,
+                        RegisterBlocks.DEEPSLATE_ORE_COPPER.get().defaultBlockState()));
+
+        List<OreConfiguration.TargetBlockState> overworldCobaltOres = List.of(
+                OreConfiguration.target(stoneReplaceables,
+                        RegisterBlocks.ORE_COBALT.get().defaultBlockState()),
+                OreConfiguration.target(deepslateReplaceables,
+                        RegisterBlocks.DEEPSLATE_ORE_COBALT.get().defaultBlockState()));
+
+        register(context, OVERWORLD_ORE_COBALT_KEY, Feature.ORE, new OreConfiguration(overworldCobaltOres, 8));
         register(context, OVERWORLD_ORE_TITANIUM_KEY, Feature.ORE, new OreConfiguration(overworldTitaniumOres, 8));
         register(context, OVERWORLD_ORE_URANIUM_KEY, Feature.ORE, new OreConfiguration(overworldUraniumOres, 12));
-
+        register(context, OVERWORLD_ORE_THORIUM_KEY, Feature.ORE, new OreConfiguration(overworldThoriumOres, 6));
+        register(context, OVERWORLD_ORE_COPPER_KEY, Feature.ORE, new OreConfiguration(overworldCopperOres, 10));
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {

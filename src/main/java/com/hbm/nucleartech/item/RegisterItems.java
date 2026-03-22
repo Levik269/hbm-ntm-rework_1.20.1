@@ -35,6 +35,25 @@ public class RegisterItems {
     public static final RegistryObject<Item> RAW_URANIUM = ITEMS.register("raw_uranium",
             () -> new HazardItem(0.035, new Item.Properties()));
 
+    public static final RegistryObject<Item> RAW_COPPER_HBM = ITEMS.register("raw_copper_hbm",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> INGOT_COPPER = ITEMS.register("ingot_copper",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> INGOT_THORIUM = ITEMS.register("ingot_thorium",
+            () -> new HazardItem(0.15, new Item.Properties()));
+
+    public static final RegistryObject<Item> RAW_THORIUM = ITEMS.register("raw_thorium",
+            () -> new HazardItem(0.015, new Item.Properties()));
+
+    public static final RegistryObject<Item> RAW_COBALT = ITEMS.register("raw_cobalt",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> INGOT_COBALT = ITEMS.register("ingot_cobalt",
+            () -> new Item(new Item.Properties()));
+
+
     public static final RegistryObject<Item> POWDER_URANIUM = ITEMS.register("powder_uranium",
             () -> new HazardItem(1.05, new Item.Properties()));
 

@@ -23,6 +23,9 @@ public class RegisterCreativeTabs {
                         output.accept(RegisterItems.INGOT_TITANIUM.get());
                         output.accept(RegisterItems.INGOT_BERYLLIUM.get());
                         output.accept(RegisterItems.INGOT_URANIUM.get());
+                        output.accept(RegisterItems.INGOT_THORIUM.get());
+                        output.accept(RegisterItems.INGOT_COPPER.get());
+                        output.accept(RegisterItems.INGOT_COBALT.get());
 
                         output.accept(RegisterItems.POWDER_URANIUM.get());
                         output.accept(RegisterItems.NUGGET_URANIUM.get());
@@ -32,6 +35,9 @@ public class RegisterCreativeTabs {
 
                         output.accept(RegisterItems.RAW_TITANIUM.get());
                         output.accept(RegisterItems.RAW_URANIUM.get());
+                        output.accept(RegisterItems.RAW_THORIUM.get());
+                        output.accept(RegisterItems.RAW_COPPER_HBM.get());
+                        output.accept(RegisterItems.RAW_COBALT.get());
 
                         output.accept(RegisterItems.GEIGER_COUNTER.get());
 
@@ -73,6 +79,14 @@ public class RegisterCreativeTabs {
 
                         output.accept(RegisterBlocks.ORE_TITANIUM.get());
                         output.accept(RegisterBlocks.DEEPSLATE_ORE_TITANIUM.get());
+                        output.accept(RegisterBlocks.ORE_THORIUM.get());
+                        output.accept(RegisterBlocks.DEEPSLATE_ORE_THORIUM.get());
+                        output.accept(RegisterBlocks.ORE_COPPER.get());
+                        output.accept(RegisterBlocks.DEEPSLATE_ORE_COPPER.get());
+                        output.accept(RegisterBlocks.ORE_COBALT.get());
+                        output.accept(RegisterBlocks.DEEPSLATE_ORE_COBALT.get());
+
+
                         output.accept(RegisterBlocks.RAD_RESISTANT_BLOCK.get());
 
                         output.accept(RegisterBlocks.WASTE_GRASS.get());

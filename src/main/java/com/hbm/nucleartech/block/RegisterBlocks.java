@@ -55,6 +55,18 @@ public class RegisterBlocks {
                     UniformInt.of(3, 7)
             ));
 
+    public static final RegistryObject<Block> ORE_COPPER = registerBlock("ore_copper",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_ORE)
+                    .strength(4.0f, 8.0f),
+                    UniformInt.of(2, 5)
+            ));
+
+    public static final RegistryObject<Block> DEEPSLATE_ORE_COPPER = registerBlock("deepslate_ore_copper",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_COPPER_ORE)
+                    .strength(6.0f, 12.0f),
+                    UniformInt.of(2, 6)
+            ));
+
     public static final RegistryObject<Block> ORE_URANIUM = registerHazardBlock(0.003, "ore_uranium",
             () -> new HazardBlock(BlockBehaviour.Properties.copy(Blocks.DIAMOND_ORE)
                     .strength(5.0f, 10.0f),
@@ -68,6 +80,33 @@ public class RegisterBlocks {
                     UniformInt.of(2, 5),
                     0.0035
             ));
+
+    public static final RegistryObject<Block> ORE_THORIUM = registerHazardBlock(0.002, "ore_thorium",
+            () -> new HazardBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)
+                    .strength(4.0f, 8.0f),
+                    UniformInt.of(2, 5),
+                    0.002
+            ));
+
+    public static final RegistryObject<Block> DEEPSLATE_ORE_THORIUM = registerHazardBlock(0.0025, "deepslate_ore_thorium",
+            () -> new HazardBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE)
+                    .strength(6.0f, 12.0f),
+                    UniformInt.of(2, 6),
+                    0.0025
+            ));
+
+    public static final RegistryObject<Block> ORE_COBALT = registerBlock("ore_cobalt",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)
+                    .strength(4.0f, 8.0f),
+                    UniformInt.of(2, 5)  // опыт при добыче: от 2 до 5
+            ));
+
+    public static final RegistryObject<Block> DEEPSLATE_ORE_COBALT = registerBlock("deepslate_ore_cobalt",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE)
+                    .strength(6.0f, 12.0f),
+                    UniformInt.of(2, 6)
+            ));
+
 
     public static final RegistryObject<Block> RADIATION_DECONTAMINATOR = registerBlock("radiation_decontaminator",
             () -> new DeconRadBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)
