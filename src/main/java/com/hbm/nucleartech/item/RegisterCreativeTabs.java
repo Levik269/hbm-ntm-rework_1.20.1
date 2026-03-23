@@ -20,6 +20,9 @@ public class RegisterCreativeTabs {
                     .title(Component.translatable("creativetab.resources_and_parts"))
                     .displayItems((itemDisplayParameters, output) -> {
 
+                        output.accept(RegisterItems.TEST_ASBESTOS_ITEM.get());
+                        output.accept(RegisterBlocks.TEST_GENERATOR.get());
+                        output.accept(RegisterItems.DEBUG_HAZARD_REMOVER.get());
 
                         output.accept(RegisterBlocks.MISSILE_LAUNCHER.get());
 
@@ -37,7 +40,6 @@ public class RegisterCreativeTabs {
                         output.accept(RegisterItems.INGOT_RED_GOLD.get());
                         output.accept(RegisterItems.INGOT_GILDED_COPPER.get());
 
-                        output.accept(RegisterBlocks.TEST_GENERATOR.get());
                         output.accept(RegisterBlocks.BATTERY_BLOCK.get());
 
                         output.accept(RegisterItems.POWDER_URANIUM.get());
