@@ -55,7 +55,41 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(RegisterBlocks.MISSILE_LAUNCHER);
 
+        // M350 Concrete variants
         blockWithItem(RegisterBlocks.M350_CONCRETE);
+        blockWithItem(RegisterBlocks.M350_BRICK_CONCRETE);
+        blockWithItem(RegisterBlocks.M350_BRICK_CONCRETE_MOSSY);
+        blockWithItem(RegisterBlocks.M350_BRICK_CONCRETE_CRACKED);
+        blockWithItem(RegisterBlocks.M350_BRICK_CONCRETE_BROKEN);
+        blockWithItem(RegisterBlocks.M350_BRICK_CONCRETE_MARKED);
+
+        // M350 Colored Concrete variants
+        blockWithItem(RegisterBlocks.M350_CONCRETE_SMOOTH);
+        blockWithItem(RegisterBlocks.M350_CONCRETE_WHITE);
+        blockWithItem(RegisterBlocks.M350_CONCRETE_ORANGE);
+        blockWithItem(RegisterBlocks.M350_CONCRETE_MAGENTA);
+        blockWithItem(RegisterBlocks.M350_CONCRETE_LIGHT_BLUE);
+        blockWithItem(RegisterBlocks.M350_CONCRETE_YELLOW);
+        blockWithItem(RegisterBlocks.M350_CONCRETE_LIME);
+        blockWithItem(RegisterBlocks.M350_CONCRETE_PINK);
+        blockWithItem(RegisterBlocks.M350_CONCRETE_GRAY);
+        blockWithItem(RegisterBlocks.M350_CONCRETE_LIGHT_GRAY);
+        blockWithItem(RegisterBlocks.M350_CONCRETE_CYAN);
+        blockWithItem(RegisterBlocks.M350_CONCRETE_PURPLE);
+        blockWithItem(RegisterBlocks.M350_CONCRETE_BLUE);
+        blockWithItem(RegisterBlocks.M350_CONCRETE_BROWN);
+        blockWithItem(RegisterBlocks.M350_CONCRETE_GREEN);
+        blockWithItem(RegisterBlocks.M350_CONCRETE_RED);
+        blockWithItem(RegisterBlocks.M350_CONCRETE_BLACK);
+
+        // M350 Reinforced blocks
+        blockWithItem(RegisterBlocks.REINFORCED_STONE);
+        blockWithItem(RegisterBlocks.BRICK_COMPOUND);
+        blockWithItem(RegisterBlocks.BRICK_OBSIDIAN);
+
+        // CMB Brick variants
+        blockWithItem(RegisterBlocks.CMB_BRICK);
+        blockWithItem(RegisterBlocks.CMB_BRICK_REINFORCED);
 
         blockWithItem(RegisterBlocks.BLOCK_WASTE);
 
