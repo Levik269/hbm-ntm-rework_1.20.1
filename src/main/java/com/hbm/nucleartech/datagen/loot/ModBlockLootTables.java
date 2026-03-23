@@ -21,6 +21,17 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     @Override
     protected void generate() {
 
+        this.dropSelf(RegisterBlocks.TRANSFORMER_HV_MV_GILDED_COPPER.get());
+        this.dropSelf(RegisterBlocks.TRANSFORMER_HV_MV_COPPER.get());
+        this.dropSelf(RegisterBlocks.TRANSFORMER_HV_MV_RED_COPPER.get());
+        this.dropSelf(RegisterBlocks.TRANSFORMER_HV_MV_GOLD.get());
+        this.dropSelf(RegisterBlocks.TRANSFORMER_HV_MV_RED_GOLD.get());
+        this.dropSelf(RegisterBlocks.TRANSFORMER_MV_LV_GILDED_COPPER.get());
+        this.dropSelf(RegisterBlocks.TRANSFORMER_MV_LV_COPPER.get());
+        this.dropSelf(RegisterBlocks.TRANSFORMER_MV_LV_RED_COPPER.get());
+        this.dropSelf(RegisterBlocks.TRANSFORMER_MV_LV_GOLD.get());
+        this.dropSelf(RegisterBlocks.TRANSFORMER_MV_LV_RED_GOLD.get());
+
         this.dropSelf(RegisterBlocks.CABLE_LV_COPPER.get());
         this.dropSelf(RegisterBlocks.CABLE_LV_RED_COPPER.get());
         this.dropSelf(RegisterBlocks.CABLE_LV_GOLD.get());

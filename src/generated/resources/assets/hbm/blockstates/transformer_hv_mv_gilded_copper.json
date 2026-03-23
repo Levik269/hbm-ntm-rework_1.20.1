@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "hbm:block/transformer_hv_mv_gilded_copper"
+    }
+  }
+}

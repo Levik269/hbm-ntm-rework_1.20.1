@@ -37,8 +37,13 @@ public class HbmEnergyNetwork {
                         queue.add(neighbor);
                     }
                 } else if (be instanceof IHbmEnergy.Storage storage) {
-                    // Storage — только потребитель в сети
                     nodes.add(new NetworkNode(neighbor, null, storage, null));
+                } else if (be instanceof IHbmEnergy.Consumer && be instanceof IHbmEnergy.Provider) {
+                    // трансформатор — и потребитель и провайдер
+                    IHbmEnergy.Consumer consumer = (IHbmEnergy.Consumer) be;
+                    IHbmEnergy.Provider provider = (IHbmEnergy.Provider) be;
+                    if (sourceTier.canConnectTo(consumer.getInputTier()))
+                        nodes.add(new NetworkNode(neighbor, null, consumer, provider));
                 } else if (be instanceof IHbmEnergy.Provider provider) {
                     nodes.add(new NetworkNode(neighbor, null, null, provider));
                 } else if (be instanceof IHbmEnergy.Consumer consumer) {
@@ -50,16 +55,125 @@ public class HbmEnergyNetwork {
         return nodes;
     }
 
+    public static Map<BlockPos, Map<BlockPos, Float>> findLossMap(
+            ServerLevel level, BlockPos startPos, CableTier sourceTier) {
+
+        Map<BlockPos, Map<BlockPos, Float>> result = new java.util.HashMap<>();
+
+        List<NetworkNode> network = findNetwork(level, startPos, sourceTier);
+        List<NetworkNode> providers = network.stream()
+                .filter(n -> n.provider() != null).toList();
+
+        // только настоящие провайдеры, не кабели
+        List<BlockPos> providerPositions = new ArrayList<>();
+        BlockEntity startBe = level.getBlockEntity(startPos);
+        if (startBe instanceof IHbmEnergy.Provider)
+            providerPositions.add(startPos);
+        for (NetworkNode n : providers)
+            providerPositions.add(n.pos());
+
+        for (BlockPos provPos : providerPositions) {
+            Map<BlockPos, Float> accumulated = new java.util.HashMap<>();
+            Set<BlockPos> visited = new HashSet<>();
+            Queue<BlockPos> queue = new LinkedList<>();
+
+            queue.add(provPos);
+            visited.add(provPos);
+            accumulated.put(provPos, 0f);
+
+            while (!queue.isEmpty()) {
+                BlockPos pos = queue.poll();
+                float lossHere = accumulated.get(pos);
+
+                for (Direction dir : Direction.values()) {
+                    BlockPos neighbor = pos.relative(dir);
+                    if (visited.contains(neighbor)) continue;
+                    visited.add(neighbor);
+
+                    BlockEntity be = level.getBlockEntity(neighbor);
+                    if (be == null) continue;
+
+                    if (be instanceof ICableBlockEntity cable) {
+                        if (sourceTier.canConnectTo(cable.getCableTier())) {
+                            accumulated.put(neighbor, lossHere + cable.getCableTier().lossFactor);
+                            queue.add(neighbor);
+                        }
+                    } else if (be instanceof IHbmEnergy.Consumer
+                            || be instanceof IHbmEnergy.Storage) {
+                        accumulated.put(neighbor, lossHere);
+                    }
+                }
+            }
+
+            for (Map.Entry<BlockPos, Float> entry : accumulated.entrySet()) {
+                BlockEntity be = level.getBlockEntity(entry.getKey());
+                if (be instanceof IHbmEnergy.Consumer || be instanceof IHbmEnergy.Storage) {
+                    result.computeIfAbsent(entry.getKey(), k -> new java.util.LinkedHashMap<>())
+                            .put(provPos, entry.getValue());
+                }
+            }
+        }
+        return result;
+    }
+
     public static void distribute(ServerLevel level, BlockPos providerPos,
                                   IHbmEnergy.Provider provider) {
         long available = provider.extractEnergy(provider.getEnergyStored(), true);
         if (available <= 0) return;
 
-        List<NetworkNode> nodes = findNetwork(level, providerPos, provider.getOutputTier());
+        Map<BlockPos, Float> accumulatedLoss = new java.util.HashMap<>();
+        List<NetworkNode> allNodes = new ArrayList<>();
+        Set<BlockPos> visited = new HashSet<>();
+        Queue<BlockPos> queue = new LinkedList<>();
 
-        List<NetworkNode> consumerNodes = nodes.stream()
+        queue.add(providerPos);
+        visited.add(providerPos);
+        accumulatedLoss.put(providerPos, 0f);
+
+        while (!queue.isEmpty()) {
+            BlockPos pos = queue.poll();
+            float lossHere = accumulatedLoss.get(pos);
+
+            for (Direction dir : Direction.values()) {
+                BlockPos neighbor = pos.relative(dir);
+                if (visited.contains(neighbor)) continue;
+                visited.add(neighbor);
+
+                BlockEntity be = level.getBlockEntity(neighbor);
+                if (be == null) continue;
+
+                if (be instanceof ICableBlockEntity cable) {
+                    if (provider.getOutputTier().canConnectTo(cable.getCableTier())) {
+                        accumulatedLoss.put(neighbor, lossHere + cable.getCableTier().lossFactor);
+                        allNodes.add(new NetworkNode(neighbor, cable, null, null));
+                        queue.add(neighbor);
+                    }
+                } else if (be instanceof IHbmEnergy.Storage storage) {
+                    accumulatedLoss.put(neighbor, lossHere);
+                    allNodes.add(new NetworkNode(neighbor, null, storage, null));
+                } else if (be instanceof IHbmEnergy.Consumer && be instanceof IHbmEnergy.Provider) {
+                    // трансформатор
+                    IHbmEnergy.Consumer consumer = (IHbmEnergy.Consumer) be;
+                    IHbmEnergy.Provider prov = (IHbmEnergy.Provider) be;
+                    if (provider.getOutputTier().canConnectTo(consumer.getInputTier())) {
+                        accumulatedLoss.put(neighbor, lossHere);
+                        allNodes.add(new NetworkNode(neighbor, null, consumer, prov));
+                    }
+                } else if (be instanceof IHbmEnergy.Provider prov) {
+                    accumulatedLoss.put(neighbor, lossHere);
+                    allNodes.add(new NetworkNode(neighbor, null, null, prov));
+                } else if (be instanceof IHbmEnergy.Consumer consumer) {
+                    if (provider.getOutputTier().canConnectTo(consumer.getInputTier())) {
+                        accumulatedLoss.put(neighbor, lossHere);
+                        allNodes.add(new NetworkNode(neighbor, null, consumer, null));
+                    }
+                }
+            }
+        }
+
+        List<NetworkNode> consumerNodes = allNodes.stream()
                 .filter(n -> n.consumer() != null).toList();
-        List<NetworkNode> cableNodes = nodes.stream()
+        List<NetworkNode> cableNodes = allNodes.stream()
                 .filter(n -> n.cable() != null).toList();
 
         if (consumerNodes.isEmpty()) return;
@@ -69,7 +183,8 @@ public class HbmEnergyNetwork {
 
         for (NetworkNode node : consumerNodes) {
             if (perConsumer <= 0) break;
-            long loss = (long)(perConsumer * provider.getOutputTier().lossFactor * 10);
+            float totalLoss = accumulatedLoss.getOrDefault(node.pos(), 0f);
+            long loss = (long)(perConsumer * totalLoss);
             long delivered = Math.max(0, perConsumer - loss);
             long accepted = node.consumer().receiveEnergy(delivered, true);
             if (accepted > 0) {
@@ -119,12 +234,11 @@ public class HbmEnergyNetwork {
             IHbmEnergy.Provider provider) {}
 
     public static List<IHbmEnergy.Consumer> findConsumers(ServerLevel level,
-                                                          BlockPos start,
-                                                          CableTier sourceTier) {
+                                                           BlockPos start,
+                                                           CableTier sourceTier) {
         return findNetwork(level, start, sourceTier).stream()
                 .filter(n -> n.consumer() != null)
                 .map(NetworkNode::consumer)
                 .toList();
     }
 }
-

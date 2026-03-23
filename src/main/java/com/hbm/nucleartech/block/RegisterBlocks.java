@@ -33,6 +33,10 @@ import com.hbm.nucleartech.block.entity.TestGeneratorBlockEntity;
 import com.hbm.nucleartech.block.custom.BatteryBlock;
 import com.hbm.nucleartech.block.entity.BatteryBlockEntity;
 
+import com.hbm.nucleartech.block.custom.TransformerBlock;
+import com.hbm.nucleartech.block.entity.TransformerBlockEntity;
+import com.hbm.nucleartech.energy.TransformerTier;
+
 import java.util.function.Supplier;
 
 public class RegisterBlocks {
@@ -248,6 +252,55 @@ public class RegisterBlocks {
                     CABLE_HV_COPPER.get(), CABLE_HV_RED_COPPER.get(), CABLE_HV_GOLD.get(),
                     CABLE_HV_RED_GOLD.get(), CABLE_HV_GILDED_COPPER.get()
             ).build(null));
+
+    public static final RegistryObject<Block> TRANSFORMER_HV_MV_COPPER =
+            registerBlock("transformer_hv_mv_copper", () -> new TransformerBlock(TransformerTier.HV_MV_COPPER,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f).noOcclusion()));
+    public static final RegistryObject<Block> TRANSFORMER_HV_MV_RED_COPPER =
+            registerBlock("transformer_hv_mv_red_copper", () -> new TransformerBlock(TransformerTier.HV_MV_RED_COPPER,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f).noOcclusion()));
+    public static final RegistryObject<Block> TRANSFORMER_HV_MV_GOLD =
+            registerBlock("transformer_hv_mv_gold", () -> new TransformerBlock(TransformerTier.HV_MV_GOLD,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f).noOcclusion()));
+    public static final RegistryObject<Block> TRANSFORMER_HV_MV_RED_GOLD =
+            registerBlock("transformer_hv_mv_red_gold", () -> new TransformerBlock(TransformerTier.HV_MV_RED_GOLD,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f).noOcclusion()));
+    public static final RegistryObject<Block> TRANSFORMER_HV_MV_GILDED_COPPER =
+            registerBlock("transformer_hv_mv_gilded_copper", () -> new TransformerBlock(TransformerTier.HV_MV_GILDED_COPPER,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f).noOcclusion()));
+
+    public static final RegistryObject<Block> TRANSFORMER_MV_LV_COPPER =
+            registerBlock("transformer_mv_lv_copper", () -> new TransformerBlock(TransformerTier.MV_LV_COPPER,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f).noOcclusion()));
+    public static final RegistryObject<Block> TRANSFORMER_MV_LV_RED_COPPER =
+            registerBlock("transformer_mv_lv_red_copper", () -> new TransformerBlock(TransformerTier.MV_LV_RED_COPPER,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f).noOcclusion()));
+    public static final RegistryObject<Block> TRANSFORMER_MV_LV_GOLD =
+            registerBlock("transformer_mv_lv_gold", () -> new TransformerBlock(TransformerTier.MV_LV_GOLD,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f).noOcclusion()));
+    public static final RegistryObject<Block> TRANSFORMER_MV_LV_RED_GOLD =
+            registerBlock("transformer_mv_lv_red_gold", () -> new TransformerBlock(TransformerTier.MV_LV_RED_GOLD,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f).noOcclusion()));
+    public static final RegistryObject<Block> TRANSFORMER_MV_LV_GILDED_COPPER =
+            registerBlock("transformer_mv_lv_gilded_copper", () -> new TransformerBlock(TransformerTier.MV_LV_GILDED_COPPER,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f).noOcclusion()));
+
+    public static final RegistryObject<BlockEntityType<TransformerBlockEntity>> TRANSFORMER_BE =
+            BLOCK_ENTITIES.register("transformer", () -> BlockEntityType.Builder.of(
+                    (pos, state) -> {
+                        Block block = state.getBlock();
+                        if (block instanceof TransformerBlock tb)
+                            return new TransformerBlockEntity(pos, state, tb.getTier());
+                        return new TransformerBlockEntity(pos, state, TransformerTier.HV_MV_COPPER);
+                    },
+                    TRANSFORMER_HV_MV_COPPER.get(), TRANSFORMER_HV_MV_RED_COPPER.get(),
+                    TRANSFORMER_HV_MV_GOLD.get(), TRANSFORMER_HV_MV_RED_GOLD.get(),
+                    TRANSFORMER_HV_MV_GILDED_COPPER.get(),
+                    TRANSFORMER_MV_LV_COPPER.get(), TRANSFORMER_MV_LV_RED_COPPER.get(),
+                    TRANSFORMER_MV_LV_GOLD.get(), TRANSFORMER_MV_LV_RED_GOLD.get(),
+                    TRANSFORMER_MV_LV_GILDED_COPPER.get()
+            ).build(null));
+
 
     public static final RegistryObject<BlockEntityType<MissileLauncherBlockEntity>> MISSILE_LAUNCHER_BE =
             BLOCK_ENTITIES.register("missile_launcher", () ->

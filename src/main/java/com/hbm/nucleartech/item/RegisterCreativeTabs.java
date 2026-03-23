@@ -136,6 +136,17 @@ public class RegisterCreativeTabs {
                     .title(Component.translatable("creativetab.ntm_machines"))
                     .displayItems((itemDisplayParameters, output) -> {
 
+                        output.accept(RegisterBlocks.TRANSFORMER_HV_MV_GILDED_COPPER.get());
+                        output.accept(RegisterBlocks.TRANSFORMER_HV_MV_COPPER.get());
+                        output.accept(RegisterBlocks.TRANSFORMER_HV_MV_RED_COPPER.get());
+                        output.accept(RegisterBlocks.TRANSFORMER_HV_MV_GOLD.get());
+                        output.accept(RegisterBlocks.TRANSFORMER_HV_MV_RED_GOLD.get());
+                        output.accept(RegisterBlocks.TRANSFORMER_MV_LV_GILDED_COPPER.get());
+                        output.accept(RegisterBlocks.TRANSFORMER_MV_LV_COPPER.get());
+                        output.accept(RegisterBlocks.TRANSFORMER_MV_LV_RED_COPPER.get());
+                        output.accept(RegisterBlocks.TRANSFORMER_MV_LV_GOLD.get());
+                        output.accept(RegisterBlocks.TRANSFORMER_MV_LV_RED_GOLD.get());
+
                         output.accept(RegisterItems.MISSILE_LINKER.get());
                         output.accept(RegisterItems.NUKE_TACTICAL.get());
                         output.accept(RegisterItems.NUKE_STANDARD.get());

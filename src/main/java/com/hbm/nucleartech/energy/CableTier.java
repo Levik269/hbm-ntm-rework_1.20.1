@@ -2,27 +2,27 @@ package com.hbm.nucleartech.energy;
 
 public enum CableTier {
 
-    //                 название              макс ток   потери
+    //                 название              макс ток               потери
     // === LV (низкий вольтаж) ===
-    LV_COPPER         ("lv_copper",          1000,      0.08f),
-    LV_RED_COPPER     ("lv_red_copper",      1200,      0.05f),
-    LV_GOLD           ("lv_gold",            1500,      0.04f),
-    LV_RED_GOLD       ("lv_red_gold",        1800,      0.03f),
-    LV_GILDED_COPPER  ("lv_gilded_copper",   1400,      0.035f),
+    LV_COPPER ("lv_copper",  1000,       0.0015f),  // ~15% на 100 блоков
+    LV_RED_COPPER("lv_red_copper", 1200, 0.0012f),
+    LV_GOLD   ("lv_gold",    1500,       0.0009f),   // ~9% на 100 блоков
+    LV_RED_GOLD("lv_red_gold", 1800,     0.0010f),
+    LV_GILDED_COPPER("lv_gilded_copper", 1400, 0.0011f),
 
-    // === MV (средний вольтаж) ===
-    MV_COPPER         ("mv_copper",          5000,      0.12f),  // медь на MV — плохо
-    MV_RED_COPPER     ("mv_red_copper",      8000,      0.07f),
-    MV_GOLD           ("mv_gold",            12000,     0.03f),
-    MV_RED_GOLD       ("mv_red_gold",        15000,     0.015f),
-    MV_GILDED_COPPER  ("mv_gilded_copper",   11000,     0.025f),
+    // === MV ===
+    MV_COPPER ("mv_copper",  5000,       0.0012f),
+    MV_RED_COPPER("mv_red_copper", 8000, 0.0008f),
+    MV_GOLD   ("mv_gold",    12000,      0.0004f),
+    MV_RED_GOLD("mv_red_gold", 15000,    0.0006f),
+    MV_GILDED_COPPER("mv_gilded_copper", 11000, 0.0007f),
 
-    // === HV (высокий вольтаж) ===
-    HV_COPPER         ("hv_copper",          20000,     0.20f),  // медь на HV — очень плохо
-    HV_RED_COPPER     ("hv_red_copper",      40000,     0.12f),
-    HV_GOLD           ("hv_gold",            70000,     0.05f),
-    HV_RED_GOLD       ("hv_red_gold",        100000,    0.02f),
-    HV_GILDED_COPPER  ("hv_gilded_copper",   60000,     0.04f);
+    // === HV ===
+    HV_COPPER ("hv_copper",  20000,      0.0010f),
+    HV_RED_COPPER("hv_red_copper", 40000, 0.008f),
+    HV_GOLD   ("hv_gold",    70000,      0.0001f),
+    HV_RED_GOLD("hv_red_gold", 100000,   0.0003f), // ~2.5% на 100 блоков
+    HV_GILDED_COPPER("hv_gilded_copper", 60000, 0.0004f);
 
     public final String name;
     public final long maxTransfer;

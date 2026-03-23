@@ -1,5 +1,6 @@
 package com.hbm.nucleartech.item.custom;
 
+import com.hbm.nucleartech.energy.CableTier;
 import com.hbm.nucleartech.energy.HbmEnergyNetwork;
 import com.hbm.nucleartech.energy.ICableBlockEntity;
 import com.hbm.nucleartech.energy.IHbmEnergy;
@@ -16,13 +17,15 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
 import java.util.List;
+import java.util.Map;
 
 public class AdvancedMultimeterItem extends MultimeterItem {
 
     public enum Mode {
         LOAD("§bLoad Monitor"),
         SOURCES("§aSource Scanner"),
-        CONSUMERS("§eConsumer Scanner");
+        CONSUMERS("§eConsumer Scanner"),
+        LOSSES("§cLoss Analyzer");
 
         public final String displayName;
         Mode(String name) { this.displayName = name; }
@@ -44,7 +47,7 @@ public class AdvancedMultimeterItem extends MultimeterItem {
 
     @Override
     public InteractionResultHolder<ItemStack> use(net.minecraft.world.level.Level level,
-                                                   Player player, InteractionHand hand) {
+                                                  Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (player.isCrouching()) {
             Mode next = getMode(stack).next();
@@ -72,7 +75,6 @@ public class AdvancedMultimeterItem extends MultimeterItem {
 
         switch (mode) {
             case LOAD -> {
-                // используем логику из базового мультиметра
                 if (be instanceof ICableBlockEntity cable) {
                     long load = cable.getCurrentLoad();
                     long max = cable.getCableTier().maxTransfer;
@@ -94,7 +96,6 @@ public class AdvancedMultimeterItem extends MultimeterItem {
                 }
                 List<HbmEnergyNetwork.NetworkNode> nodes = HbmEnergyNetwork.findNetwork(
                         level, pos, cable.getCableTier());
-
                 long totalAvailable = 0;
                 int count = 0;
                 for (HbmEnergyNetwork.NetworkNode node : nodes) {
@@ -103,9 +104,9 @@ public class AdvancedMultimeterItem extends MultimeterItem {
                     totalAvailable += stored;
                     count++;
                     player.sendSystemMessage(Component.literal(
-                        "§a[+] §f" + level.getBlockEntity(node.pos()).getClass().getSimpleName() +
-                        " §7at " + node.pos().toShortString() +
-                        " §f| " + stored + " HBM | " + node.provider().getOutputTier().getDisplayName()
+                            "§a[+] §f" + level.getBlockEntity(node.pos()).getClass().getSimpleName() +
+                                    " §7at " + node.pos().toShortString() +
+                                    " §f| " + stored + " HBM | " + node.provider().getOutputTier().getDisplayName()
                     ));
                 }
                 player.sendSystemMessage(Component.literal(
@@ -118,7 +119,6 @@ public class AdvancedMultimeterItem extends MultimeterItem {
                 }
                 List<HbmEnergyNetwork.NetworkNode> nodes = HbmEnergyNetwork.findNetwork(
                         level, pos, cable.getCableTier());
-
                 long totalDemand = 0;
                 int count = 0;
                 for (HbmEnergyNetwork.NetworkNode node : nodes) {
@@ -130,14 +130,77 @@ public class AdvancedMultimeterItem extends MultimeterItem {
                     totalDemand += demand;
                     count++;
                     player.sendSystemMessage(Component.literal(
-                        "§e[-] §f" + level.getBlockEntity(node.pos()).getClass().getSimpleName() +
-                        " §7at " + node.pos().toShortString() +
-                        " §f| " + String.format("%.1f", percent) + "% | needs " + demand + " HBM"
+                            "§e[-] §f" + level.getBlockEntity(node.pos()).getClass().getSimpleName() +
+                                    " §7at " + node.pos().toShortString() +
+                                    " §f| " + String.format("%.1f", percent) + "% | needs " + demand + " HBM"
                     ));
                 }
                 player.sendSystemMessage(Component.literal(
                         "§6Consumers: §f" + count + " §6| Total demand: §f" + totalDemand + " HBM"));
             }
+            case LOSSES -> {
+                if (!(be instanceof ICableBlockEntity cable)) {
+                    player.sendSystemMessage(Component.literal("§cClick on a cable to analyze losses."));
+                    return InteractionResult.SUCCESS;
+                }
+
+                // получаем карту потерь от всех источников до всех потребителей
+                Map<BlockPos, Map<BlockPos, Float>> lossMap =
+                        HbmEnergyNetwork.findLossMap(level, pos, cable.getCableTier());
+
+                if (lossMap.isEmpty()) {
+                    player.sendSystemMessage(Component.literal("§cNo consumers found in network."));
+                    return InteractionResult.SUCCESS;
+                }
+
+                // для каждого потребителя выводим инфо
+                for (Map.Entry<BlockPos, Map<BlockPos, Float>> consumerEntry : lossMap.entrySet()) {
+                    BlockPos consumerPos = consumerEntry.getKey();
+                    Map<BlockPos, Float> sourceLosses = consumerEntry.getValue();
+                    BlockEntity consumerBe = level.getBlockEntity(consumerPos);
+                    if (consumerBe == null) continue;
+
+                    player.sendSystemMessage(Component.literal(
+                            "§6── " + consumerBe.getClass().getSimpleName() +
+                                    " §7at " + consumerPos.toShortString() + " ──"));
+
+                    long sigma = 0;
+                    long totalAvailable = 0;
+
+                    for (Map.Entry<BlockPos, Float> sourceEntry : sourceLosses.entrySet()) {
+                        BlockPos sourcePos = sourceEntry.getKey();
+                        float lossRate = sourceEntry.getValue();
+                        BlockEntity sourceBe = level.getBlockEntity(sourcePos);
+                        if (sourceBe == null) continue;
+
+                        long sourceEnergy = 0;
+                        if (sourceBe instanceof IHbmEnergy.Provider prov)
+                            sourceEnergy = prov.getEnergyStored();
+
+                        long lossAmount = (long)(sourceEnergy * lossRate);
+                        long delivered = Math.max(0, sourceEnergy - lossAmount);
+                        sigma += delivered;
+                        totalAvailable += sourceEnergy;
+
+                        String lossPercent = String.format("%.2f", lossRate * 100);
+                        player.sendSystemMessage(Component.literal(
+                                "§7  §a[src] §f" + sourceBe.getClass().getSimpleName() +
+                                        " §7at " + sourcePos.toShortString() +
+                                        " §f| loss: §c" + lossPercent + "%" +
+                                        " §f| delivers: §a" + delivered + " §7/ " + sourceEnergy + " HBM"
+                        ));
+                    }
+
+                    // sigma — суммарная энергия от всех источников с учётом потерь
+                    player.sendSystemMessage(Component.literal(
+                            "§6  Σ delivered: §a" + sigma + " §6/ available: §f" + totalAvailable + " HBM" +
+                                    " §6(net loss: §c" + (totalAvailable > 0 ?
+                                    String.format("%.1f", (totalAvailable - sigma) * 100f / totalAvailable) : "0") + "%§6)"
+                    ));
+                    player.sendSystemMessage(Component.literal("§7"));
+                }
+            }
+
         }
         return InteractionResult.SUCCESS;
     }

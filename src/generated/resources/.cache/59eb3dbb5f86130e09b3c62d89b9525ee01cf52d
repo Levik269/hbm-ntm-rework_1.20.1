@@ -1,4 +1,4 @@
-// 1.20.1	2026-03-22T23:32:43.080415333	Loot Tables
+// 1.20.1	2026-03-23T03:15:21.642984733	Loot Tables
 ba30fa6e9954b943c003f4cf6bc3bbd88074e6b0 data/hbm/loot_tables/blocks/battery_block.json
 3d521f4c59d579d087ed1a59fbca3b6dccdb62e6 data/hbm/loot_tables/blocks/block_titanium.json
 41d404e3afd6f6cd6e7b9c858b1c78a9d2735d03 data/hbm/loot_tables/blocks/block_uranium.json
@@ -33,4 +33,14 @@ cc3f3bc9e757749ce3f5a3e793941d27890ffdef data/hbm/loot_tables/blocks/ore_cobalt.
 9c26fcb514a95ccc01ceebf4e76e9c6631369f17 data/hbm/loot_tables/blocks/rad_resistant_block.json
 50b4016bebb47522034aba2a88c0c6effdc28ea8 data/hbm/loot_tables/blocks/radiation_decontaminator.json
 f494c5c88fc57b2fdfdc3df6703c56a77350eb7d data/hbm/loot_tables/blocks/test_generator.json
+b76f030604f2fb3566256106114b66384c8ec677 data/hbm/loot_tables/blocks/transformer_hv_mv_copper.json
+a12c85918e639dda32b31ba4b93303a8decb42a5 data/hbm/loot_tables/blocks/transformer_hv_mv_gilded_copper.json
+4617d7cd0e04cd0774f8489952b11133e025ea44 data/hbm/loot_tables/blocks/transformer_hv_mv_gold.json
+8365a75b74f702c9949ff148102428dd46b043b1 data/hbm/loot_tables/blocks/transformer_hv_mv_red_copper.json
+3f63c0e675ce3c50c24f1f6dfa73f92fb532a4b7 data/hbm/loot_tables/blocks/transformer_hv_mv_red_gold.json
+a1b371d8c025fb4ed4df047f9b4255a21976caa2 data/hbm/loot_tables/blocks/transformer_mv_lv_copper.json
+ba73cf4033bb45c101f712142ffeaead4a5bc966 data/hbm/loot_tables/blocks/transformer_mv_lv_gilded_copper.json
+69ba23011dc2e11b4fed17f710cbaaf14731f64c data/hbm/loot_tables/blocks/transformer_mv_lv_gold.json
+373aae17b5b0cbdf4504bcf2b9de46a68c57176d data/hbm/loot_tables/blocks/transformer_mv_lv_red_copper.json
+7ca410ae042a2bc606238c8851ce49fdc1f74663 data/hbm/loot_tables/blocks/transformer_mv_lv_red_gold.json
 e664de585feb643faa5c6dc34c0bc4517c5437d9 data/hbm/loot_tables/blocks/waste_grass.json
