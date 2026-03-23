@@ -24,6 +24,15 @@ import com.hbm.nucleartech.block.entity.MissileLauncherBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
 
+import com.hbm.nucleartech.block.custom.CableBlock;
+import com.hbm.nucleartech.block.entity.CableBlockEntity;
+import com.hbm.nucleartech.energy.CableTier;
+
+import com.hbm.nucleartech.block.custom.TestGeneratorBlock;
+import com.hbm.nucleartech.block.entity.TestGeneratorBlockEntity;
+import com.hbm.nucleartech.block.custom.BatteryBlock;
+import com.hbm.nucleartech.block.entity.BatteryBlockEntity;
+
 import java.util.function.Supplier;
 
 public class RegisterBlocks {
@@ -156,6 +165,89 @@ public class RegisterBlocks {
     public static final RegistryObject<Block> MISSILE_LAUNCHER = registerBlock("missile_launcher",
             () -> new MissileLauncherBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)
                     .strength(5.0f, 10.0f)));
+
+    public static final RegistryObject<Block> CABLE_LV_COPPER =
+            registerBlock("cable_lv_copper", () -> new CableBlock(CableTier.LV_COPPER,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1.0f).noOcclusion()));
+    public static final RegistryObject<Block> CABLE_LV_RED_COPPER =
+            registerBlock("cable_lv_red_copper", () -> new CableBlock(CableTier.LV_RED_COPPER,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1.0f).noOcclusion()));
+    public static final RegistryObject<Block> CABLE_LV_GOLD =
+            registerBlock("cable_lv_gold", () -> new CableBlock(CableTier.LV_GOLD,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1.0f).noOcclusion()));
+    public static final RegistryObject<Block> CABLE_LV_RED_GOLD =
+            registerBlock("cable_lv_red_gold", () -> new CableBlock(CableTier.LV_RED_GOLD,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1.0f).noOcclusion()));
+    public static final RegistryObject<Block> CABLE_LV_GILDED_COPPER =
+            registerBlock("cable_lv_gilded_copper", () -> new CableBlock(CableTier.LV_GILDED_COPPER,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1.0f).noOcclusion()));
+
+    // провода MV
+    public static final RegistryObject<Block> CABLE_MV_COPPER =
+            registerBlock("cable_mv_copper", () -> new CableBlock(CableTier.MV_COPPER,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1.5f).noOcclusion()));
+    public static final RegistryObject<Block> CABLE_MV_RED_COPPER =
+            registerBlock("cable_mv_red_copper", () -> new CableBlock(CableTier.MV_RED_COPPER,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1.5f).noOcclusion()));
+    public static final RegistryObject<Block> CABLE_MV_GOLD =
+            registerBlock("cable_mv_gold", () -> new CableBlock(CableTier.MV_GOLD,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1.5f).noOcclusion()));
+    public static final RegistryObject<Block> CABLE_MV_RED_GOLD =
+            registerBlock("cable_mv_red_gold", () -> new CableBlock(CableTier.MV_RED_GOLD,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1.5f).noOcclusion()));
+    public static final RegistryObject<Block> CABLE_MV_GILDED_COPPER =
+            registerBlock("cable_mv_gilded_copper", () -> new CableBlock(CableTier.MV_GILDED_COPPER,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1.5f).noOcclusion()));
+
+    // провода HV
+    public static final RegistryObject<Block> CABLE_HV_COPPER =
+            registerBlock("cable_hv_copper", () -> new CableBlock(CableTier.HV_COPPER,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(2.0f).noOcclusion()));
+    public static final RegistryObject<Block> CABLE_HV_RED_COPPER =
+            registerBlock("cable_hv_red_copper", () -> new CableBlock(CableTier.HV_RED_COPPER,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(2.0f).noOcclusion()));
+    public static final RegistryObject<Block> CABLE_HV_GOLD =
+            registerBlock("cable_hv_gold", () -> new CableBlock(CableTier.HV_GOLD,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(2.0f).noOcclusion()));
+    public static final RegistryObject<Block> CABLE_HV_RED_GOLD =
+            registerBlock("cable_hv_red_gold", () -> new CableBlock(CableTier.HV_RED_GOLD,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(2.0f).noOcclusion()));
+    public static final RegistryObject<Block> CABLE_HV_GILDED_COPPER =
+            registerBlock("cable_hv_gilded_copper", () -> new CableBlock(CableTier.HV_GILDED_COPPER,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(2.0f).noOcclusion()));
+    // тестовый генератор
+    public static final RegistryObject<Block> TEST_GENERATOR = registerBlock("test_generator",
+            () -> new TestGeneratorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f)));
+
+    public static final RegistryObject<BlockEntityType<TestGeneratorBlockEntity>> TEST_GENERATOR_BE =
+            BLOCK_ENTITIES.register("test_generator", () -> BlockEntityType.Builder
+                    .of(TestGeneratorBlockEntity::new, TEST_GENERATOR.get()).build(null));
+
+    // батарея
+    public static final RegistryObject<Block> BATTERY_BLOCK = registerBlock("battery_block",
+            () -> new BatteryBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f)));
+
+    public static final RegistryObject<BlockEntityType<BatteryBlockEntity>> BATTERY_BE =
+            BLOCK_ENTITIES.register("battery_block", () -> BlockEntityType.Builder
+                    .of(BatteryBlockEntity::new, BATTERY_BLOCK.get()).build(null));
+
+    // общий блок-энтити для всех проводов
+    public static final RegistryObject<BlockEntityType<CableBlockEntity>> CABLE_BE =
+            BLOCK_ENTITIES.register("cable", () -> BlockEntityType.Builder.of(
+                    (pos, state) -> {
+                        // определяем тир по блоку
+                        Block block = state.getBlock();
+                        if (block instanceof CableBlock cable)
+                            return new CableBlockEntity(pos, state, cable.getTier());
+                        return new CableBlockEntity(pos, state, CableTier.LV_COPPER);
+                    },
+                    CABLE_LV_COPPER.get(), CABLE_LV_RED_COPPER.get(), CABLE_LV_GOLD.get(),
+                    CABLE_LV_RED_GOLD.get(), CABLE_LV_GILDED_COPPER.get(),
+                    CABLE_MV_COPPER.get(), CABLE_MV_RED_COPPER.get(), CABLE_MV_GOLD.get(),
+                    CABLE_MV_RED_GOLD.get(), CABLE_MV_GILDED_COPPER.get(),
+                    CABLE_HV_COPPER.get(), CABLE_HV_RED_COPPER.get(), CABLE_HV_GOLD.get(),
+                    CABLE_HV_RED_GOLD.get(), CABLE_HV_GILDED_COPPER.get()
+            ).build(null));
 
     public static final RegistryObject<BlockEntityType<MissileLauncherBlockEntity>> MISSILE_LAUNCHER_BE =
             BLOCK_ENTITIES.register("missile_launcher", () ->

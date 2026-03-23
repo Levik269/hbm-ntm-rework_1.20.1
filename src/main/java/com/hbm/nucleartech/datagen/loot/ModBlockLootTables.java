@@ -21,6 +21,25 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     @Override
     protected void generate() {
 
+        this.dropSelf(RegisterBlocks.CABLE_LV_COPPER.get());
+        this.dropSelf(RegisterBlocks.CABLE_LV_RED_COPPER.get());
+        this.dropSelf(RegisterBlocks.CABLE_LV_GOLD.get());
+        this.dropSelf(RegisterBlocks.CABLE_LV_RED_GOLD.get());
+        this.dropSelf(RegisterBlocks.CABLE_LV_GILDED_COPPER.get());
+        this.dropSelf(RegisterBlocks.CABLE_MV_COPPER.get());
+        this.dropSelf(RegisterBlocks.CABLE_MV_RED_COPPER.get());
+        this.dropSelf(RegisterBlocks.CABLE_MV_GOLD.get());
+        this.dropSelf(RegisterBlocks.CABLE_MV_RED_GOLD.get());
+        this.dropSelf(RegisterBlocks.CABLE_MV_GILDED_COPPER.get());
+        this.dropSelf(RegisterBlocks.CABLE_HV_COPPER.get());
+        this.dropSelf(RegisterBlocks.CABLE_HV_RED_COPPER.get());
+        this.dropSelf(RegisterBlocks.CABLE_HV_GOLD.get());
+        this.dropSelf(RegisterBlocks.CABLE_HV_RED_GOLD.get());
+        this.dropSelf(RegisterBlocks.CABLE_HV_GILDED_COPPER.get());
+
+        this.dropSelf(RegisterBlocks.TEST_GENERATOR.get());
+        this.dropSelf(RegisterBlocks.BATTERY_BLOCK.get());
+
         this.dropSelf(RegisterBlocks.MISSILE_LAUNCHER.get());
 
         this.dropSelf(RegisterBlocks.M350_CONCRETE.get());

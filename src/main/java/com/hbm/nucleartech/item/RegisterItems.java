@@ -36,6 +36,14 @@ public class RegisterItems {
             () -> new NukeItem(NuclearBombType.BUNKER_BUSTER, new Item.Properties()));
 
 
+    public static final RegistryObject<Item> INGOT_RED_COPPER = ITEMS.register("ingot_red_copper",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> INGOT_RED_GOLD = ITEMS.register("ingot_red_gold",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> INGOT_GILDED_COPPER = ITEMS.register("ingot_gilded_copper",
+            () -> new Item(new Item.Properties()));
+
+
     public static final RegistryObject<Item> PLATE_IRON = ITEMS.register("plate_iron",
             () -> new Item(new Item.Properties()));
 

@@ -21,6 +21,10 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(RegisterItems.MISSILE_LINKER);
 
+        simpleItem(RegisterItems.INGOT_RED_COPPER);
+        simpleItem(RegisterItems.INGOT_RED_GOLD);
+        simpleItem(RegisterItems.INGOT_GILDED_COPPER);
+
         simpleItem(RegisterItems.RAW_COBALT);
         simpleItem(RegisterItems.INGOT_COBALT);
 

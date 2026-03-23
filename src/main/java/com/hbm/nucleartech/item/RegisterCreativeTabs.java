@@ -30,6 +30,13 @@ public class RegisterCreativeTabs {
                         output.accept(RegisterItems.INGOT_COPPER.get());
                         output.accept(RegisterItems.INGOT_COBALT.get());
 
+                        output.accept(RegisterItems.INGOT_RED_COPPER.get());
+                        output.accept(RegisterItems.INGOT_RED_GOLD.get());
+                        output.accept(RegisterItems.INGOT_GILDED_COPPER.get());
+
+                        output.accept(RegisterBlocks.TEST_GENERATOR.get());
+                        output.accept(RegisterBlocks.BATTERY_BLOCK.get());
+
                         output.accept(RegisterItems.POWDER_URANIUM.get());
                         output.accept(RegisterItems.NUGGET_URANIUM.get());
                         output.accept(RegisterItems.CRYSTAL_URANIUM.get());
@@ -72,7 +79,30 @@ public class RegisterCreativeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(RegisterBlocks.BLOCK_TITANIUM.get()))
                     .title(Component.translatable("creativetab.ntm_blocks"))
                     .displayItems((itemDisplayParameters, output) -> {
+                        
 
+
+                        // провода LV
+			output.accept(RegisterBlocks.CABLE_LV_COPPER.get());
+			output.accept(RegisterBlocks.CABLE_LV_RED_COPPER.get());
+			output.accept(RegisterBlocks.CABLE_LV_GOLD.get());
+			output.accept(RegisterBlocks.CABLE_LV_RED_GOLD.get());
+			output.accept(RegisterBlocks.CABLE_LV_GILDED_COPPER.get());
+			// провода MV
+			output.accept(RegisterBlocks.CABLE_MV_COPPER.get());
+			output.accept(RegisterBlocks.CABLE_MV_RED_COPPER.get());
+			output.accept(RegisterBlocks.CABLE_MV_GOLD.get());
+			output.accept(RegisterBlocks.CABLE_MV_RED_GOLD.get());
+			output.accept(RegisterBlocks.CABLE_MV_GILDED_COPPER.get());
+			// провода HV
+			output.accept(RegisterBlocks.CABLE_HV_COPPER.get());
+			output.accept(RegisterBlocks.CABLE_HV_RED_COPPER.get());
+			output.accept(RegisterBlocks.CABLE_HV_GOLD.get());
+			output.accept(RegisterBlocks.CABLE_HV_RED_GOLD.get());
+			output.accept(RegisterBlocks.CABLE_HV_GILDED_COPPER.get());
+
+
+                          
                         output.accept(RegisterBlocks.M350_CONCRETE.get());
 
                         output.accept(RegisterBlocks.BLOCK_WASTE.get());

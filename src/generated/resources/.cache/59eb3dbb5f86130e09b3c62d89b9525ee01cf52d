@@ -1,7 +1,23 @@
-// 1.20.1	2026-03-22T21:52:49.284903861	Loot Tables
+// 1.20.1	2026-03-22T23:32:43.080415333	Loot Tables
+ba30fa6e9954b943c003f4cf6bc3bbd88074e6b0 data/hbm/loot_tables/blocks/battery_block.json
 3d521f4c59d579d087ed1a59fbca3b6dccdb62e6 data/hbm/loot_tables/blocks/block_titanium.json
 41d404e3afd6f6cd6e7b9c858b1c78a9d2735d03 data/hbm/loot_tables/blocks/block_uranium.json
 b9bdaa6f1a86398dd4c8b1d91f31b836d1d7d9ff data/hbm/loot_tables/blocks/block_waste.json
+6728fb53f26f1334e43f24981f912206adb89b07 data/hbm/loot_tables/blocks/cable_hv_copper.json
+b696efe670c58072c3e9f5a1f69f04f74f2bba02 data/hbm/loot_tables/blocks/cable_hv_gilded_copper.json
+c286a7110183b431b355fc55fd3a903b086008e9 data/hbm/loot_tables/blocks/cable_hv_gold.json
+f5858a77c28f36f60374568207bf0eeb2c08d62c data/hbm/loot_tables/blocks/cable_hv_red_copper.json
+8a7d24e5a2ac131e317cc2b9581b072c84044eea data/hbm/loot_tables/blocks/cable_hv_red_gold.json
+ede251091833fafb01739da32e214b1525effc20 data/hbm/loot_tables/blocks/cable_lv_copper.json
+14f74b9b2ff6cd409487aaf0fecb5284f5770cb8 data/hbm/loot_tables/blocks/cable_lv_gilded_copper.json
+f9337c4c43526ff69650d7d7cffdfcf8bae53362 data/hbm/loot_tables/blocks/cable_lv_gold.json
+6a75e86e5099f96a5f5bd4042f0503ebcbcbd893 data/hbm/loot_tables/blocks/cable_lv_red_copper.json
+b430e1ec57a3152e8ed4a55fa352c7d6091bf412 data/hbm/loot_tables/blocks/cable_lv_red_gold.json
+4ff2e3c0f895cc8d2df2af00737c4b50e7b7d763 data/hbm/loot_tables/blocks/cable_mv_copper.json
+3cf072302f0116358b1cf4a8d2a569daff00ba53 data/hbm/loot_tables/blocks/cable_mv_gilded_copper.json
+e3c39d8f85d1e43e2f6d47b9a3732d524f9cd013 data/hbm/loot_tables/blocks/cable_mv_gold.json
+afc5f17da0f81ca1ce6e4e43cdc102cd6b09efe5 data/hbm/loot_tables/blocks/cable_mv_red_copper.json
+59da4296e3b3ff61c338a55235aca51ae7539d40 data/hbm/loot_tables/blocks/cable_mv_red_gold.json
 404386d6b235ab42d57b4b60fd1acbc37306ad87 data/hbm/loot_tables/blocks/deepslate_ore_cobalt.json
 027102e06bedc533f354ba2603d34529a8668231 data/hbm/loot_tables/blocks/deepslate_ore_copper.json
 d7a304879a136c29c88b269ac9e30ff9b384aeb4 data/hbm/loot_tables/blocks/deepslate_ore_thorium.json
@@ -16,4 +32,5 @@ cc3f3bc9e757749ce3f5a3e793941d27890ffdef data/hbm/loot_tables/blocks/ore_cobalt.
 2f39a34c4cdec543a02cba133be5bd3c517d8e7f data/hbm/loot_tables/blocks/ore_uranium.json
 9c26fcb514a95ccc01ceebf4e76e9c6631369f17 data/hbm/loot_tables/blocks/rad_resistant_block.json
 50b4016bebb47522034aba2a88c0c6effdc28ea8 data/hbm/loot_tables/blocks/radiation_decontaminator.json
+f494c5c88fc57b2fdfdc3df6703c56a77350eb7d data/hbm/loot_tables/blocks/test_generator.json
 e664de585feb643faa5c6dc34c0bc4517c5437d9 data/hbm/loot_tables/blocks/waste_grass.json

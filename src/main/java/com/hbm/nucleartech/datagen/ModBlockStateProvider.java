@@ -20,6 +20,28 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
 
+        // провода LV
+        blockWithItem(RegisterBlocks.CABLE_LV_COPPER);
+        blockWithItem(RegisterBlocks.CABLE_LV_RED_COPPER);
+        blockWithItem(RegisterBlocks.CABLE_LV_GOLD);
+        blockWithItem(RegisterBlocks.CABLE_LV_RED_GOLD);
+        blockWithItem(RegisterBlocks.CABLE_LV_GILDED_COPPER);
+        // провода MV
+        blockWithItem(RegisterBlocks.CABLE_MV_COPPER);
+        blockWithItem(RegisterBlocks.CABLE_MV_RED_COPPER);
+        blockWithItem(RegisterBlocks.CABLE_MV_GOLD);
+        blockWithItem(RegisterBlocks.CABLE_MV_RED_GOLD);
+        blockWithItem(RegisterBlocks.CABLE_MV_GILDED_COPPER);
+        // провода HV
+        blockWithItem(RegisterBlocks.CABLE_HV_COPPER);
+        blockWithItem(RegisterBlocks.CABLE_HV_RED_COPPER);
+        blockWithItem(RegisterBlocks.CABLE_HV_GOLD);
+        blockWithItem(RegisterBlocks.CABLE_HV_RED_GOLD);
+        blockWithItem(RegisterBlocks.CABLE_HV_GILDED_COPPER);
+
+        blockWithItem(RegisterBlocks.TEST_GENERATOR);
+        blockWithItem(RegisterBlocks.BATTERY_BLOCK);
+
         blockWithItem(RegisterBlocks.MISSILE_LAUNCHER);
 
         blockWithItem(RegisterBlocks.M350_CONCRETE);
