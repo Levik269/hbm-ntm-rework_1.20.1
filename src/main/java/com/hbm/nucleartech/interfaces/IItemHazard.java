@@ -23,7 +23,7 @@ public interface IItemHazard {
     public default int getToxicLevel() {
         return this.getModule().getToxicLevel();
     }
-    public default int getAsbestosLevel() {
+    public default double getAsbestosLevel() {
         return this.getModule().getAsbestosLevel();
     }
     public default int getCoalLevel() {
@@ -60,7 +60,7 @@ public interface IItemHazard {
         return this;
     }
 
-    public default IItemHazard addAsbestos(int asbestos) {
+    public default IItemHazard addAsbestos(double asbestos) {
 
         this.getModule().addAsbestos(asbestos);
         return this;
