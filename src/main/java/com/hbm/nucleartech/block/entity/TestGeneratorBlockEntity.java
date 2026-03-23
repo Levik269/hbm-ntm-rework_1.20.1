@@ -23,10 +23,12 @@ public class TestGeneratorBlockEntity extends BlockEntity implements IHbmEnergy.
     public void tick() {
         if (level == null || level.isClientSide) return;
 
-        // генерируем энергию каждый тик
-        energy = Math.min(energy + GEN_PER_TICK, MAX_ENERGY);
+        // мощность зависит от редстоун сигнала рядом
+        int redstonePower = level.getBestNeighborSignal(worldPosition);
+        long genPerTick = 500L * (redstonePower + 1); // от 500 до 8000 HBM/t
 
-        // раздаём энергию по сети каждые 5 тиков
+        energy = Math.min(energy + genPerTick, MAX_ENERGY);
+
         if (level.getGameTime() % 5 == 0 && energy > 0) {
             HbmEnergyNetwork.distribute((ServerLevel) level, worldPosition, this);
         }
@@ -43,7 +45,7 @@ public class TestGeneratorBlockEntity extends BlockEntity implements IHbmEnergy.
     public long getEnergyStored() { return energy; }
 
     @Override
-    public CableTier getOutputTier() { return CableTier.LV_COPPER; }
+    public CableTier getOutputTier() { return CableTier.HV_RED_GOLD; }
 
     @Override
     public void load(CompoundTag tag) {

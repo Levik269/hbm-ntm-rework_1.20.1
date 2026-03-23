@@ -20,6 +20,8 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
 
         simpleItem(RegisterItems.MISSILE_LINKER);
+        simpleItem(RegisterItems.MULTIMETER);
+        simpleItem(RegisterItems.ADVANCED_MULTIMETER);
 
         simpleItem(RegisterItems.INGOT_RED_COPPER);
         simpleItem(RegisterItems.INGOT_RED_GOLD);

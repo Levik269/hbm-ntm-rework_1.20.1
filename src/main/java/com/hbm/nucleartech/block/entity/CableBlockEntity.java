@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class CableBlockEntity extends BlockEntity implements ICableBlockEntity {
-
+    private int overloadTicks = 0;
     private final CableTier tier;
     private long currentLoad = 0;
 
@@ -25,16 +25,16 @@ public class CableBlockEntity extends BlockEntity implements ICableBlockEntity {
     public void tick() {
         if (level == null || level.isClientSide) return;
 
-        // провод сам по себе не тикает логику —
-        // энергия проходит через HbmEnergyNetwork
-        // но мы сбрасываем нагрузку каждый тик
-        currentLoad = 0;
-
-        // перегрев — если нагрузка была слишком высокой
-        if (currentLoad > tier.maxTransfer) {
-            // провод горит
-            level.setBlock(worldPosition,
-                    net.minecraft.world.level.block.Blocks.FIRE.defaultBlockState(), 3);
+        // перегрев — проверяем после обновления нагрузки
+        if (currentLoad > tier.maxTransfer * 1.5f && overloadTicks > 20) {
+            if (tier.isHV()) {
+                level.explode(null, worldPosition.getX() + 0.5,
+                        worldPosition.getY() + 0.5, worldPosition.getZ() + 0.5,
+                        3.0f, net.minecraft.world.level.Level.ExplosionInteraction.BLOCK);
+            } else {
+                level.setBlock(worldPosition,
+                        net.minecraft.world.level.block.Blocks.FIRE.defaultBlockState(), 3);
+            }
         }
     }
 
@@ -45,7 +45,20 @@ public class CableBlockEntity extends BlockEntity implements ICableBlockEntity {
     public long getCurrentLoad() { return currentLoad; }
 
     @Override
-    public void setCurrentLoad(long load) { this.currentLoad = load; }
+    public void setCurrentLoad(long load) {
+        this.currentLoad = load;
+        // увеличиваем тики только при перегрузке, не сбрасываем если load=0
+        if (tier.isOverloaded(load)) {
+            overloadTicks++;
+        }
+        // сбрасываем только если нагрузка явно в норме
+        else if (load > 0) {
+            overloadTicks = 0;
+        }
+        // если load=0 — не трогаем overloadTicks
+    }
+
+    public int getOverloadTicks() { return overloadTicks; }
 
     @Override
     public void load(CompoundTag tag) {

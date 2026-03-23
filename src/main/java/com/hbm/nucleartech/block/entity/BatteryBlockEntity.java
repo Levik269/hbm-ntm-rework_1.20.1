@@ -42,8 +42,8 @@ public class BatteryBlockEntity extends BlockEntity implements IHbmEnergy.Storag
 
     @Override public long getEnergyStored() { return energy; }
     @Override public long getMaxEnergyStored() { return MAX_ENERGY; }
-    @Override public CableTier getInputTier() { return CableTier.LV_COPPER; }
-    @Override public CableTier getOutputTier() { return CableTier.LV_COPPER; }
+    @Override public CableTier getInputTier() { return CableTier.HV_RED_GOLD; }
+    @Override public CableTier getOutputTier() { return CableTier.HV_RED_GOLD; }
 
     @Override
     public void load(CompoundTag tag) {

@@ -23,6 +23,9 @@ public class RegisterCreativeTabs {
 
                         output.accept(RegisterBlocks.MISSILE_LAUNCHER.get());
 
+                        output.accept(RegisterItems.MULTIMETER.get());
+                        output.accept(RegisterItems.ADVANCED_MULTIMETER.get());
+
                         output.accept(RegisterItems.INGOT_TITANIUM.get());
                         output.accept(RegisterItems.INGOT_BERYLLIUM.get());
                         output.accept(RegisterItems.INGOT_URANIUM.get());

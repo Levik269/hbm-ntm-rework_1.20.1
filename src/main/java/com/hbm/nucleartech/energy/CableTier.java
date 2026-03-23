@@ -49,11 +49,13 @@ public enum CableTier {
             || this == HV_RED_GOLD || this == HV_GILDED_COPPER;
     }
 
-    // MV может принимать LV, HV может принимать всё
+    // провод ИСТОЧНИКА подключается к проводу ЦЕЛИ
+    // HV источник может идти через любой провод
+    // LV источник может идти только через LV провода
     public boolean canConnectTo(CableTier other) {
-        if (this.isLV()) return other.isLV();
-        if (this.isMV()) return other.isLV() || other.isMV();
-        return true; // HV принимает всё
+        if (this.isHV()) return true;           // HV проходит везде
+        if (this.isMV()) return !other.isHV();  // MV идёт через LV и MV
+        return other.isLV();                    // LV только через LV
     }
 
     public long calculateLoss(long power, int cableLength) {
