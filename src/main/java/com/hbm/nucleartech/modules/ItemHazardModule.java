@@ -30,7 +30,7 @@ public class ItemHazardModule {
     public int cryogenic;
     public int toxic;
     public boolean blinding;
-    public int asbestos;
+    public double asbestos;
     public int coal;
     public boolean hydro;
     public float explosive;
@@ -87,7 +87,7 @@ public class ItemHazardModule {
         return this.radiation > 0;
     }
     // --------- Get methods ---------
-    public int getAsbestosLevel() {
+    public double getAsbestosLevel() {
 
         return this.asbestos;
     }
@@ -145,7 +145,7 @@ public class ItemHazardModule {
         this.coal = coal;
     }
 
-    public void addAsbestos(int asbestos) {
+    public void addAsbestos(double asbestos) {
 
         this.asbestos = asbestos;
     }
