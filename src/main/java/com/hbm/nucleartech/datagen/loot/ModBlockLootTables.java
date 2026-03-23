@@ -54,31 +54,31 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(RegisterBlocks.MISSILE_LAUNCHER.get());
 
         // M350 Concrete variants
-        this.dropSelf(RegisterBlocks.M350_CONCRETE.get());
-        this.dropSelf(RegisterBlocks.M350_BRICK_CONCRETE.get());
-        this.dropSelf(RegisterBlocks.M350_BRICK_CONCRETE_MOSSY.get());
-        this.dropSelf(RegisterBlocks.M350_BRICK_CONCRETE_CRACKED.get());
-        this.dropSelf(RegisterBlocks.M350_BRICK_CONCRETE_BROKEN.get());
-        this.dropSelf(RegisterBlocks.M350_BRICK_CONCRETE_MARKED.get());
+        this.dropSelf(RegisterBlocks.CONCRETE.get());
+        this.dropSelf(RegisterBlocks.BRICK_CONCRETE.get());
+        this.dropSelf(RegisterBlocks.BRICK_CONCRETE_MOSSY.get());
+        this.dropSelf(RegisterBlocks.BRICK_CONCRETE_CRACKED.get());
+        this.dropSelf(RegisterBlocks.BRICK_CONCRETE_BROKEN.get());
+        this.dropSelf(RegisterBlocks.BRICK_CONCRETE_MARKED.get());
 
         // M350 Colored Concrete variants
-        this.dropSelf(RegisterBlocks.M350_CONCRETE_SMOOTH.get());
-        this.dropSelf(RegisterBlocks.M350_CONCRETE_WHITE.get());
-        this.dropSelf(RegisterBlocks.M350_CONCRETE_ORANGE.get());
-        this.dropSelf(RegisterBlocks.M350_CONCRETE_MAGENTA.get());
-        this.dropSelf(RegisterBlocks.M350_CONCRETE_LIGHT_BLUE.get());
-        this.dropSelf(RegisterBlocks.M350_CONCRETE_YELLOW.get());
-        this.dropSelf(RegisterBlocks.M350_CONCRETE_LIME.get());
-        this.dropSelf(RegisterBlocks.M350_CONCRETE_PINK.get());
-        this.dropSelf(RegisterBlocks.M350_CONCRETE_GRAY.get());
-        this.dropSelf(RegisterBlocks.M350_CONCRETE_LIGHT_GRAY.get());
-        this.dropSelf(RegisterBlocks.M350_CONCRETE_CYAN.get());
-        this.dropSelf(RegisterBlocks.M350_CONCRETE_PURPLE.get());
-        this.dropSelf(RegisterBlocks.M350_CONCRETE_BLUE.get());
-        this.dropSelf(RegisterBlocks.M350_CONCRETE_BROWN.get());
-        this.dropSelf(RegisterBlocks.M350_CONCRETE_GREEN.get());
-        this.dropSelf(RegisterBlocks.M350_CONCRETE_RED.get());
-        this.dropSelf(RegisterBlocks.M350_CONCRETE_BLACK.get());
+        this.dropSelf(RegisterBlocks.CONCRETE_SMOOTH.get());
+        this.dropSelf(RegisterBlocks.CONCRETE_WHITE.get());
+        this.dropSelf(RegisterBlocks.CONCRETE_ORANGE.get());
+        this.dropSelf(RegisterBlocks.CONCRETE_MAGENTA.get());
+        this.dropSelf(RegisterBlocks.CONCRETE_LIGHT_BLUE.get());
+        this.dropSelf(RegisterBlocks.CONCRETE_YELLOW.get());
+        this.dropSelf(RegisterBlocks.CONCRETE_LIME.get());
+        this.dropSelf(RegisterBlocks.CONCRETE_PINK.get());
+        this.dropSelf(RegisterBlocks.CONCRETE_GRAY.get());
+        this.dropSelf(RegisterBlocks.CONCRETE_LIGHT_GRAY.get());
+        this.dropSelf(RegisterBlocks.CONCRETE_CYAN.get());
+        this.dropSelf(RegisterBlocks.CONCRETE_PURPLE.get());
+        this.dropSelf(RegisterBlocks.CONCRETE_BLUE.get());
+        this.dropSelf(RegisterBlocks.CONCRETE_BROWN.get());
+        this.dropSelf(RegisterBlocks.CONCRETE_GREEN.get());
+        this.dropSelf(RegisterBlocks.CONCRETE_RED.get());
+        this.dropSelf(RegisterBlocks.CONCRETE_BLACK.get());
 
         // M350 Reinforced blocks
         this.dropSelf(RegisterBlocks.REINFORCED_STONE.get());

@@ -106,33 +106,33 @@ public class RegisterCreativeTabs {
 
 
                           
-                        output.accept(RegisterBlocks.M350_CONCRETE.get());
+                        output.accept(RegisterBlocks.CONCRETE.get());
 
                         // M350 Concrete variants
-                        output.accept(RegisterBlocks.M350_BRICK_CONCRETE.get());
-                        output.accept(RegisterBlocks.M350_BRICK_CONCRETE_MOSSY.get());
-                        output.accept(RegisterBlocks.M350_BRICK_CONCRETE_CRACKED.get());
-                        output.accept(RegisterBlocks.M350_BRICK_CONCRETE_BROKEN.get());
-                        output.accept(RegisterBlocks.M350_BRICK_CONCRETE_MARKED.get());
+                        output.accept(RegisterBlocks.BRICK_CONCRETE.get());
+                        output.accept(RegisterBlocks.BRICK_CONCRETE_MOSSY.get());
+                        output.accept(RegisterBlocks.BRICK_CONCRETE_CRACKED.get());
+                        output.accept(RegisterBlocks.BRICK_CONCRETE_BROKEN.get());
+                        output.accept(RegisterBlocks.BRICK_CONCRETE_MARKED.get());
 
                         // M350 Colored Concrete variants
-                        output.accept(RegisterBlocks.M350_CONCRETE_SMOOTH.get());
-                        output.accept(RegisterBlocks.M350_CONCRETE_WHITE.get());
-                        output.accept(RegisterBlocks.M350_CONCRETE_ORANGE.get());
-                        output.accept(RegisterBlocks.M350_CONCRETE_MAGENTA.get());
-                        output.accept(RegisterBlocks.M350_CONCRETE_LIGHT_BLUE.get());
-                        output.accept(RegisterBlocks.M350_CONCRETE_YELLOW.get());
-                        output.accept(RegisterBlocks.M350_CONCRETE_LIME.get());
-                        output.accept(RegisterBlocks.M350_CONCRETE_PINK.get());
-                        output.accept(RegisterBlocks.M350_CONCRETE_GRAY.get());
-                        output.accept(RegisterBlocks.M350_CONCRETE_LIGHT_GRAY.get());
-                        output.accept(RegisterBlocks.M350_CONCRETE_CYAN.get());
-                        output.accept(RegisterBlocks.M350_CONCRETE_PURPLE.get());
-                        output.accept(RegisterBlocks.M350_CONCRETE_BLUE.get());
-                        output.accept(RegisterBlocks.M350_CONCRETE_BROWN.get());
-                        output.accept(RegisterBlocks.M350_CONCRETE_GREEN.get());
-                        output.accept(RegisterBlocks.M350_CONCRETE_RED.get());
-                        output.accept(RegisterBlocks.M350_CONCRETE_BLACK.get());
+                        output.accept(RegisterBlocks.CONCRETE_SMOOTH.get());
+                        output.accept(RegisterBlocks.CONCRETE_WHITE.get());
+                        output.accept(RegisterBlocks.CONCRETE_ORANGE.get());
+                        output.accept(RegisterBlocks.CONCRETE_MAGENTA.get());
+                        output.accept(RegisterBlocks.CONCRETE_LIGHT_BLUE.get());
+                        output.accept(RegisterBlocks.CONCRETE_YELLOW.get());
+                        output.accept(RegisterBlocks.CONCRETE_LIME.get());
+                        output.accept(RegisterBlocks.CONCRETE_PINK.get());
+                        output.accept(RegisterBlocks.CONCRETE_GRAY.get());
+                        output.accept(RegisterBlocks.CONCRETE_LIGHT_GRAY.get());
+                        output.accept(RegisterBlocks.CONCRETE_CYAN.get());
+                        output.accept(RegisterBlocks.CONCRETE_PURPLE.get());
+                        output.accept(RegisterBlocks.CONCRETE_BLUE.get());
+                        output.accept(RegisterBlocks.CONCRETE_BROWN.get());
+                        output.accept(RegisterBlocks.CONCRETE_GREEN.get());
+                        output.accept(RegisterBlocks.CONCRETE_RED.get());
+                        output.accept(RegisterBlocks.CONCRETE_BLACK.get());
 
                         // M350 Reinforced blocks
                         output.accept(RegisterBlocks.REINFORCED_STONE.get());
