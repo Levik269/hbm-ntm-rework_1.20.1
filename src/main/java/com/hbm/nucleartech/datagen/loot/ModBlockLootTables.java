@@ -53,7 +53,41 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         this.dropSelf(RegisterBlocks.MISSILE_LAUNCHER.get());
 
+        // M350 Concrete variants
         this.dropSelf(RegisterBlocks.M350_CONCRETE.get());
+        this.dropSelf(RegisterBlocks.M350_BRICK_CONCRETE.get());
+        this.dropSelf(RegisterBlocks.M350_BRICK_CONCRETE_MOSSY.get());
+        this.dropSelf(RegisterBlocks.M350_BRICK_CONCRETE_CRACKED.get());
+        this.dropSelf(RegisterBlocks.M350_BRICK_CONCRETE_BROKEN.get());
+        this.dropSelf(RegisterBlocks.M350_BRICK_CONCRETE_MARKED.get());
+
+        // M350 Colored Concrete variants
+        this.dropSelf(RegisterBlocks.M350_CONCRETE_SMOOTH.get());
+        this.dropSelf(RegisterBlocks.M350_CONCRETE_WHITE.get());
+        this.dropSelf(RegisterBlocks.M350_CONCRETE_ORANGE.get());
+        this.dropSelf(RegisterBlocks.M350_CONCRETE_MAGENTA.get());
+        this.dropSelf(RegisterBlocks.M350_CONCRETE_LIGHT_BLUE.get());
+        this.dropSelf(RegisterBlocks.M350_CONCRETE_YELLOW.get());
+        this.dropSelf(RegisterBlocks.M350_CONCRETE_LIME.get());
+        this.dropSelf(RegisterBlocks.M350_CONCRETE_PINK.get());
+        this.dropSelf(RegisterBlocks.M350_CONCRETE_GRAY.get());
+        this.dropSelf(RegisterBlocks.M350_CONCRETE_LIGHT_GRAY.get());
+        this.dropSelf(RegisterBlocks.M350_CONCRETE_CYAN.get());
+        this.dropSelf(RegisterBlocks.M350_CONCRETE_PURPLE.get());
+        this.dropSelf(RegisterBlocks.M350_CONCRETE_BLUE.get());
+        this.dropSelf(RegisterBlocks.M350_CONCRETE_BROWN.get());
+        this.dropSelf(RegisterBlocks.M350_CONCRETE_GREEN.get());
+        this.dropSelf(RegisterBlocks.M350_CONCRETE_RED.get());
+        this.dropSelf(RegisterBlocks.M350_CONCRETE_BLACK.get());
+
+        // M350 Reinforced blocks
+        this.dropSelf(RegisterBlocks.REINFORCED_STONE.get());
+        this.dropSelf(RegisterBlocks.BRICK_COMPOUND.get());
+        this.dropSelf(RegisterBlocks.BRICK_OBSIDIAN.get());
+
+        // CMB Brick variants
+        this.dropSelf(RegisterBlocks.CMB_BRICK.get());
+        this.dropSelf(RegisterBlocks.CMB_BRICK_REINFORCED.get());
 
         this.dropSelf(RegisterBlocks.BLOCK_WASTE.get());
         this.dropSelf(RegisterBlocks.BLOCK_TITANIUM.get());
