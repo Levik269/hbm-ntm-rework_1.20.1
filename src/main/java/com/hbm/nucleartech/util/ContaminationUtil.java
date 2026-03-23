@@ -114,7 +114,7 @@ public class ContaminationUtil {
                 if (block instanceof IRadResistantBlock radBlock) {
 
 //                    System.out.println("[Debug] Found a rad resistant block in-between " + e.getName().getString() + " and " + pLevel.getBlockState(new BlockPos((int)x, (int)y-1, (int)z)).getBlock().getName().getString() + "; Shielding entity from radiation");
-                    radResistantBlocks.add(new Vec2(((RadResistantBlock)radBlock).μ, ((RadResistantBlock)radBlock).thickness));
+                    radResistantBlocks.add(new Vec2(((RadResistantBlock)radBlock).u, ((RadResistantBlock)radBlock).thickness));
                 }
 
                 res += block.getExplosionResistance();

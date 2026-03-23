@@ -9,10 +9,7 @@ import com.hbm.nucleartech.item.RegisterItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DropExperienceBlock;
-import net.minecraft.world.level.block.GlassBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -124,10 +121,294 @@ public class RegisterBlocks {
                     .strength(6.0f, 12.0f),
                     UniformInt.of(2, 6)
             ));
-
-    public static final RegistryObject<Block> M350_CONCRETE = registerBlock("m350_concrete",
+// ------------------------------------- Concrete variants (M350) -------------------------------------
+    public static final RegistryObject<Block> CONCRETE = registerBlock("concrete",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)
-                    .strength(1000.0f, 1200.0f)  // hardness=1000, resistance=1200
+                    .strength(15.0f, 160.0f)
+            ));
+
+    public static final RegistryObject<Block> BRICK_CONCRETE = registerBlock("brick_concrete",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)
+                    .strength(15.0f, 160.0f)
+            ));
+
+    public static final RegistryObject<Block> BRICK_CONCRETE_MOSSY = registerBlock("brick_concrete_mossy",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)
+                    .strength(15.0f, 160.0f)
+            ));
+
+    public static final RegistryObject<Block> BRICK_CONCRETE_CRACKED = registerBlock("brick_concrete_cracked",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)
+                    .strength(15.0f, 60.0f)
+            ));
+
+    public static final RegistryObject<Block> BRICK_CONCRETE_BROKEN = registerBlock("brick_concrete_broken",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)
+                    .strength(15.0f, 45.0f)
+            ));
+
+    public static final RegistryObject<Block> BRICK_CONCRETE_MARKED = registerBlock("brick_concrete_marked",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)
+                    .strength(15.0f, 160.0f)
+            ));
+
+// ------------------------------------- Concrete variants (pDT=15, pER=84) on Stone base -------------------------------------
+
+    public static final RegistryObject<Block> CONCRETE_SMOOTH = registerBlock("concrete_smooth",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(15.0f, 84.0f)
+            ));
+
+    // Colored concrete blocks
+    public static final RegistryObject<Block> CONCRETE_WHITE = registerBlock("concrete_white",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(15.0f, 84.0f)
+            ));
+
+    public static final RegistryObject<Block> CONCRETE_ORANGE = registerBlock("concrete_orange",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(15.0f, 84.0f)
+            ));
+
+    public static final RegistryObject<Block> CONCRETE_MAGENTA = registerBlock("concrete_magenta",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(15.0f, 84.0f)
+            ));
+
+    public static final RegistryObject<Block> CONCRETE_LIGHT_BLUE = registerBlock("concrete_light_blue",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(15.0f, 84.0f)
+            ));
+
+    public static final RegistryObject<Block> CONCRETE_YELLOW = registerBlock("concrete_yellow",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(15.0f, 84.0f)
+            ));
+
+    public static final RegistryObject<Block> CONCRETE_LIME = registerBlock("concrete_lime",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(15.0f, 84.0f)
+            ));
+
+    public static final RegistryObject<Block> CONCRETE_PINK = registerBlock("concrete_pink",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(15.0f, 84.0f)
+            ));
+
+    public static final RegistryObject<Block> CONCRETE_GRAY = registerBlock("concrete_gray",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(15.0f, 84.0f)
+            ));
+
+    public static final RegistryObject<Block> CONCRETE_LIGHT_GRAY = registerBlock("concrete_light_gray",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(15.0f, 84.0f)
+            ));
+
+    public static final RegistryObject<Block> CONCRETE_CYAN = registerBlock("concrete_cyan",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(15.0f, 84.0f)
+            ));
+
+    public static final RegistryObject<Block> CONCRETE_PURPLE = registerBlock("concrete_purple",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(15.0f, 84.0f)
+            ));
+
+    public static final RegistryObject<Block> CONCRETE_BLUE = registerBlock("concrete_blue",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(15.0f, 84.0f)
+            ));
+
+    public static final RegistryObject<Block> CONCRETE_BROWN = registerBlock("concrete_brown",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(15.0f, 84.0f)
+            ));
+
+    public static final RegistryObject<Block> CONCRETE_GREEN = registerBlock("concrete_green",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(15.0f, 84.0f)
+            ));
+
+    public static final RegistryObject<Block> CONCRETE_RED = registerBlock("concrete_red",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(15.0f, 84.0f)
+            ));
+
+    public static final RegistryObject<Block> CONCRETE_BLACK = registerBlock("concrete_black",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(15.0f, 84.0f)
+            ));
+
+    
+    // ------------------------------------- Concrete Stairs ----------------------------------
+    public static final RegistryObject<StairBlock> CONCRETE_STAIRS = registerBlock("concrete_stairs",
+            () -> new StairBlock(() -> CONCRETE.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)
+                            .strength(15.0f, 160.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> BRICK_CONCRETE_STAIRS = registerBlock("brick_concrete_stairs",
+            () -> new StairBlock(() -> BRICK_CONCRETE.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)
+                            .strength(15.0f, 160.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> BRICK_CONCRETE_MOSSY_STAIRS = registerBlock("brick_concrete_mossy_stairs",
+            () -> new StairBlock(() -> BRICK_CONCRETE_MOSSY.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)
+                            .strength(15.0f, 160.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> BRICK_CONCRETE_CRACKED_STAIRS = registerBlock("brick_concrete_cracked_stairs",
+            () -> new StairBlock(() -> BRICK_CONCRETE_CRACKED.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)
+                            .strength(15.0f, 60.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> BRICK_CONCRETE_BROKEN_STAIRS = registerBlock("brick_concrete_broken_stairs",
+            () -> new StairBlock(() -> BRICK_CONCRETE_BROKEN.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)
+                            .strength(15.0f, 45.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> BRICK_CONCRETE_MARKED_STAIRS = registerBlock("brick_concrete_marked_stairs",
+            () -> new StairBlock(() -> BRICK_CONCRETE_MARKED.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)
+                            .strength(15.0f, 160.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> CONCRETE_SMOOTH_STAIRS = registerBlock("concrete_smooth_stairs",
+            () -> new StairBlock(() -> CONCRETE_SMOOTH.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.STONE)
+                            .strength(15.0f, 84.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> CONCRETE_WHITE_STAIRS = registerBlock("concrete_white_stairs",
+            () -> new StairBlock(() -> CONCRETE_WHITE.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.STONE)
+                            .strength(15.0f, 84.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> CONCRETE_ORANGE_STAIRS = registerBlock("concrete_orange_stairs",
+            () -> new StairBlock(() -> CONCRETE_ORANGE.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.STONE)
+                            .strength(15.0f, 84.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> CONCRETE_MAGENTA_STAIRS = registerBlock("concrete_magenta_stairs",
+            () -> new StairBlock(() -> CONCRETE_MAGENTA.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.STONE)
+                            .strength(15.0f, 84.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> CONCRETE_LIGHT_BLUE_STAIRS = registerBlock("concrete_light_blue_stairs",
+            () -> new StairBlock(() -> CONCRETE_LIGHT_BLUE.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.STONE)
+                            .strength(15.0f, 84.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> CONCRETE_YELLOW_STAIRS = registerBlock("concrete_yellow_stairs",
+            () -> new StairBlock(() -> CONCRETE_YELLOW.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.STONE)
+                            .strength(15.0f, 84.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> CONCRETE_LIME_STAIRS = registerBlock("concrete_lime_stairs",
+            () -> new StairBlock(() -> CONCRETE_LIME.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.STONE)
+                            .strength(15.0f, 84.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> CONCRETE_PINK_STAIRS = registerBlock("concrete_pink_stairs",
+            () -> new StairBlock(() -> CONCRETE_PINK.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.STONE)
+                            .strength(15.0f, 84.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> CONCRETE_GRAY_STAIRS = registerBlock("concrete_gray_stairs",
+            () -> new StairBlock(() -> CONCRETE_GRAY.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.STONE)
+                            .strength(15.0f, 84.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> CONCRETE_LIGHT_GRAY_STAIRS = registerBlock("concrete_light_gray_stairs",
+            () -> new StairBlock(() -> CONCRETE_LIGHT_GRAY.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.STONE)
+                            .strength(15.0f, 84.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> CONCRETE_CYAN_STAIRS = registerBlock("concrete_cyan_stairs",
+            () -> new StairBlock(() -> CONCRETE_CYAN.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.STONE)
+                            .strength(15.0f, 84.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> CONCRETE_PURPLE_STAIRS = registerBlock("concrete_purple_stairs",
+            () -> new StairBlock(() -> CONCRETE_PURPLE.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.STONE)
+                            .strength(15.0f, 84.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> CONCRETE_BLUE_STAIRS = registerBlock("concrete_blue_stairs",
+            () -> new StairBlock(() -> CONCRETE_BLUE.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.STONE)
+                            .strength(15.0f, 84.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> CONCRETE_BROWN_STAIRS = registerBlock("concrete_brown_stairs",
+            () -> new StairBlock(() -> CONCRETE_BROWN.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.STONE)
+                            .strength(15.0f, 84.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> CONCRETE_GREEN_STAIRS = registerBlock("concrete_green_stairs",
+            () -> new StairBlock(() -> CONCRETE_GREEN.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.STONE)
+                            .strength(15.0f, 84.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> CONCRETE_RED_STAIRS = registerBlock("concrete_red_stairs",
+            () -> new StairBlock(() -> CONCRETE_RED.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.STONE)
+                            .strength(15.0f, 84.0f)
+            ));
+    
+    public static final RegistryObject<StairBlock> CONCRETE_BLACK_STAIRS = registerBlock("concrete_black_stairs",
+            () -> new StairBlock(() -> CONCRETE_BLACK.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.STONE)
+                            .strength(15.0f, 84.0f)
+            ));
+    
+
+    // ------------------------------------- Other blocks -------------------------------------
+
+    public static final RegistryObject<Block> REINFORCED_STONE = registerBlock("reinforced_stone",
+            () -> new RadResistantBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(15.0f, 180.0f)
+                    , 11.34f, 0.07f, 1f  // same as lead
+            ));
+
+    public static final RegistryObject<Block> BRICK_COMPOUND = registerBlock("brick_compound",
+            () -> new RadResistantBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(15.0f, 240.0f)
+                    , 15.0f, 0.05f, 1f  // stronger than lead
+            ));
+
+    public static final RegistryObject<Block> BRICK_OBSIDIAN = registerBlock("brick_obsidian",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(15.0f, 72.0f)
+            ));
+
+    public static final RegistryObject<Block> CMB_BRICK = registerBlock("cmb_brick",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)
+                    .strength(50.0f, 3000.0f)
+            ));
+
+    public static final RegistryObject<Block> CMB_BRICK_REINFORCED = registerBlock("cmb_brick_reinforced",
+            () -> new RadResistantBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)
+                    .strength(50.0f, 30000.0f)
+                    , 50.0f, 0.01f, 1f  // extremely strong radiation resistance
             ));
 
     public static final RegistryObject<Block> RADIATION_DECONTAMINATOR = registerBlock("radiation_decontaminator",

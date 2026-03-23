@@ -21,7 +21,7 @@ public class LivingEntityCapability implements IEntityCapabilityBase {
     private float radiation = 0;
     private float neutron = 0;
     private float digamma = 0;
-    private int asbestos = 0;
+    private float asbestos = 0;
     public static final int maxAsbestos = 60 * 60 * 20;
     private int blacklung = 0;
     public static final int maxBlacklung = 2 * 60 * 60 * 20;
@@ -118,7 +118,7 @@ public class LivingEntityCapability implements IEntityCapabilityBase {
             }
             case ASBESTOS -> {
 
-                asbestos = Mth.floor(value);
+                asbestos = value;
                 break;
             }
             case BLACKLUNG -> {

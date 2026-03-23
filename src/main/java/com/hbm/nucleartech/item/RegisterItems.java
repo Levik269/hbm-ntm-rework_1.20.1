@@ -86,6 +86,10 @@ public class RegisterItems {
     public static final RegistryObject<Item> INGOT_COBALT = ITEMS.register("ingot_cobalt",
             () -> new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> TEST_ASBESTOS_ITEM = ITEMS.register("test_asbestos_item",
+            () -> new TestAsbestosItem(new Item.Properties()));
+    public static final RegistryObject<Item> DEBUG_HAZARD_REMOVER = ITEMS.register("debug_hazard_remover",
+            () -> new DebugHazardRemover(new Item.Properties()));
 
     public static final RegistryObject<Item> POWDER_URANIUM = ITEMS.register("powder_uranium",
             () -> new HazardItem(1.05, new Item.Properties()));

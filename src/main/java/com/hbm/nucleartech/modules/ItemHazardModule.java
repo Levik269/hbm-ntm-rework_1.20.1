@@ -30,7 +30,7 @@ public class ItemHazardModule {
     public int cryogenic;
     public int toxic;
     public boolean blinding;
-    public int asbestos;
+    public double asbestos;
     public int coal;
     public boolean hydro;
     public float explosive;
@@ -41,12 +41,80 @@ public class ItemHazardModule {
 
         this.tempMod = tempMod;
     }
+    // --------- Check methods ---------
+    public boolean isBlinding() {
 
+        return this.blinding;
+    }
+    public boolean isHydroReactive() {
+
+        return this.hydro;
+    }
+    public boolean isExplosive() {
+
+        return this.explosive > 0;
+    }
+    public boolean isToxic() {
+
+        return this.toxic > 0;
+    }
+    public boolean isFireHazard() {
+
+        return this.fire > 0;
+    }
+    public boolean isCryogenic() {
+
+        return this.cryogenic > 0;
+    }
+    public boolean isDigamma() {
+
+        return this.digamma > 0;
+    }
+    public boolean isCoal() {
+
+        return this.coal > 0;
+    }
+    public boolean isAsbestos() {
+
+        return this.asbestos > 0;
+    }
+    public boolean isHazardous() {
+
+        return this.radiation > 0 || this.digamma > 0 || this.fire > 0 || this.cryogenic > 0 || this.toxic > 0 || this.blinding || this.asbestos > 0 || this.coal > 0 || this.hydro || this.explosive > 0;
+    }
     public boolean isRadioactive() {
 
         return this.radiation > 0;
     }
+    // --------- Get methods ---------
+    public double getAsbestosLevel() {
 
+        return this.asbestos;
+    }
+    public int getCoalLevel() {
+
+        return this.coal;
+    }
+    public int getToxicLevel() {
+
+        return this.toxic;
+    }
+    public int getFireLevel() {
+
+        return this.fire;
+    }
+    public int getCryogenicLevel() {
+        return this.cryogenic;
+    }
+    public double getDigammaLevel() {
+
+        return this.digamma;
+    }
+    public double getRadiationLevel() {
+
+        return this.radiation;
+    }
+    // --------- Add methods ---------
     public void addRadiation(double radiation) {
 
         this.radiation = radiation;
@@ -77,7 +145,7 @@ public class ItemHazardModule {
         this.coal = coal;
     }
 
-    public void addAsbestos(int asbestos) {
+    public void addAsbestos(double asbestos) {
 
         this.asbestos = asbestos;
     }
@@ -96,7 +164,7 @@ public class ItemHazardModule {
 
         this.explosive = bang;
     }
-
+    // --------- Effect application ---------
     public void applyEffects(LivingEntity entity, float mod, int slot, boolean currentItem, InteractionHand hand) {
 
         boolean reacher = false;
@@ -125,7 +193,7 @@ public class ItemHazardModule {
             ContaminationUtil.contaminate(entity, HazardType.RADIATION, ContaminationType.CREATIVE, (float) rad);
         }
     }
-
+    // --------- Other methods ---------
     public static double getNewValue(double radiation) {
         
         if(radiation < 1000000){

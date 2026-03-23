@@ -20,6 +20,9 @@ public class RegisterCreativeTabs {
                     .title(Component.translatable("creativetab.resources_and_parts"))
                     .displayItems((itemDisplayParameters, output) -> {
 
+                        output.accept(RegisterItems.TEST_ASBESTOS_ITEM.get());
+                        output.accept(RegisterBlocks.TEST_GENERATOR.get());
+                        output.accept(RegisterItems.DEBUG_HAZARD_REMOVER.get());
 
                         output.accept(RegisterBlocks.MISSILE_LAUNCHER.get());
 
@@ -37,7 +40,6 @@ public class RegisterCreativeTabs {
                         output.accept(RegisterItems.INGOT_RED_GOLD.get());
                         output.accept(RegisterItems.INGOT_GILDED_COPPER.get());
 
-                        output.accept(RegisterBlocks.TEST_GENERATOR.get());
                         output.accept(RegisterBlocks.BATTERY_BLOCK.get());
 
                         output.accept(RegisterItems.POWDER_URANIUM.get());
@@ -106,7 +108,42 @@ public class RegisterCreativeTabs {
 
 
                           
-                        output.accept(RegisterBlocks.M350_CONCRETE.get());
+                        output.accept(RegisterBlocks.CONCRETE.get());
+
+                        // M350 Concrete variants
+                        output.accept(RegisterBlocks.BRICK_CONCRETE.get());
+                        output.accept(RegisterBlocks.BRICK_CONCRETE_MOSSY.get());
+                        output.accept(RegisterBlocks.BRICK_CONCRETE_CRACKED.get());
+                        output.accept(RegisterBlocks.BRICK_CONCRETE_BROKEN.get());
+                        output.accept(RegisterBlocks.BRICK_CONCRETE_MARKED.get());
+
+                        // M350 Colored Concrete variants
+                        output.accept(RegisterBlocks.CONCRETE_SMOOTH.get());
+                        output.accept(RegisterBlocks.CONCRETE_WHITE.get());
+                        output.accept(RegisterBlocks.CONCRETE_ORANGE.get());
+                        output.accept(RegisterBlocks.CONCRETE_MAGENTA.get());
+                        output.accept(RegisterBlocks.CONCRETE_LIGHT_BLUE.get());
+                        output.accept(RegisterBlocks.CONCRETE_YELLOW.get());
+                        output.accept(RegisterBlocks.CONCRETE_LIME.get());
+                        output.accept(RegisterBlocks.CONCRETE_PINK.get());
+                        output.accept(RegisterBlocks.CONCRETE_GRAY.get());
+                        output.accept(RegisterBlocks.CONCRETE_LIGHT_GRAY.get());
+                        output.accept(RegisterBlocks.CONCRETE_CYAN.get());
+                        output.accept(RegisterBlocks.CONCRETE_PURPLE.get());
+                        output.accept(RegisterBlocks.CONCRETE_BLUE.get());
+                        output.accept(RegisterBlocks.CONCRETE_BROWN.get());
+                        output.accept(RegisterBlocks.CONCRETE_GREEN.get());
+                        output.accept(RegisterBlocks.CONCRETE_RED.get());
+                        output.accept(RegisterBlocks.CONCRETE_BLACK.get());
+
+                        // M350 Reinforced blocks
+                        output.accept(RegisterBlocks.REINFORCED_STONE.get());
+                        output.accept(RegisterBlocks.BRICK_COMPOUND.get());
+                        output.accept(RegisterBlocks.BRICK_OBSIDIAN.get());
+
+                        // CMB Brick variants
+                        output.accept(RegisterBlocks.CMB_BRICK.get());
+                        output.accept(RegisterBlocks.CMB_BRICK_REINFORCED.get());
 
                         output.accept(RegisterBlocks.BLOCK_WASTE.get());
                         output.accept(RegisterBlocks.BLOCK_URANIUM.get());
