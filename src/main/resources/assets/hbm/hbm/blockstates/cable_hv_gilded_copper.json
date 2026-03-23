@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "hbm:block/cable_hv_gilded_copper"
+    }
+  }
+}
