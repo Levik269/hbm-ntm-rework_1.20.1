@@ -1,4 +1,4 @@
-// 1.20.1	2026-03-22T15:20:38.239820258	Block States: hbm
+// 1.20.1	2026-03-22T21:52:49.283972573	Block States: hbm
 9c646a66397dadb14e6baf5c3b90f6cd368eaf6a assets/hbm/blockstates/block_titanium.json
 98d8ea598f33c58e59e972384ca26096dde38214 assets/hbm/blockstates/block_uranium.json
 42fdc7bdac0fa83f4cfb76c3d4e8a004a5d77dad assets/hbm/blockstates/block_waste.json
@@ -8,6 +8,7 @@ b155f96b3ae1bfcd56567e6eaab09aa65a167aea assets/hbm/blockstates/deepslate_ore_th
 08bf085b928c90f7f1f7893ffe69d7209d506fa2 assets/hbm/blockstates/deepslate_ore_titanium.json
 796028fd737701945b51a67f41f5591acb7e17c3 assets/hbm/blockstates/deepslate_ore_uranium.json
 a90f0bddd22f0e6b4f9aa711fe4c3803d395adb9 assets/hbm/blockstates/m350_concrete.json
+eccb60523070fa851f5ef4f30fbf8530de726b4d assets/hbm/blockstates/missile_launcher.json
 34217fc51b080c9c58573d82f6e51c49088266cf assets/hbm/blockstates/ore_cobalt.json
 f5d909d008afe685a0de640ce6d6d1c4f17a5a38 assets/hbm/blockstates/ore_copper.json
 962a41a34dec827ce49a9e4be98f09ce3f618ced assets/hbm/blockstates/ore_thorium.json
@@ -25,6 +26,7 @@ b7a2c0e076756d4d0c3b31dda2df565f724149b9 assets/hbm/models/block/deepslate_ore_t
 12b612f1fa02a17a6f93d09691fbe1883d5b957c assets/hbm/models/block/deepslate_ore_titanium.json
 afae3f230fc665c056d83130cc44dc588315f21d assets/hbm/models/block/deepslate_ore_uranium.json
 ca29a82b9230bc1dfa89f1c081da36a5a88259c0 assets/hbm/models/block/m350_concrete.json
+f94815c7f6751e7c6f05dfec896f9dd955333207 assets/hbm/models/block/missile_launcher.json
 f32001b2095305199dc15a872ff086d07da14e8a assets/hbm/models/block/ore_cobalt.json
 d5fbd3075cd00170c26c4153391471c4b9b846eb assets/hbm/models/block/ore_copper.json
 5db15dd469cd04dcf4c33e5d873f53b66c6c9d29 assets/hbm/models/block/ore_thorium.json
@@ -42,6 +44,7 @@ e0893546175e9d596e9387178fb9ce2c4d9fa8dd assets/hbm/models/item/deepslate_ore_co
 10a897ffc5d20027ce406a893622aa6afcbb6192 assets/hbm/models/item/deepslate_ore_titanium.json
 12a79e078a80126b64a4957da5701976b80ef879 assets/hbm/models/item/deepslate_ore_uranium.json
 c836210d3e9cd25427f581d988c354a1fece0552 assets/hbm/models/item/m350_concrete.json
+be01a746df06ea40da0c3bf3c9ee3aa766094a50 assets/hbm/models/item/missile_launcher.json
 a8f64a00d632d5c4086bc8404160a533c720da17 assets/hbm/models/item/ore_cobalt.json
 677adc86260be303df9a35b614e5378b53573a08 assets/hbm/models/item/ore_copper.json
 45e2173216eab6a2ca135d9641563061d28e1124 assets/hbm/models/item/ore_thorium.json

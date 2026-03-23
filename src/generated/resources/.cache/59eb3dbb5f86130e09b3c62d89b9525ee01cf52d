@@ -1,4 +1,4 @@
-// 1.20.1	2026-03-22T15:20:38.240710839	Loot Tables
+// 1.20.1	2026-03-22T21:52:49.284903861	Loot Tables
 3d521f4c59d579d087ed1a59fbca3b6dccdb62e6 data/hbm/loot_tables/blocks/block_titanium.json
 41d404e3afd6f6cd6e7b9c858b1c78a9d2735d03 data/hbm/loot_tables/blocks/block_uranium.json
 b9bdaa6f1a86398dd4c8b1d91f31b836d1d7d9ff data/hbm/loot_tables/blocks/block_waste.json
@@ -8,6 +8,7 @@ d7a304879a136c29c88b269ac9e30ff9b384aeb4 data/hbm/loot_tables/blocks/deepslate_o
 9939c61b0f5beba9fb487771cacbcad48f494101 data/hbm/loot_tables/blocks/deepslate_ore_titanium.json
 74b84b088e69c3a5c326f1b4b12eb3a1620642eb data/hbm/loot_tables/blocks/deepslate_ore_uranium.json
 e801eb2f8192ced79327c28967c7a8c9ed97d37b data/hbm/loot_tables/blocks/m350_concrete.json
+e17fa269e9deb03b08f23191f5968ddfa1cc4c76 data/hbm/loot_tables/blocks/missile_launcher.json
 cc3f3bc9e757749ce3f5a3e793941d27890ffdef data/hbm/loot_tables/blocks/ore_cobalt.json
 935beae3e87e370534bd7739a49eb0d07cb118fc data/hbm/loot_tables/blocks/ore_copper.json
 41b95abc97361fa3bcb4d8cd7c04cad529e4fac0 data/hbm/loot_tables/blocks/ore_thorium.json

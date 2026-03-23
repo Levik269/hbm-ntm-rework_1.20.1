@@ -1,4 +1,5 @@
 package com.hbm.nucleartech.entity;
+import com.hbm.nucleartech.entity.custom.MissileEntity;
 
 import com.hbm.nucleartech.HBM;
 import com.hbm.nucleartech.entity.custom.NuclearCreeperEntity;
@@ -16,6 +17,12 @@ public class HbmEntities {
     public static final RegistryObject<EntityType<NuclearCreeperEntity>> NUCLEAR_CREEPER =
             ENTITY_TYPES.register("nuclear_creeper", () -> EntityType.Builder.of(NuclearCreeperEntity::new, MobCategory.MONSTER)
                     .sized(1f, 2f).build("nuclear_creeper"));
+
+    public static final RegistryObject<EntityType<MissileEntity>> MISSILE =
+            ENTITY_TYPES.register("missile", () -> EntityType.Builder
+                    .<MissileEntity>of(MissileEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 2.0f)
+                    .build("missile"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

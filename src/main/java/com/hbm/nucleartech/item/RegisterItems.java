@@ -15,9 +15,13 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class RegisterItems {
 
+
+
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, HBM.MOD_ID);
 
+    public static final RegistryObject<Item> MISSILE_LINKER = ITEMS.register("missile_linker",
+            () -> new MissileLinkerItem(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> NUKE_TACTICAL = ITEMS.register("nuke_tactical",
             () -> new NukeItem(NuclearBombType.TACTICAL, new Item.Properties()));

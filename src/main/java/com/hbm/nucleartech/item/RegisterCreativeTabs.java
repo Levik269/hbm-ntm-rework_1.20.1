@@ -21,7 +21,7 @@ public class RegisterCreativeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
 
 
-
+                        output.accept(RegisterBlocks.MISSILE_LAUNCHER.get());
 
                         output.accept(RegisterItems.INGOT_TITANIUM.get());
                         output.accept(RegisterItems.INGOT_BERYLLIUM.get());
@@ -103,7 +103,7 @@ public class RegisterCreativeTabs {
                     .title(Component.translatable("creativetab.ntm_machines"))
                     .displayItems((itemDisplayParameters, output) -> {
 
-
+                        output.accept(RegisterItems.MISSILE_LINKER.get());
                         output.accept(RegisterItems.NUKE_TACTICAL.get());
                         output.accept(RegisterItems.NUKE_STANDARD.get());
                         output.accept(RegisterItems.NUKE_THERMONUCLEAR.get());

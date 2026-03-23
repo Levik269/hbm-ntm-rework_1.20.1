@@ -20,6 +20,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
 
+        blockWithItem(RegisterBlocks.MISSILE_LAUNCHER);
+
         blockWithItem(RegisterBlocks.M350_CONCRETE);
 
         blockWithItem(RegisterBlocks.BLOCK_WASTE);

@@ -1,4 +1,4 @@
-// 1.20.1	2026-03-22T18:01:58.634419142	Item Models: hbm
+// 1.20.1	2026-03-22T22:11:46.710669797	Item Models: hbm
 4cf7e7653b1aae33f78753c224f5f9bc5f290001 assets/hbm/models/item/billet_uranium.json
 717138e2327b0dfad433d85e77dddd88fd5cb7c1 assets/hbm/models/item/crystal_uranium.json
 7f29f38ac80fcc1cf894de82a414bb8d732fc029 assets/hbm/models/item/gas_mask_filter.json
@@ -23,6 +23,7 @@ f8595f44af4017b28f9a00aa191d21a782e4af74 assets/hbm/models/item/ingot_cobalt.jso
 b10ac8224dfd993d21ad32a35c0de2f788dbbac7 assets/hbm/models/item/ingot_titanium.json
 c40effc73e3599852caad529d0ae71d882c7e588 assets/hbm/models/item/ingot_uranium.json
 3db2718b760a733d82a1e69535ca192d6ee63edd assets/hbm/models/item/m65_mask.json
+bb8dad525f16de114dfa48f6a28501a42a9e435b assets/hbm/models/item/missile_linker.json
 39b3be4521a8e6f2fb2529093ed0cb8fdf3135ee assets/hbm/models/item/nugget_uranium.json
 d6fa1bf0b00c88e806246b66cd0bbda9b5cb58f1 assets/hbm/models/item/nuke_bunker_buster.json
 77d09d5475bd8232ad9495f25f44253535004d44 assets/hbm/models/item/nuke_standard.json

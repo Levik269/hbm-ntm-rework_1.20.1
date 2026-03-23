@@ -19,6 +19,11 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import com.hbm.nucleartech.block.custom.MissileLauncherBlock;
+import com.hbm.nucleartech.block.entity.MissileLauncherBlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraftforge.registries.DeferredRegister;
+
 import java.util.function.Supplier;
 
 public class RegisterBlocks {
@@ -145,6 +150,18 @@ public class RegisterBlocks {
         return toReturn;
     }
 
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
+            DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, HBM.MOD_ID);
+
+    public static final RegistryObject<Block> MISSILE_LAUNCHER = registerBlock("missile_launcher",
+            () -> new MissileLauncherBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)
+                    .strength(5.0f, 10.0f)));
+
+    public static final RegistryObject<BlockEntityType<MissileLauncherBlockEntity>> MISSILE_LAUNCHER_BE =
+            BLOCK_ENTITIES.register("missile_launcher", () ->
+                    BlockEntityType.Builder.of(MissileLauncherBlockEntity::new,
+                            MISSILE_LAUNCHER.get()).build(null));
+
     private static <T extends Block>RegistryObject<Item> registerHazardBlockItem(double radiation, String name, RegistryObject<T> block) {
 
         return RegisterItems.ITEMS.register(name, () -> new HazardBlockItem(radiation, block.get(), new Item.Properties()));
@@ -153,5 +170,6 @@ public class RegisterBlocks {
     public static void register(IEventBus eventBus) {
 
         BLOCKS.register(eventBus);
+        BLOCK_ENTITIES.register(eventBus);
     }
 }

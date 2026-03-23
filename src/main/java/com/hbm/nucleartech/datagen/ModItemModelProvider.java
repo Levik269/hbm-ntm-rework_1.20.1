@@ -19,6 +19,8 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
 
+        simpleItem(RegisterItems.MISSILE_LINKER);
+
         simpleItem(RegisterItems.RAW_COBALT);
         simpleItem(RegisterItems.INGOT_COBALT);
 
