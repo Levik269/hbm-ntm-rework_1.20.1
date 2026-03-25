@@ -65,10 +65,10 @@ public class NuclearBombType {
     public static final NuclearBombType BUNKER_BUSTER = new NuclearBombType(
             "bunker_buster",
             30f,
-            0.2f,  // узкая по горизонтали
-            2.0f,  // глубокая по вертикали
+            0.2f,
+            2.0f,
             8192,
-            50.0f, // ломает даже прочные блоки
+            50.0f,
             0.5f,
             1.3f
     );
@@ -81,7 +81,30 @@ public class NuclearBombType {
             0.4f,
             16384,
             10.0f,
-            0.6f,   // медленное затухание = далеко летят лучи
+            0.6f,
             1.3f
+    );
+
+    // Новая маленькая версия специально для Unstable Item
+    public static final NuclearBombType UNSTABLE_SMALL = new NuclearBombType(
+            "unstable30",
+            30f,
+            0.85f,
+            0.95f,
+            16384,
+            12.0f,
+            0.7f,
+            1.2f
+    );
+
+    public static final NuclearBombType UNSTABLE_BIG = new NuclearBombType(
+            "unstable350",
+            100f,
+            0.50f,
+            0.95f,
+            16384,
+            12.0f,
+            0.7f,
+            1.2f
     );
 }
