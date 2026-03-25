@@ -28,17 +28,128 @@ public class RegisterCreativeTabs {
 
                         output.accept(RegisterItems.MULTIMETER.get());
                         output.accept(RegisterItems.ADVANCED_MULTIMETER.get());
-
-                        output.accept(RegisterItems.INGOT_TITANIUM.get());
-                        output.accept(RegisterItems.INGOT_BERYLLIUM.get());
+                        // Uranium
                         output.accept(RegisterItems.INGOT_URANIUM.get());
-                        output.accept(RegisterItems.INGOT_THORIUM.get());
-                        output.accept(RegisterItems.INGOT_COPPER.get());
-                        output.accept(RegisterItems.INGOT_COBALT.get());
+                        output.accept(RegisterItems.INGOT_U233.get());
+                        output.accept(RegisterItems.INGOT_U235.get());
+                        output.accept(RegisterItems.INGOT_U238.get());
+                        output.accept(RegisterItems.INGOT_URANIUM_FUEL.get());
+                        output.accept(RegisterItems.INGOT_U238m2.get());
 
+                        // Plutonium
+                        output.accept(RegisterItems.INGOT_PLUTONIUM.get());
+                        output.accept(RegisterItems.INGOT_PU239.get());
+                        output.accept(RegisterItems.INGOT_PU240.get());
+                        output.accept(RegisterItems.INGOT_PU241.get());
+                        output.accept(RegisterItems.INGOT_PLUTONIUM_PU_MIX.get());
+                        output.accept(RegisterItems.INGOT_PLUTONIUM_FUEL.get());
+                        output.accept(RegisterItems.INGOT_PU238.get());
+
+                        // Americium
+                        output.accept(RegisterItems.INGOT_AM241.get());
+                        output.accept(RegisterItems.INGOT_AM242.get());
+                        output.accept(RegisterItems.INGOT_AM_MIX.get());
+                        output.accept(RegisterItems.INGOT_AMERICIUM_FUEL.get());
+
+                        // Thorium / Neptunium
+                        output.accept(RegisterItems.INGOT_THORIUM.get());
+                        output.accept(RegisterItems.INGOT_THORIUM_FUEL.get());
+                        output.accept(RegisterItems.INGOT_NEPTUNIUM.get());
+                        output.accept(RegisterItems.INGOT_NEPTUNIUM_FUEL.get());
+
+                        // Schrabidium
+                        output.accept(RegisterItems.INGOT_SCHRARANIUM.get());
+                        output.accept(RegisterItems.INGOT_SCHRABIDIUM.get());
+                        output.accept(RegisterItems.INGOT_SCHRABIDATE.get());
+                        output.accept(RegisterItems.INGOT_SCHRABIDIUM_FUEL.get());
+                        output.accept(RegisterItems.INGOT_HES.get());
+                        output.accept(RegisterItems.INGOT_LES.get());
+
+                        // Hazard misc
+                        output.accept(RegisterItems.INGOT_TECHNETIUM.get());
+                        output.accept(RegisterItems.INGOT_MOX_FUEL.get());
+                        output.accept(RegisterItems.INGOT_RA226.get());
+                        output.accept(RegisterItems.INGOT_ACTINIUM.get());
+                        output.accept(RegisterItems.INGOT_GH336.get());
+                        output.accept(RegisterItems.INGOT_MUD.get());
+                        output.accept(RegisterItems.INGOT_POLONIUM.get());
+                        output.accept(RegisterItems.INGOT_PHOSPHORUS.get());
+                        output.accept(RegisterItems.INGOT_CO60.get());
+                        output.accept(RegisterItems.INGOT_SR90.get());
+                        output.accept(RegisterItems.INGOT_I131.get());
+                        output.accept(RegisterItems.INGOT_AU198.get());
+                        output.accept(RegisterItems.INGOT_PB209.get());
+                        output.accept(RegisterItems.INGOT_ELECTRONIUM.get());
+                        output.accept(RegisterItems.INGOT_ASBESTOS.get());
+
+                        // Normal ingots
+                        output.accept(RegisterItems.INGOT_STEEL.get());
+                        output.accept(RegisterItems.INGOT_TITANIUM.get());
+                        output.accept(RegisterItems.INGOT_COPPER.get());
                         output.accept(RegisterItems.INGOT_RED_COPPER.get());
+                        output.accept(RegisterItems.INGOT_ADVANCED_ALLOY.get());
+                        output.accept(RegisterItems.INGOT_TUNGSTEN.get());
+                        output.accept(RegisterItems.INGOT_ALUMINIUM.get());
+                        output.accept(RegisterItems.INGOT_BERYLLIUM.get());
+                        output.accept(RegisterItems.INGOT_LEAD.get());
+                        output.accept(RegisterItems.INGOT_MAGNETIZED_TUNGSTEN.get());
+                        output.accept(RegisterItems.INGOT_COMBINE_STEEL.get());
+                        output.accept(RegisterItems.INGOT_DURA_STEEL.get());
+                        output.accept(RegisterItems.INGOT_TCALLOY.get());
+                        output.accept(RegisterItems.INGOT_CDALLOY.get());
+                        output.accept(RegisterItems.INGOT_DESH.get());
+                        output.accept(RegisterItems.INGOT_SATURNITE.get());
+                        output.accept(RegisterItems.INGOT_FERROURANIUM.get());
+                        output.accept(RegisterItems.INGOT_STARMETAL.get());
+                        output.accept(RegisterItems.INGOT_OSMIRIDIUM.get());
+                        output.accept(RegisterItems.INGOT_EUPHEMIUM.get());
+                        output.accept(RegisterItems.INGOT_DINEUTRONIUM.get());
+                        output.accept(RegisterItems.INGOT_CADMIUM.get());
+                        output.accept(RegisterItems.INGOT_BISMUTH.get());
+                        output.accept(RegisterItems.INGOT_ARSENIC.get());
+                        output.accept(RegisterItems.INGOT_ZIRCONIUM.get());
+                        output.accept(RegisterItems.INGOT_BISMUTH_BRONZE.get());
+                        output.accept(RegisterItems.INGOT_ARSENIC_BRONZE.get());
+                        output.accept(RegisterItems.INGOT_BSCCO.get());
+                        output.accept(RegisterItems.INGOT_CALCIUM.get());
+                        output.accept(RegisterItems.INGOT_GUNMETAL.get());
+                        output.accept(RegisterItems.INGOT_WEAPONSTEEL.get());
+                        output.accept(RegisterItems.INGOT_CFT.get());
+                        output.accept(RegisterItems.INGOT_TENNESSINE.get());
+                        output.accept(RegisterItems.INGOT_BORON.get());
+                        output.accept(RegisterItems.INGOT_GRAPHITE.get());
+                        output.accept(RegisterItems.INGOT_FIBERGLASS.get());
+                        output.accept(RegisterItems.INGOT_NIOBIUM.get());
+                        output.accept(RegisterItems.INGOT_BROMINE.get());
+                        output.accept(RegisterItems.INGOT_CAESIUM.get());
+                        output.accept(RegisterItems.INGOT_CERIUM.get());
+                        output.accept(RegisterItems.INGOT_LANTHANIUM.get());
+                        output.accept(RegisterItems.INGOT_TANTALIUM.get());
+                        output.accept(RegisterItems.INGOT_ASTATINE.get());
+                        output.accept(RegisterItems.INGOT_FIREBRICK.get());
+                        output.accept(RegisterItems.INGOT_COBALT.get());
+                        output.accept(RegisterItems.INGOT_IODINE.get());
+                        output.accept(RegisterItems.INGOT_REIIUM.get());
+                        output.accept(RegisterItems.INGOT_WEIDANIUM.get());
+                        output.accept(RegisterItems.INGOT_ASTRALIUM.get());
+                        output.accept(RegisterItems.INGOT_VERTICIUM.get());
+                        output.accept(RegisterItems.INGOT_UNOBTAINIUM.get());
+                        output.accept(RegisterItems.INGOT_DAFFERGON.get());
+                        output.accept(RegisterItems.INGOT_STEEL_DUSTED.get());
+                        output.accept(RegisterItems.INGOT_CHAINSTEEL.get());
+                        output.accept(RegisterItems.INGOT_METEORITE.get());
+                        output.accept(RegisterItems.INGOT_METEORITE_FORGED.get());
+                        output.accept(RegisterItems.INGOT_POLYMER.get());
+                        output.accept(RegisterItems.INGOT_BAKELITE.get());
+                        output.accept(RegisterItems.INGOT_RUBBER.get());
+                        output.accept(RegisterItems.INGOT_BIORUBBER.get());
+                        output.accept(RegisterItems.INGOT_PC.get());
+                        output.accept(RegisterItems.INGOT_PVC.get());
+                        output.accept(RegisterItems.INGOT_SILICON.get());
                         output.accept(RegisterItems.INGOT_RED_GOLD.get());
                         output.accept(RegisterItems.INGOT_GILDED_COPPER.get());
+
+
 
                         output.accept(RegisterBlocks.BATTERY_BLOCK.get());
 

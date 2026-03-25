@@ -22,23 +22,133 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(RegisterItems.MISSILE_LINKER);
         simpleItem(RegisterItems.MULTIMETER);
         simpleItem(RegisterItems.ADVANCED_MULTIMETER);
+        // ingots
+        // Uranium
+        simpleItem(RegisterItems.INGOT_URANIUM);
+        simpleItem(RegisterItems.INGOT_U233);
+        simpleItem(RegisterItems.INGOT_U235);
+        simpleItem(RegisterItems.INGOT_U238);
+        simpleItem(RegisterItems.INGOT_URANIUM_FUEL);
+        simpleItem(RegisterItems.INGOT_U238m2);
 
+        // Plutonium
+        simpleItem(RegisterItems.INGOT_PLUTONIUM);
+        simpleItem(RegisterItems.INGOT_PU239);
+        simpleItem(RegisterItems.INGOT_PU240);
+        simpleItem(RegisterItems.INGOT_PU241);
+        simpleItem(RegisterItems.INGOT_PLUTONIUM_PU_MIX);
+        simpleItem(RegisterItems.INGOT_PLUTONIUM_FUEL);
+        simpleItem(RegisterItems.INGOT_PU238);
+
+        // Americium
+        simpleItem(RegisterItems.INGOT_AM241);
+        simpleItem(RegisterItems.INGOT_AM242);
+        simpleItem(RegisterItems.INGOT_AM_MIX);
+        simpleItem(RegisterItems.INGOT_AMERICIUM_FUEL);
+
+        // Thorium / Neptunium
+        simpleItem(RegisterItems.INGOT_THORIUM);
+        simpleItem(RegisterItems.INGOT_THORIUM_FUEL);
+        simpleItem(RegisterItems.INGOT_NEPTUNIUM);
+        simpleItem(RegisterItems.INGOT_NEPTUNIUM_FUEL);
+
+        // Schrabidium
+        simpleItem(RegisterItems.INGOT_SCHRARANIUM);
+        simpleItem(RegisterItems.INGOT_SCHRABIDIUM);
+        simpleItem(RegisterItems.INGOT_SCHRABIDATE);
+        simpleItem(RegisterItems.INGOT_SCHRABIDIUM_FUEL);
+        simpleItem(RegisterItems.INGOT_HES);
+        simpleItem(RegisterItems.INGOT_LES);
+
+        // Hazard misc
+        simpleItem(RegisterItems.INGOT_TECHNETIUM);
+        simpleItem(RegisterItems.INGOT_MOX_FUEL);
+        simpleItem(RegisterItems.INGOT_RA226);
+        simpleItem(RegisterItems.INGOT_ACTINIUM);
+        simpleItem(RegisterItems.INGOT_GH336);
+        simpleItem(RegisterItems.INGOT_MUD);
+        simpleItem(RegisterItems.INGOT_POLONIUM);
+        simpleItem(RegisterItems.INGOT_PHOSPHORUS);
+        simpleItem(RegisterItems.INGOT_CO60);
+        simpleItem(RegisterItems.INGOT_SR90);
+        simpleItem(RegisterItems.INGOT_I131);
+        simpleItem(RegisterItems.INGOT_AU198);
+        simpleItem(RegisterItems.INGOT_PB209);
+        simpleItem(RegisterItems.INGOT_ELECTRONIUM);
+        simpleItem(RegisterItems.INGOT_ASBESTOS);
+
+        // Normal ingots
+        simpleItem(RegisterItems.INGOT_STEEL);
+        simpleItem(RegisterItems.INGOT_TITANIUM);
+        simpleItem(RegisterItems.INGOT_COPPER);
         simpleItem(RegisterItems.INGOT_RED_COPPER);
+        simpleItem(RegisterItems.INGOT_ADVANCED_ALLOY);
+        simpleItem(RegisterItems.INGOT_TUNGSTEN);
+        simpleItem(RegisterItems.INGOT_ALUMINIUM);
+        simpleItem(RegisterItems.INGOT_BERYLLIUM);
+        simpleItem(RegisterItems.INGOT_LEAD);
+        simpleItem(RegisterItems.INGOT_MAGNETIZED_TUNGSTEN);
+        simpleItem(RegisterItems.INGOT_COMBINE_STEEL);
+        simpleItem(RegisterItems.INGOT_DURA_STEEL);
+        simpleItem(RegisterItems.INGOT_TCALLOY);
+        simpleItem(RegisterItems.INGOT_CDALLOY);
+        simpleItem(RegisterItems.INGOT_DESH);
+        simpleItem(RegisterItems.INGOT_SATURNITE);
+        simpleItem(RegisterItems.INGOT_FERROURANIUM);
+        simpleItem(RegisterItems.INGOT_STARMETAL);
+        simpleItem(RegisterItems.INGOT_OSMIRIDIUM);
+        simpleItem(RegisterItems.INGOT_EUPHEMIUM);
+        simpleItem(RegisterItems.INGOT_DINEUTRONIUM);
+        simpleItem(RegisterItems.INGOT_CADMIUM);
+        simpleItem(RegisterItems.INGOT_BISMUTH);
+        simpleItem(RegisterItems.INGOT_ARSENIC);
+        simpleItem(RegisterItems.INGOT_ZIRCONIUM);
+        simpleItem(RegisterItems.INGOT_BISMUTH_BRONZE);
+        simpleItem(RegisterItems.INGOT_ARSENIC_BRONZE);
+        simpleItem(RegisterItems.INGOT_BSCCO);
+        simpleItem(RegisterItems.INGOT_CALCIUM);
+        simpleItem(RegisterItems.INGOT_GUNMETAL);
+        simpleItem(RegisterItems.INGOT_WEAPONSTEEL);
+        simpleItem(RegisterItems.INGOT_CFT);
+        simpleItem(RegisterItems.INGOT_TENNESSINE);
+        simpleItem(RegisterItems.INGOT_BORON);
+        simpleItem(RegisterItems.INGOT_GRAPHITE);
+        simpleItem(RegisterItems.INGOT_FIBERGLASS);
+        simpleItem(RegisterItems.INGOT_NIOBIUM);
+        simpleItem(RegisterItems.INGOT_BROMINE);
+        simpleItem(RegisterItems.INGOT_CAESIUM);
+        simpleItem(RegisterItems.INGOT_CERIUM);
+        simpleItem(RegisterItems.INGOT_LANTHANIUM);
+        simpleItem(RegisterItems.INGOT_TANTALIUM);
+        simpleItem(RegisterItems.INGOT_ASTATINE);
+        simpleItem(RegisterItems.INGOT_FIREBRICK);
+        simpleItem(RegisterItems.INGOT_COBALT);
+        simpleItem(RegisterItems.INGOT_IODINE);
+        simpleItem(RegisterItems.INGOT_REIIUM);
+        simpleItem(RegisterItems.INGOT_WEIDANIUM);
+        simpleItem(RegisterItems.INGOT_ASTRALIUM);
+        simpleItem(RegisterItems.INGOT_VERTICIUM);
+        simpleItem(RegisterItems.INGOT_UNOBTAINIUM);
+        simpleItem(RegisterItems.INGOT_DAFFERGON);
+        simpleItem(RegisterItems.INGOT_STEEL_DUSTED);
+        simpleItem(RegisterItems.INGOT_CHAINSTEEL);
+        simpleItem(RegisterItems.INGOT_METEORITE);
+        simpleItem(RegisterItems.INGOT_METEORITE_FORGED);
+        simpleItem(RegisterItems.INGOT_POLYMER);
+        simpleItem(RegisterItems.INGOT_BAKELITE);
+        simpleItem(RegisterItems.INGOT_RUBBER);
+        simpleItem(RegisterItems.INGOT_BIORUBBER);
+        simpleItem(RegisterItems.INGOT_PC);
+        simpleItem(RegisterItems.INGOT_PVC);
+        simpleItem(RegisterItems.INGOT_SILICON);
         simpleItem(RegisterItems.INGOT_RED_GOLD);
         simpleItem(RegisterItems.INGOT_GILDED_COPPER);
 
-        simpleItem(RegisterItems.RAW_COBALT);
-        simpleItem(RegisterItems.INGOT_COBALT);
-
-
-        simpleItem(RegisterItems.PLATE_IRON);
-
-        simpleItem(RegisterItems.INGOT_URANIUM);
-        simpleItem(RegisterItems.INGOT_BERYLLIUM);
-        simpleItem(RegisterItems.INGOT_TITANIUM);
-
         simpleItem(RegisterItems.RAW_TITANIUM);
         simpleItem(RegisterItems.RAW_URANIUM);
+        simpleItem(RegisterItems.RAW_COBALT);
+
+        simpleItem(RegisterItems.PLATE_IRON);
 
         simpleItem(RegisterItems.PILE_ROD_URANIUM);
         simpleItem(RegisterItems.BILLET_URANIUM);
