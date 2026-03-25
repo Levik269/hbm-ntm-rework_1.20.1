@@ -154,10 +154,7 @@ public class RegisterBlocks {
 
 // ------------------------------------- Concrete variants (pDT=15, pER=84) on Stone base -------------------------------------
 
-    public static final RegistryObject<Block> CONCRETE_SMOOTH = registerBlock("concrete_smooth",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
-                    .strength(15.0f, 84.0f)
-            ));
+
 
     // Colored concrete blocks
     public static final RegistryObject<Block> CONCRETE_WHITE = registerBlock("concrete_white",
@@ -200,10 +197,7 @@ public class RegisterBlocks {
                     .strength(15.0f, 84.0f)
             ));
 
-    public static final RegistryObject<Block> CONCRETE_LIGHT_GRAY = registerBlock("concrete_light_gray",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
-                    .strength(15.0f, 84.0f)
-            ));
+
 
     public static final RegistryObject<Block> CONCRETE_CYAN = registerBlock("concrete_cyan",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
@@ -240,7 +234,7 @@ public class RegisterBlocks {
                     .strength(15.0f, 84.0f)
             ));
 
-    
+    /*
     // ------------------------------------- Concrete Stairs ----------------------------------
     public static final RegistryObject<StairBlock> CONCRETE_STAIRS = registerBlock("concrete_stairs",
             () -> new StairBlock(() -> CONCRETE.get().defaultBlockState(),
@@ -379,7 +373,7 @@ public class RegisterBlocks {
                     BlockBehaviour.Properties.copy(Blocks.STONE)
                             .strength(15.0f, 84.0f)
             ));
-    
+    */
 
     // ------------------------------------- Other blocks -------------------------------------
 

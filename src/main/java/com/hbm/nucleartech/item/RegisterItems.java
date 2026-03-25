@@ -287,7 +287,7 @@ public class RegisterItems {
     public static final RegistryObject<Item> INGOT_SATURNITE = ITEMS.register("ingot_saturnite",
             () -> new Item(new Item.Properties()));
 
-    public static final RegistryObject<Item> INGOT_FERROURANIUM = ITEMS.register("ingot_ferouranium",
+    public static final RegistryObject<Item> INGOT_FERROURANIUM = ITEMS.register("ingot_ferrouranium",
             () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> INGOT_STARMETAL = ITEMS.register("ingot_starmetal",
@@ -382,7 +382,7 @@ public class RegisterItems {
 
     public static final RegistryObject<Item> INGOT_WEIDANIUM = ITEMS.register("ingot_weidanium",
             () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> INGOT_ASTRALIUM = ITEMS.register("ingot_astralium",
+    public static final RegistryObject<Item> INGOT_AUSTRALIUM = ITEMS.register("ingot_australium",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> INGOT_VERTICIUM = ITEMS.register("ingot_verticium",
             () -> new Item(new Item.Properties()));
@@ -466,10 +466,217 @@ public class RegisterItems {
             () -> new HazardItem.Builder(new Item.Properties())
                     .radiation(1.75)
                     .build());
-
+// ------------- Billets Items  --------------
+    public static final RegistryObject<Item> BILLET_COBALT = ITEMS.register("billet_cobalt",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BILLET_SILICON = ITEMS.register("billet_silicon",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BILLET_TH232 = ITEMS.register("billet_th232",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(0.05)
+                    .build());
     public static final RegistryObject<Item> BILLET_URANIUM = ITEMS.register("billet_uranium",
             () -> new HazardItem.Builder(new Item.Properties())
                     .radiation(0.175)
+                    .build());
+    public static final RegistryObject<Item> BILLET_U233 = ITEMS.register("billet_u233",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(2.5)
+                    .build());
+    public static final RegistryObject<Item> BILLET_U235 = ITEMS.register("billet_u235",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(0.5)
+                    .build());
+    public static final RegistryObject<Item> BILLET_U238 = ITEMS.register("billet_u238",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(0.125)
+                    .build());
+    public static final RegistryObject<Item> BILLET_PLUTONIUM = ITEMS.register("billet_plutonium",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(3.75)
+                    .build());
+    public static final RegistryObject<Item> BILLET_PU238 = ITEMS.register("billet_pu238",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(5)
+                    .fire(1)
+                    .build());
+
+
+    public static final RegistryObject<Item> BILLET_PU239 = ITEMS.register("billet_pu239",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(2.5)
+                    .build());
+    public static final RegistryObject<Item> BILLET_PU240 = ITEMS.register("billet_pu240",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(3.75)
+                    .build());
+    public static final RegistryObject<Item> BILLET_PU241 = ITEMS.register("billet_pu241",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(12.5)
+                    .build());
+    public static final RegistryObject<Item> BILLET_PU_MIX = ITEMS.register("billet_pu_mix",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(3.125)
+                    .build());
+    public static final RegistryObject<Item> BILLET_AM241 = ITEMS.register("billet_am241",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(4.25)
+                    .build());
+    public static final RegistryObject<Item> BILLET_AM242 = ITEMS.register("billet_am242",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(4.75)
+                    .build());
+    public static final RegistryObject<Item> BILLET_AM_MIX = ITEMS.register("billet_am_mix",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(4.5)
+                    .build());
+    public static final RegistryObject<Item> BILLET_NEPTUNIUM = ITEMS.register("billet_neptunium",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(1.25)
+                    .build());
+    public static final RegistryObject<Item> BILLET_POLONIUM = ITEMS.register("billet_polonium",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(37.5)
+                    .fire(1)
+                    .build());
+
+    public static final RegistryObject<Item> BILLET_TECHNETIUM = ITEMS.register("billet_technetium",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(1.375)
+                    .build());
+    public static final RegistryObject<Item> BILLET_CO60 = ITEMS.register("billet_co60",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(15)
+                    .fire(1)
+                    .build());
+    public static final RegistryObject<Item> BILLET_SR90 = ITEMS.register("billet_sr90",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(7.5)
+                    .hydroReactive()
+                    .fire(1)
+                    .build());
+    public static final RegistryObject<Item> BILLET_AU198 = ITEMS.register("billet_au198",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(250)
+                    .fire(1)
+                    .build());
+    public static final RegistryObject<Item> BILLET_PB209 = ITEMS.register("billet_pb209",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(5000)
+                    .blinding()
+                    .fire(1)
+                    .build());
+    public static final RegistryObject<Item> BILLET_RA226 = ITEMS.register("billet_ra226",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(3.75)
+                    .build());
+    public static final RegistryObject<Item> BILLET_ACTINIUM = ITEMS.register("billet_actinium",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(15)
+                    .build());
+    public static final RegistryObject<Item> BILLET_GH336 = ITEMS.register("billet_gh336",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(2.5)
+                    .build());
+    public static final RegistryObject<Item> BILLET_BERYLLIUM = ITEMS.register("billet_beryllium",
+            () -> new Item(new Item.Properties()));
+
+
+    public static final RegistryObject<Item> BILLET_BISMUTH = ITEMS.register("billet_bismuth",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BILLET_ZIRCONIUM = ITEMS.register("billet_zirconium",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BILLET_ZFB_BISMUTH = ITEMS.register("billet_zfb_bismuth",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BILLET_ZFB_PU241 = ITEMS.register("billet_zfb_pu241",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BILLET_ZFB_AM_MIX = ITEMS.register("billet_zfb_am_mix",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BILLET_SCHRABIDIUM = ITEMS.register("billet_schrabidium",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(7.5)
+                    .blinding()
+                    .build());
+    public static final RegistryObject<Item> BILLET_SOLINIUM = ITEMS.register("billet_solinium",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(8.75)
+                    .blinding()
+                    .build());
+    public static final RegistryObject<Item> BILLET_THORIUM_FUEL = ITEMS.register("billet_thorium_fuel",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(0.875)
+                    .build());
+    public static final RegistryObject<Item> BILLET_URANIUM_FUEL = ITEMS.register("billet_uranium_fuel",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(0.25)
+                    .build());
+
+
+    public static final RegistryObject<Item> BILLET_MOX_FUEL = ITEMS.register("billet_mox_fuel",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(1.25)
+                    .build());
+    public static final RegistryObject<Item> BILLET_PLUTONIUM_FUEL = ITEMS.register("billet_plutonium_fuel",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(2.125)
+                    .build());
+    public static final RegistryObject<Item> BILLET_NEPTUNIUM_FUEL = ITEMS.register("billet_neptunium_fuel",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(0.75)
+                    .build());
+    public static final RegistryObject<Item> BILLET_AMERICIUM_FUEL = ITEMS.register("billet_americium_fuel",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(2.375)
+                    .build());
+    public static final RegistryObject<Item> BILLET_LES = ITEMS.register("billet_les",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(2.925)
+                    .build());
+    public static final RegistryObject<Item> BILLET_SCHRABIDIUM_FUEL = ITEMS.register("billet_schrabidium_fuel",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(2.925)
+                    .blinding()
+                    .build());
+    public static final RegistryObject<Item> BILLET_HES = ITEMS.register("billet_hes",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(2.925)
+                    .build());
+    public static final RegistryObject<Item> BILLET_PO210BE = ITEMS.register("billet_po210be",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(112.5)
+                    .build());
+    public static final RegistryObject<Item> BILLET_RA226BE = ITEMS.register("billet_ra226be",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(11.25)
+                    .build());
+
+
+    public static final RegistryObject<Item> BILLET_PU238BE = ITEMS.register("billet_pu238be",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(15)
+                    .build());
+    public static final RegistryObject<Item> BILLET_AUSTRALIUM = ITEMS.register("billet_australium",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BILLET_AUSTRALIUM_LESSER = ITEMS.register("billet_australium_lesser",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BILLET_AUSTRALIUM_GREATER = ITEMS.register("billet_australium_greater",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BILLET_UNOBTAINIUM = ITEMS.register("billet_unobtainium",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BILLET_YHARONITE = ITEMS.register("billet_yharonite",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BILLET_BALEFIRE_GOLD = ITEMS.register("billet_balefire_gold",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(250)
+                    .build());
+    public static final RegistryObject<Item> BILLET_FLASHLEAD = ITEMS.register("billet_flashlead",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(6250)
+                    .fire(1)
+                    .build());
+    public static final RegistryObject<Item> BILLET_NUCLEAR_WASTE = ITEMS.register("billet_nuclear_waste",
+            () -> new HazardItem.Builder(new Item.Properties())
+                    .radiation(7.5)
                     .build());
 
     public static final RegistryObject<Item> PILE_ROD_URANIUM = ITEMS.register("pile_rod_uranium",

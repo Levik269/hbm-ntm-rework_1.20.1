@@ -131,7 +131,7 @@ public class RegisterCreativeTabs {
                         output.accept(RegisterItems.INGOT_IODINE.get());
                         output.accept(RegisterItems.INGOT_REIIUM.get());
                         output.accept(RegisterItems.INGOT_WEIDANIUM.get());
-                        output.accept(RegisterItems.INGOT_ASTRALIUM.get());
+                        output.accept(RegisterItems.INGOT_AUSTRALIUM.get());
                         output.accept(RegisterItems.INGOT_VERTICIUM.get());
                         output.accept(RegisterItems.INGOT_UNOBTAINIUM.get());
                         output.accept(RegisterItems.INGOT_DAFFERGON.get());
@@ -148,7 +148,61 @@ public class RegisterCreativeTabs {
                         output.accept(RegisterItems.INGOT_SILICON.get());
                         output.accept(RegisterItems.INGOT_RED_GOLD.get());
                         output.accept(RegisterItems.INGOT_GILDED_COPPER.get());
-
+//---------- Billets -----------
+                        output.accept(RegisterItems.BILLET_COBALT.get());
+                        output.accept(RegisterItems.BILLET_SILICON.get());
+                        output.accept(RegisterItems.BILLET_TH232.get());
+                        output.accept(RegisterItems.BILLET_URANIUM.get());
+                        output.accept(RegisterItems.BILLET_U233.get());
+                        output.accept(RegisterItems.BILLET_U235.get());
+                        output.accept(RegisterItems.BILLET_U238.get());
+                        output.accept(RegisterItems.BILLET_PLUTONIUM.get());
+                        output.accept(RegisterItems.BILLET_PU238.get());
+                        output.accept(RegisterItems.BILLET_PU239.get());
+                        output.accept(RegisterItems.BILLET_PU240.get());
+                        output.accept(RegisterItems.BILLET_PU241.get());
+                        output.accept(RegisterItems.BILLET_PU_MIX.get());
+                        output.accept(RegisterItems.BILLET_AM241.get());
+                        output.accept(RegisterItems.BILLET_AM242.get());
+                        output.accept(RegisterItems.BILLET_AM_MIX.get());
+                        output.accept(RegisterItems.BILLET_NEPTUNIUM.get());
+                        output.accept(RegisterItems.BILLET_POLONIUM.get());
+                        output.accept(RegisterItems.BILLET_TECHNETIUM.get());
+                        output.accept(RegisterItems.BILLET_CO60.get());
+                        output.accept(RegisterItems.BILLET_SR90.get());
+                        output.accept(RegisterItems.BILLET_AU198.get());
+                        output.accept(RegisterItems.BILLET_PB209.get());
+                        output.accept(RegisterItems.BILLET_RA226.get());
+                        output.accept(RegisterItems.BILLET_ACTINIUM.get());
+                        output.accept(RegisterItems.BILLET_GH336.get());
+                        output.accept(RegisterItems.BILLET_BERYLLIUM.get());
+                        output.accept(RegisterItems.BILLET_BISMUTH.get());
+                        output.accept(RegisterItems.BILLET_ZIRCONIUM.get());
+                        output.accept(RegisterItems.BILLET_ZFB_BISMUTH.get());
+                        output.accept(RegisterItems.BILLET_ZFB_PU241.get());
+                        output.accept(RegisterItems.BILLET_ZFB_AM_MIX.get());
+                        output.accept(RegisterItems.BILLET_SCHRABIDIUM.get());
+                        output.accept(RegisterItems.BILLET_SOLINIUM.get());
+                        output.accept(RegisterItems.BILLET_THORIUM_FUEL.get());
+                        output.accept(RegisterItems.BILLET_URANIUM_FUEL.get());
+                        output.accept(RegisterItems.BILLET_MOX_FUEL.get());
+                        output.accept(RegisterItems.BILLET_PLUTONIUM_FUEL.get());
+                        output.accept(RegisterItems.BILLET_NEPTUNIUM_FUEL.get());
+                        output.accept(RegisterItems.BILLET_AMERICIUM_FUEL.get());
+                        output.accept(RegisterItems.BILLET_LES.get());
+                        output.accept(RegisterItems.BILLET_SCHRABIDIUM_FUEL.get());
+                        output.accept(RegisterItems.BILLET_HES.get());
+                        output.accept(RegisterItems.BILLET_PO210BE.get());
+                        output.accept(RegisterItems.BILLET_RA226BE.get());
+                        output.accept(RegisterItems.BILLET_PU238BE.get());
+                        output.accept(RegisterItems.BILLET_AUSTRALIUM.get());
+                        output.accept(RegisterItems.BILLET_AUSTRALIUM_LESSER.get());
+                        output.accept(RegisterItems.BILLET_AUSTRALIUM_GREATER.get());
+                        output.accept(RegisterItems.BILLET_UNOBTAINIUM.get());
+                        output.accept(RegisterItems.BILLET_YHARONITE.get());
+                        output.accept(RegisterItems.BILLET_BALEFIRE_GOLD.get());
+                        output.accept(RegisterItems.BILLET_FLASHLEAD.get());
+                        output.accept(RegisterItems.BILLET_NUCLEAR_WASTE.get());
 
 
                         output.accept(RegisterBlocks.BATTERY_BLOCK.get());
@@ -156,7 +210,7 @@ public class RegisterCreativeTabs {
                         output.accept(RegisterItems.POWDER_URANIUM.get());
                         output.accept(RegisterItems.NUGGET_URANIUM.get());
                         output.accept(RegisterItems.CRYSTAL_URANIUM.get());
-                        output.accept(RegisterItems.BILLET_URANIUM.get());
+
                         output.accept(RegisterItems.PILE_ROD_URANIUM.get());
 
                         output.accept(RegisterItems.RAW_TITANIUM.get());
@@ -221,6 +275,7 @@ public class RegisterCreativeTabs {
                           
                         output.accept(RegisterBlocks.CONCRETE.get());
 
+
                         // M350 Concrete variants
                         output.accept(RegisterBlocks.BRICK_CONCRETE.get());
                         output.accept(RegisterBlocks.BRICK_CONCRETE_MOSSY.get());
@@ -229,7 +284,6 @@ public class RegisterCreativeTabs {
                         output.accept(RegisterBlocks.BRICK_CONCRETE_MARKED.get());
 
                         // M350 Colored Concrete variants
-                        output.accept(RegisterBlocks.CONCRETE_SMOOTH.get());
                         output.accept(RegisterBlocks.CONCRETE_WHITE.get());
                         output.accept(RegisterBlocks.CONCRETE_ORANGE.get());
                         output.accept(RegisterBlocks.CONCRETE_MAGENTA.get());
@@ -238,7 +292,6 @@ public class RegisterCreativeTabs {
                         output.accept(RegisterBlocks.CONCRETE_LIME.get());
                         output.accept(RegisterBlocks.CONCRETE_PINK.get());
                         output.accept(RegisterBlocks.CONCRETE_GRAY.get());
-                        output.accept(RegisterBlocks.CONCRETE_LIGHT_GRAY.get());
                         output.accept(RegisterBlocks.CONCRETE_CYAN.get());
                         output.accept(RegisterBlocks.CONCRETE_PURPLE.get());
                         output.accept(RegisterBlocks.CONCRETE_BLUE.get());

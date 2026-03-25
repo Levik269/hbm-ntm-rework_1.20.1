@@ -5,6 +5,7 @@ import com.hbm.nucleartech.block.RegisterBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -64,7 +65,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(RegisterBlocks.BRICK_CONCRETE_MARKED);
 
         // M350 Colored Concrete variants
-        blockWithItem(RegisterBlocks.CONCRETE_SMOOTH);
         blockWithItem(RegisterBlocks.CONCRETE_WHITE);
         blockWithItem(RegisterBlocks.CONCRETE_ORANGE);
         blockWithItem(RegisterBlocks.CONCRETE_MAGENTA);
@@ -73,7 +73,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(RegisterBlocks.CONCRETE_LIME);
         blockWithItem(RegisterBlocks.CONCRETE_PINK);
         blockWithItem(RegisterBlocks.CONCRETE_GRAY);
-        blockWithItem(RegisterBlocks.CONCRETE_LIGHT_GRAY);
         blockWithItem(RegisterBlocks.CONCRETE_CYAN);
         blockWithItem(RegisterBlocks.CONCRETE_PURPLE);
         blockWithItem(RegisterBlocks.CONCRETE_BLUE);

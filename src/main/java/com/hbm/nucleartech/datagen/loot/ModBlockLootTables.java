@@ -55,14 +55,16 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         // M350 Concrete variants
         this.dropSelf(RegisterBlocks.CONCRETE.get());
+
+
+
         this.dropSelf(RegisterBlocks.BRICK_CONCRETE.get());
         this.dropSelf(RegisterBlocks.BRICK_CONCRETE_MOSSY.get());
         this.dropSelf(RegisterBlocks.BRICK_CONCRETE_CRACKED.get());
         this.dropSelf(RegisterBlocks.BRICK_CONCRETE_BROKEN.get());
         this.dropSelf(RegisterBlocks.BRICK_CONCRETE_MARKED.get());
 
-        // M350 Colored Concrete variants
-        this.dropSelf(RegisterBlocks.CONCRETE_SMOOTH.get());
+
         this.dropSelf(RegisterBlocks.CONCRETE_WHITE.get());
         this.dropSelf(RegisterBlocks.CONCRETE_ORANGE.get());
         this.dropSelf(RegisterBlocks.CONCRETE_MAGENTA.get());
@@ -71,7 +73,6 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(RegisterBlocks.CONCRETE_LIME.get());
         this.dropSelf(RegisterBlocks.CONCRETE_PINK.get());
         this.dropSelf(RegisterBlocks.CONCRETE_GRAY.get());
-        this.dropSelf(RegisterBlocks.CONCRETE_LIGHT_GRAY.get());
         this.dropSelf(RegisterBlocks.CONCRETE_CYAN.get());
         this.dropSelf(RegisterBlocks.CONCRETE_PURPLE.get());
         this.dropSelf(RegisterBlocks.CONCRETE_BLUE.get());

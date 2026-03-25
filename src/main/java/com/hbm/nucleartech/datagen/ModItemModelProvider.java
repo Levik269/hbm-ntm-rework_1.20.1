@@ -126,7 +126,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(RegisterItems.INGOT_IODINE);
         simpleItem(RegisterItems.INGOT_REIIUM);
         simpleItem(RegisterItems.INGOT_WEIDANIUM);
-        simpleItem(RegisterItems.INGOT_ASTRALIUM);
+        simpleItem(RegisterItems.INGOT_AUSTRALIUM);
         simpleItem(RegisterItems.INGOT_VERTICIUM);
         simpleItem(RegisterItems.INGOT_UNOBTAINIUM);
         simpleItem(RegisterItems.INGOT_DAFFERGON);
@@ -144,6 +144,63 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(RegisterItems.INGOT_RED_GOLD);
         simpleItem(RegisterItems.INGOT_GILDED_COPPER);
 
+//--------- Billets ---------
+        simpleItem(RegisterItems.BILLET_COBALT);
+        simpleItem(RegisterItems.BILLET_SILICON);
+        simpleItem(RegisterItems.BILLET_TH232);
+        simpleItem(RegisterItems.BILLET_URANIUM);
+        simpleItem(RegisterItems.BILLET_U233);
+        simpleItem(RegisterItems.BILLET_U235);
+        simpleItem(RegisterItems.BILLET_U238);
+        simpleItem(RegisterItems.BILLET_PLUTONIUM);
+        simpleItem(RegisterItems.BILLET_PU238);
+        simpleItem(RegisterItems.BILLET_PU239);
+        simpleItem(RegisterItems.BILLET_PU240);
+        simpleItem(RegisterItems.BILLET_PU241);
+        simpleItem(RegisterItems.BILLET_PU_MIX);
+        simpleItem(RegisterItems.BILLET_AM241);
+        simpleItem(RegisterItems.BILLET_AM242);
+        simpleItem(RegisterItems.BILLET_AM_MIX);
+        simpleItem(RegisterItems.BILLET_NEPTUNIUM);
+        simpleItem(RegisterItems.BILLET_POLONIUM);
+        simpleItem(RegisterItems.BILLET_TECHNETIUM);
+        simpleItem(RegisterItems.BILLET_CO60);
+        simpleItem(RegisterItems.BILLET_SR90);
+        simpleItem(RegisterItems.BILLET_AU198);
+        simpleItem(RegisterItems.BILLET_PB209);
+        simpleItem(RegisterItems.BILLET_RA226);
+        simpleItem(RegisterItems.BILLET_ACTINIUM);
+        simpleItem(RegisterItems.BILLET_GH336);
+        simpleItem(RegisterItems.BILLET_BERYLLIUM);
+        simpleItem(RegisterItems.BILLET_BISMUTH);
+        simpleItem(RegisterItems.BILLET_ZIRCONIUM);
+        simpleItem(RegisterItems.BILLET_ZFB_BISMUTH);
+        simpleItem(RegisterItems.BILLET_ZFB_PU241);
+        simpleItem(RegisterItems.BILLET_ZFB_AM_MIX);
+        simpleItem(RegisterItems.BILLET_SCHRABIDIUM);
+        simpleItem(RegisterItems.BILLET_SOLINIUM);
+        simpleItem(RegisterItems.BILLET_THORIUM_FUEL);
+        simpleItem(RegisterItems.BILLET_URANIUM_FUEL);
+        simpleItem(RegisterItems.BILLET_MOX_FUEL);
+        simpleItem(RegisterItems.BILLET_PLUTONIUM_FUEL);
+        simpleItem(RegisterItems.BILLET_NEPTUNIUM_FUEL);
+        simpleItem(RegisterItems.BILLET_AMERICIUM_FUEL);
+        simpleItem(RegisterItems.BILLET_LES);
+        simpleItem(RegisterItems.BILLET_SCHRABIDIUM_FUEL);
+        simpleItem(RegisterItems.BILLET_HES);
+        simpleItem(RegisterItems.BILLET_PO210BE);
+        simpleItem(RegisterItems.BILLET_RA226BE);
+        simpleItem(RegisterItems.BILLET_PU238BE);
+        simpleItem(RegisterItems.BILLET_AUSTRALIUM);
+        simpleItem(RegisterItems.BILLET_AUSTRALIUM_LESSER);
+        simpleItem(RegisterItems.BILLET_AUSTRALIUM_GREATER);
+        simpleItem(RegisterItems.BILLET_UNOBTAINIUM);
+        simpleItem(RegisterItems.BILLET_YHARONITE);
+        simpleItem(RegisterItems.BILLET_BALEFIRE_GOLD);
+        simpleItem(RegisterItems.BILLET_FLASHLEAD);
+        simpleItem(RegisterItems.BILLET_NUCLEAR_WASTE);
+
+
         simpleItem(RegisterItems.RAW_TITANIUM);
         simpleItem(RegisterItems.RAW_URANIUM);
         simpleItem(RegisterItems.RAW_COBALT);
@@ -151,7 +208,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(RegisterItems.PLATE_IRON);
 
         simpleItem(RegisterItems.PILE_ROD_URANIUM);
-        simpleItem(RegisterItems.BILLET_URANIUM);
+
         simpleItem(RegisterItems.CRYSTAL_URANIUM);
         simpleItem(RegisterItems.NUGGET_URANIUM);
         simpleItem(RegisterItems.POWDER_URANIUM);
