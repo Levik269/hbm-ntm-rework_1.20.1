@@ -68,9 +68,7 @@ public class RegisterItems {
                     .radiation(0.5)
                     .build());
     public static final RegistryObject<Item> INGOT_U238m2 = ITEMS.register("ingot_u238m2",
-            () -> new HazardItem.Builder(new Item.Properties())
-                    .explosive(1)
-                    .build());
+            () -> new ItemUnstable(350, 200, NuclearBombType.UNSTABLE_BIG, new Item.Properties()));
     // ------------- Plutonium Ingots --------------
     public static final RegistryObject<Item> INGOT_PLUTONIUM = ITEMS.register("ingot_plutonium",
             () -> new HazardItem.Builder(new Item.Properties())
@@ -229,9 +227,7 @@ public class RegisterItems {
                     .fire(1)
                     .build());
     public static final RegistryObject<Item> INGOT_ELECTRONIUM = ITEMS.register("ingot_electronium",
-            () -> new HazardItem.Builder(new Item.Properties())
-                    .explosive(30)
-                    .build());
+            () -> new ItemUnstable(30, 6000, NuclearBombType.UNSTABLE_SMALL, new Item.Properties()));
     public static final RegistryObject<Item> INGOT_ASBESTOS = ITEMS.register("ingot_asbestos",
             () -> new HazardItem.Builder(new Item.Properties())
                     .asbestos(10)
@@ -457,16 +453,199 @@ public class RegisterItems {
                     .radiation(0.175)
                     .build());
 
-    public static final RegistryObject<Item> NUGGET_URANIUM = ITEMS.register("nugget_uranium",
-            () -> new HazardItem.Builder(new Item.Properties())
-                    .radiation(0.035)
-                    .build());
+
 
     public static final RegistryObject<Item> CRYSTAL_URANIUM = ITEMS.register("crystal_uranium",
             () -> new HazardItem.Builder(new Item.Properties())
                     .radiation(1.75)
                     .build());
-// ------------- Billets Items  --------------
+    // ------------- Nuggets --------------
+    public static final RegistryObject<Item> NUGGET_URANIUM = ITEMS.register("nugget_uranium",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.035f).build());
+
+    public static final RegistryObject<Item> NUGGET_U233 = ITEMS.register("nugget_u233",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.5f).build());
+
+    public static final RegistryObject<Item> NUGGET_U235 = ITEMS.register("nugget_u235",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.1f).build());
+
+    public static final RegistryObject<Item> NUGGET_U238 = ITEMS.register("nugget_u238",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.025f).build());
+
+    public static final RegistryObject<Item> NUGGET_PLUTONIUM = ITEMS.register("nugget_plutonium",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.75f).build());
+
+    public static final RegistryObject<Item> NUGGET_PU238 = ITEMS.register("nugget_pu238",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(1.0f).fire(1).build());
+
+    public static final RegistryObject<Item> NUGGET_PU239 = ITEMS.register("nugget_pu239",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.5f).build());
+
+    public static final RegistryObject<Item> NUGGET_PU240 = ITEMS.register("nugget_pu240",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.75f).build());
+
+    public static final RegistryObject<Item> NUGGET_TH232 = ITEMS.register("nugget_th232",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.01f).build());
+
+    public static final RegistryObject<Item> NUGGET_PU241 = ITEMS.register("nugget_pu241",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.6f).build());
+
+    public static final RegistryObject<Item> NUGGET_PU_MIX = ITEMS.register("nugget_pu_mix",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.7f).build());
+
+    public static final RegistryObject<Item> NUGGET_AM241 = ITEMS.register("nugget_am241",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(1.2f).build());
+
+    public static final RegistryObject<Item> NUGGET_AM242 = ITEMS.register("nugget_am242",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(1.5f).build());
+
+    public static final RegistryObject<Item> NUGGET_AM_MIX = ITEMS.register("nugget_am_mix",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(1.3f).build());
+
+    public static final RegistryObject<Item> NUGGET_TECHNETIUM = ITEMS.register("nugget_technetium",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.8f).build());
+
+    public static final RegistryObject<Item> NUGGET_NEPTUNIUM = ITEMS.register("nugget_neptunium",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.25f).build());
+
+    public static final RegistryObject<Item> NUGGET_POLONIUM = ITEMS.register("nugget_polonium",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(2.5f).build());
+
+    public static final RegistryObject<Item> NUGGET_THORIUM_FUEL = ITEMS.register("nugget_thorium_fuel",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.175f).build());
+
+    public static final RegistryObject<Item> NUGGET_URANIUM_FUEL = ITEMS.register("nugget_uranium_fuel",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.05f).build());
+
+    public static final RegistryObject<Item> NUGGET_MOX_FUEL = ITEMS.register("nugget_mox_fuel",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.25f).build());
+
+    public static final RegistryObject<Item> NUGGET_PLUTONIUM_FUEL = ITEMS.register("nugget_plutonium_fuel",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.425f).build());
+
+    public static final RegistryObject<Item> NUGGET_NEPTUNIUM_FUEL = ITEMS.register("nugget_neptunium_fuel",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.4f).build());
+
+    public static final RegistryObject<Item> NUGGET_AMERICIUM_FUEL = ITEMS.register("nugget_americium_fuel",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(1.0f).build());
+
+    public static final RegistryObject<Item> NUGGET_LES = ITEMS.register("nugget_les",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.585f).build());
+
+    public static final RegistryObject<Item> NUGGET_SCHRABIDIUM_FUEL = ITEMS.register("nugget_schrabidium_fuel",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.585f).blinding().build());
+
+    public static final RegistryObject<Item> NUGGET_HES = ITEMS.register("nugget_hes",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.585f).build());
+
+    public static final RegistryObject<Item> NUGGET_LEAD = ITEMS.register("nugget_lead",
+            () -> new HazardItem.Builder(new Item.Properties()).build()); // почти 0
+
+    public static final RegistryObject<Item> NUGGET_BERYLLIUM = ITEMS.register("nugget_beryllium",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> NUGGET_CADMIUM = ITEMS.register("nugget_cadmium",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> NUGGET_BISMUTH = ITEMS.register("nugget_bismuth",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> NUGGET_ARSENIC = ITEMS.register("nugget_arsenic",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.3f).build());
+
+    public static final RegistryObject<Item> NUGGET_ZIRCONIUM = ITEMS.register("nugget_zirconium",
+            () -> new HazardItem.Builder(new Item.Properties()).build());
+
+    public static final RegistryObject<Item> NUGGET_TANTALIUM = ITEMS.register("nugget_tantalium",
+            () -> new HazardItem.Builder(new Item.Properties()).build());
+
+    public static final RegistryObject<Item> NUGGET_DESH = ITEMS.register("nugget_desh",
+            () -> new HazardItem.Builder(new Item.Properties()).build());
+
+    public static final RegistryObject<Item> NUGGET_OSMIRIDIUM = ITEMS.register("nugget_osmiridium",
+            () -> new HazardItem.Builder(new Item.Properties()).build());
+
+    public static final RegistryObject<Item> NUGGET_SCHRABIDIUM = ITEMS.register("nugget_schrabidium",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(1.5f).blinding().build());
+
+    public static final RegistryObject<Item> NUGGET_SOLINIUM = ITEMS.register("nugget_solinium",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(1.75f).blinding().build());
+
+    public static final RegistryObject<Item> NUGGET_EUPHEMIUM = ITEMS.register("nugget_euphemium",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(2.0f).build());
+
+    public static final RegistryObject<Item> NUGGET_DINEUTRONIUM = ITEMS.register("nugget_dineutronium",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(3.0f).build());
+
+    public static final RegistryObject<Item> NUGGET_NIOBIUM = ITEMS.register("nugget_niobium",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> NUGGET_SILICON = ITEMS.register("nugget_silicon",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> NUGGET_ACTINIUM = ITEMS.register("nugget_actinium",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> NUGGET_COBALT = ITEMS.register("nugget_cobalt",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(0.4f).build());
+
+    public static final RegistryObject<Item> NUGGET_CO60 = ITEMS.register("nugget_co60",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(4.5f).build());
+
+    public static final RegistryObject<Item> NUGGET_STRONTIUM = ITEMS.register("nugget_strontium",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(1.2f).build());
+
+    public static final RegistryObject<Item> NUGGET_SR90 = ITEMS.register("nugget_sr90",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(5.0f).hydroReactive().build());
+
+    public static final RegistryObject<Item> NUGGET_PB209 = ITEMS.register("nugget_pb209",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(3.5f).blinding().build());
+
+    public static final RegistryObject<Item> NUGGET_GH336 = ITEMS.register("nugget_gh336",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(2.8f).build());
+
+    public static final RegistryObject<Item> NUGGET_AU198 = ITEMS.register("nugget_au198",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(2.2f).build());
+
+    public static final RegistryObject<Item> NUGGET_RA226 = ITEMS.register("nugget_ra226",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(8.0f).build());
+
+    public static final RegistryObject<Item> NUGGET_REIIUM = ITEMS.register("nugget_reiium",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(4.0f).build());
+
+    public static final RegistryObject<Item> NUGGET_WEIDANIUM = ITEMS.register("nugget_weidanium",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(5.5f).build());
+
+    public static final RegistryObject<Item> NUGGET_AUSTRALIUM = ITEMS.register("nugget_australium",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(6.0f).build());
+
+    public static final RegistryObject<Item> NUGGET_AUSTRALIUM_LESSER = ITEMS.register("nugget_australium_lesser",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(3.0f).build());
+
+    public static final RegistryObject<Item> NUGGET_AUSTRALIUM_GREATER = ITEMS.register("nugget_australium_greater",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(9.0f).build());
+
+    public static final RegistryObject<Item> NUGGET_VERTICIUM = ITEMS.register("nugget_verticium",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(7.0f).build());
+
+    public static final RegistryObject<Item> NUGGET_UNOBTAINIUM = ITEMS.register("nugget_unobtainium",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(10.0f).build());
+
+    public static final RegistryObject<Item> NUGGET_UNOBTAINIUM_LESSER = ITEMS.register("nugget_unobtainium_lesser",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(5.0f).build());
+
+    public static final RegistryObject<Item> NUGGET_UNOBTAINIUM_GREATER = ITEMS.register("nugget_unobtainium_greater",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(15.0f).build());
+
+    public static final RegistryObject<Item> NUGGET_DAFFERGON = ITEMS.register("nugget_daffergon",
+            () -> new HazardItem.Builder(new Item.Properties()).radiation(8.5f).build());
+
+// ======================= UNSTABLE НУГГЕТ =======================
+
+    public static final RegistryObject<Item> NUGGET_U238M2 = ITEMS.register("nugget_u238m2",
+            () -> new ItemUnstable(60, 2000, NuclearBombType.UNSTABLE_SMALL,
+                    new Item.Properties().fireResistant()));
+    // ------------- Billets Items  --------------
     public static final RegistryObject<Item> BILLET_COBALT = ITEMS.register("billet_cobalt",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> BILLET_SILICON = ITEMS.register("billet_silicon",
