@@ -34,6 +34,14 @@ import com.hbm.nucleartech.block.custom.TransformerBlock;
 import com.hbm.nucleartech.block.entity.TransformerBlockEntity;
 import com.hbm.nucleartech.energy.TransformerTier;
 
+import com.hbm.nucleartech.block.custom.EnergySwitchBlock;
+import com.hbm.nucleartech.block.custom.SubstationBlock;
+import com.hbm.nucleartech.block.custom.AnalogMeterBlock;
+import com.hbm.nucleartech.block.entity.EnergySwitchBlockEntity;
+import com.hbm.nucleartech.block.entity.SubstationBlockEntity;
+import com.hbm.nucleartech.block.entity.AnalogMeterBlockEntity;
+import com.hbm.nucleartech.energy.SubstationType;
+
 import java.util.function.Supplier;
 
 public class RegisterBlocks {
@@ -581,6 +589,38 @@ public class RegisterBlocks {
                     TRANSFORMER_MV_LV_GOLD.get(), TRANSFORMER_MV_LV_RED_GOLD.get(),
                     TRANSFORMER_MV_LV_GILDED_COPPER.get()
             ).build(null));
+
+    // выключатель
+    public static final RegistryObject<Block> ENERGY_SWITCH = registerBlock("energy_switch",
+            () -> new EnergySwitchBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(2.0f)));
+    public static final RegistryObject<BlockEntityType<EnergySwitchBlockEntity>> ENERGY_SWITCH_BE =
+            BLOCK_ENTITIES.register("energy_switch", () -> BlockEntityType.Builder
+                    .of(EnergySwitchBlockEntity::new, ENERGY_SWITCH.get()).build(null));
+
+    // подстанции
+    public static final RegistryObject<Block> SUBSTATION_HV_MV = registerBlock("substation_hv_mv",
+            () -> new SubstationBlock(SubstationType.HV_MV,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(4.0f)));
+    public static final RegistryObject<Block> SUBSTATION_MV_LV = registerBlock("substation_mv_lv",
+            () -> new SubstationBlock(SubstationType.MV_LV,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(4.0f)));
+    public static final RegistryObject<BlockEntityType<SubstationBlockEntity>> SUBSTATION_BE =
+            BLOCK_ENTITIES.register("substation", () -> BlockEntityType.Builder.of(
+                    (pos, state) -> {
+                        Block block = state.getBlock();
+                        if (block instanceof SubstationBlock sb)
+                            return new SubstationBlockEntity(pos, state, sb.getSubstationType());
+                        return new SubstationBlockEntity(pos, state, SubstationType.HV_MV);
+                    },
+                    SUBSTATION_HV_MV.get(), SUBSTATION_MV_LV.get()
+            ).build(null));
+
+    // аналоговый мультиметр
+    public static final RegistryObject<Block> ANALOG_METER = registerBlock("analog_meter",
+            () -> new AnalogMeterBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(2.0f)));
+    public static final RegistryObject<BlockEntityType<AnalogMeterBlockEntity>> ANALOG_METER_BE =
+            BLOCK_ENTITIES.register("analog_meter", () -> BlockEntityType.Builder
+                    .of(AnalogMeterBlockEntity::new, ANALOG_METER.get()).build(null));
 
 
     public static final RegistryObject<BlockEntityType<MissileLauncherBlockEntity>> MISSILE_LAUNCHER_BE =

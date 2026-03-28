@@ -184,6 +184,11 @@ public class RegisterCreativeTabs {
                         output.accept(RegisterBlocks.TRANSFORMER_MV_LV_GOLD.get());
                         output.accept(RegisterBlocks.TRANSFORMER_MV_LV_RED_GOLD.get());
 
+                        output.accept(RegisterBlocks.ENERGY_SWITCH.get());
+                        output.accept(RegisterBlocks.SUBSTATION_HV_MV.get());
+                        output.accept(RegisterBlocks.SUBSTATION_MV_LV.get());
+                        output.accept(RegisterBlocks.ANALOG_METER.get());
+
                         output.accept(RegisterItems.MISSILE_LINKER.get());
                         output.accept(RegisterItems.NUKE_TACTICAL.get());
                         output.accept(RegisterItems.NUKE_STANDARD.get());

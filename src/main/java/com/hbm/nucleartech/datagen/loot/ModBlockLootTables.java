@@ -9,6 +9,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
 
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.SlabBlock;
+
 import java.util.Set;
 
 public class ModBlockLootTables extends BlockLootSubProvider {
@@ -18,8 +21,15 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags());
     }
 
+
+
     @Override
     protected void generate() {
+        for (RegistryObject<Block> entry : RegisterBlocks.BLOCKS.getEntries()) {
+            Block block = entry.get();
+            dropSelf(block);
+        }
+
 
         this.dropSelf(RegisterBlocks.TRANSFORMER_HV_MV_GILDED_COPPER.get());
         this.dropSelf(RegisterBlocks.TRANSFORMER_HV_MV_COPPER.get());
@@ -31,6 +41,11 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(RegisterBlocks.TRANSFORMER_MV_LV_RED_COPPER.get());
         this.dropSelf(RegisterBlocks.TRANSFORMER_MV_LV_GOLD.get());
         this.dropSelf(RegisterBlocks.TRANSFORMER_MV_LV_RED_GOLD.get());
+
+        this.dropSelf(RegisterBlocks.ENERGY_SWITCH.get());
+        this.dropSelf(RegisterBlocks.SUBSTATION_HV_MV.get());
+        this.dropSelf(RegisterBlocks.SUBSTATION_MV_LV.get());
+        this.dropSelf(RegisterBlocks.ANALOG_METER.get());
 
         this.dropSelf(RegisterBlocks.CABLE_LV_COPPER.get());
         this.dropSelf(RegisterBlocks.CABLE_LV_RED_COPPER.get());
@@ -60,6 +75,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(RegisterBlocks.BRICK_CONCRETE_CRACKED.get());
         this.dropSelf(RegisterBlocks.BRICK_CONCRETE_BROKEN.get());
         this.dropSelf(RegisterBlocks.BRICK_CONCRETE_MARKED.get());
+        this.dropSelf(RegisterBlocks.CONCRETE_STAIRS.get());
+
 
         // M350 Colored Concrete variants
         this.dropSelf(RegisterBlocks.CONCRETE_SMOOTH.get());

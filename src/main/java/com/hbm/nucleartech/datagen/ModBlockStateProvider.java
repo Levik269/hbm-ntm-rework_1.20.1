@@ -31,6 +31,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(RegisterBlocks.TRANSFORMER_MV_LV_GOLD);
         blockWithItem(RegisterBlocks.TRANSFORMER_MV_LV_RED_GOLD);
 
+        blockWithItem(RegisterBlocks.ENERGY_SWITCH);
+        blockWithItem(RegisterBlocks.SUBSTATION_HV_MV);
+        blockWithItem(RegisterBlocks.SUBSTATION_MV_LV);
+        blockWithItem(RegisterBlocks.ANALOG_METER);
+
         // провода LV
         blockWithItem(RegisterBlocks.CABLE_LV_COPPER);
         blockWithItem(RegisterBlocks.CABLE_LV_RED_COPPER);
@@ -129,9 +134,17 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
+        String name = blockRegistryObject.getId().getPath();
 
-        simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
+        ResourceLocation rl = modLoc("block/" + name);
+
+        if (!models().existingFileHelper.exists(rl, net.minecraft.server.packs.PackType.CLIENT_RESOURCES)) {
+            rl = mcLoc("block/stone");
+        }
+
+        simpleBlockWithItem(blockRegistryObject.get(), models().cubeAll(name, rl));
     }
+    
     private void blockWithItem(RegistryObject<Block> blockRegistryObject, ResourceLocation bottom, ResourceLocation side, ResourceLocation top) {
 
 //        System.err.println(blockRegistryObject.getId().getPath());
@@ -164,4 +177,48 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         simpleBlockWithItem(blockRegistryObject.get(), model);
     }
+
+    private void blockWithItemAuto(RegistryObject<Block> blockRegistryObject) {
+        String name = blockRegistryObject.getId().getPath();
+
+        ResourceLocation texture = findTexture(name);
+
+        simpleBlockWithItem(
+                blockRegistryObject.get(),
+                models().cubeAll(name, texture)
+        );
+    }
+
+    private ResourceLocation findTexture(String name) {
+
+        // 🔹 1. стандартный путь
+        ResourceLocation rl = modLoc("block/" + name);
+        if (models().existingFileHelper.exists(rl, net.minecraft.server.packs.PackType.CLIENT_RESOURCES)) {
+            return rl;
+        }
+
+        // 🔹 2. попробуем убрать префиксы (если есть)
+        if (name.startsWith("block_")) {
+            rl = modLoc("block/" + name.replace("block_", ""));
+            if (models().existingFileHelper.exists(rl, net.minecraft.server.packs.PackType.CLIENT_RESOURCES)) {
+                return rl;
+            }
+        }
+
+        // 🔹 3. попробуем заменить порядок слов (concrete_smooth → smooth_concrete)
+        if (name.contains("_")) {
+            String[] parts = name.split("_");
+            if (parts.length == 2) {
+                String swapped = parts[1] + "_" + parts[0];
+                rl = modLoc("block/" + swapped);
+                if (models().existingFileHelper.exists(rl, net.minecraft.server.packs.PackType.CLIENT_RESOURCES)) {
+                    return rl;
+                }
+            }
+        }
+
+        // 🔹 4. fallback (чтобы НЕ падало)
+        return mcLoc("block/stone");
+    }
+
 }

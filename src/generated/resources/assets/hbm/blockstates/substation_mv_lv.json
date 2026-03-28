@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "hbm:block/substation_mv_lv"
+    }
+  }
+}
