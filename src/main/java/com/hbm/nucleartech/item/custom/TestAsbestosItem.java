@@ -40,6 +40,6 @@ public class TestAsbestosItem extends Item implements IItemHazard {
 
         // вывод для дебага
         float totalAsb = HbmCapabilities.getData(player).getValue(IEntityCapabilityBase.Type.ASBESTOS);
-        System.out.println("[Debug] Player " + player.getName().getString() + " has asbestos level: " + totalAsb);
+        //System.out.println("[Debug] Player " + player.getName().getString() + " has asbestos level: " + totalAsb);
     }
 }

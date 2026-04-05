@@ -1,5 +1,6 @@
 package com.hbm.nucleartech.item.custom;
 
+import com.hbm.nucleartech.energy.CableTier;
 import com.hbm.nucleartech.energy.ICableBlockEntity;
 import com.hbm.nucleartech.energy.IHbmEnergy;
 import net.minecraft.core.BlockPos;
@@ -30,16 +31,20 @@ public class MultimeterItem extends Item {
 
         if (be instanceof ICableBlockEntity cable) {
             long load = cable.getCurrentLoad();
-            long max = cable.getCableTier().maxTransfer;
-            float percent = max > 0 ? (load * 100f / max) : 0;
-            String status = percent > 150 ? "§cOVERLOAD!" : percent > 80 ? "§eWARNING" : "§aNORMAL";
-            String bar = buildBar(percent);
+            CableTier tier = cable.getCableTier();
+            float current = tier.currentAt(load);
+            float percent = tier.maxTransfer > 0 ? (load * 100f / tier.maxTransfer) : 0;
+            String status = current > tier.maxCurrent ? "§cOVERLOAD!" : percent > 80 ? "§eWARNING" : "§aNORMAL";
 
-            player.sendSystemMessage(Component.literal("§eCable: §f" + cable.getCableTier().getDisplayName()));
-            player.sendSystemMessage(Component.literal("§eLoad: §f" + load + " / " + max + " HBM/t"));
-            player.sendSystemMessage(Component.literal(bar + "  " + String.format("%.1f", percent) + "%"));
-            player.sendSystemMessage(Component.literal("§eStatus: " + status));
-
+            player.sendSystemMessage(Component.literal("§eCable: §f" + tier.getDisplayName()));
+            player.sendSystemMessage(Component.literal(
+                    "§eU=§f" + tier.voltage + "V  §eI=§f" + String.format("%.1f", current) +
+                            "/" + tier.maxCurrent + "A  §eP=§f" + load + "/" + tier.maxTransfer + "W"));
+            player.sendSystemMessage(Component.literal(
+                    "§eR=§f" + tier.resistance + "Ohm/блок  §eP_loss/блок=§f" +
+                            String.format("%.2f", current * current * tier.resistance) + "W"));
+            player.sendSystemMessage(Component.literal(buildBar(percent) + "  " +
+                    String.format("%.1f", percent) + "%  " + status));
         } else if (be instanceof IHbmEnergy.Storage storage) {
             long stored = storage.getEnergyStored();
             long max = storage.getMaxEnergyStored();
@@ -54,6 +59,15 @@ public class MultimeterItem extends Item {
             player.sendSystemMessage(Component.literal("§eType: §fProvider"));
             player.sendSystemMessage(Component.literal("§eStored: §f" + provider.getEnergyStored() + " HBM"));
             player.sendSystemMessage(Component.literal("§eTier out: §f" + provider.getOutputTier().getDisplayName()));
+
+        } else if (be instanceof IHbmEnergy.Consumer consumer) {
+            long stored = consumer.getEnergyStored();
+            long max = consumer.getMaxEnergyStored();
+            float percent = max > 0 ? (stored * 100f / max) : 0;
+            player.sendSystemMessage(Component.literal("§eType: §fConsumer"));
+            player.sendSystemMessage(Component.literal("§eCharge: §f" + stored + " / " + max + " HBM"));
+            player.sendSystemMessage(Component.literal(buildBar(percent) + "  " + String.format("%.1f", percent) + "%"));
+            player.sendSystemMessage(Component.literal("§eTier in: §f" + consumer.getInputTier().getDisplayName()));
 
         } else {
             player.sendSystemMessage(Component.literal("§cNo energy component here."));

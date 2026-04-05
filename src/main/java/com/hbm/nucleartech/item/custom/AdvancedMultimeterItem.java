@@ -81,9 +81,13 @@ public class AdvancedMultimeterItem extends MultimeterItem {
                     float percent = max > 0 ? (load * 100f / max) : 0;
                     String status = percent > 150 ? "§cOVERLOAD!" : percent > 80 ? "§eWARNING" : "§aNORMAL";
                     player.sendSystemMessage(Component.literal("§eCable: §f" + cable.getCableTier().getDisplayName()));
-                    player.sendSystemMessage(Component.literal("§eLoad: §f" + load + " / " + max + " HBM/t"));
+                    player.sendSystemMessage(Component.literal("§eVoltage: §f" + cable.getCableTier().voltage + " V"));
+                    player.sendSystemMessage(Component.literal("§eCurrent: §f" +
+                            String.format("%.1f", cable.getCableTier().currentAt(load)) + " / " +
+                            cable.getCableTier().maxCurrent + " A"));
+                    player.sendSystemMessage(Component.literal("§ePower: §f" + load + " / " + max + " W"));
                     player.sendSystemMessage(Component.literal(buildBar(percent) + "  " + String.format("%.1f", percent) + "%  " + status));
-                    player.sendSystemMessage(Component.literal("§eOverload ticks: §f" +
+                    player.sendSystemMessage(Component.literal("§eOverload ticks: §f"  +
                             (cable instanceof com.hbm.nucleartech.block.entity.CableBlockEntity cbe ? cbe.getOverloadTicks() : "N/A")));
                 } else {
                     player.sendSystemMessage(Component.literal("§cClick on a cable for load info."));

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "minecraft:block/stone"
+    "all": "hbm:block/cable_mv_red_gold"
   }
 }

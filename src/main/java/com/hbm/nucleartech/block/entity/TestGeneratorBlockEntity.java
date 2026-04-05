@@ -29,6 +29,11 @@ public class TestGeneratorBlockEntity extends BlockEntity implements IHbmEnergy.
 
         energy = Math.min(energy + genPerTick, MAX_ENERGY);
 
+        if (level.getGameTime() % 20 == 0) {
+            System.out.println("[Generator] " + worldPosition.toShortString() +
+                    " energy=" + energy + " redstonePower=" + redstonePower);
+        }
+
         if (level.getGameTime() % 5 == 0 && energy > 0) {
             HbmEnergyNetwork.distribute((ServerLevel) level, worldPosition, this);
         }

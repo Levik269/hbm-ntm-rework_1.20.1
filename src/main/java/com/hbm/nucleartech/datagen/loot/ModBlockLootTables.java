@@ -31,16 +31,6 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         }
 
 
-        this.dropSelf(RegisterBlocks.TRANSFORMER_HV_MV_GILDED_COPPER.get());
-        this.dropSelf(RegisterBlocks.TRANSFORMER_HV_MV_COPPER.get());
-        this.dropSelf(RegisterBlocks.TRANSFORMER_HV_MV_RED_COPPER.get());
-        this.dropSelf(RegisterBlocks.TRANSFORMER_HV_MV_GOLD.get());
-        this.dropSelf(RegisterBlocks.TRANSFORMER_HV_MV_RED_GOLD.get());
-        this.dropSelf(RegisterBlocks.TRANSFORMER_MV_LV_GILDED_COPPER.get());
-        this.dropSelf(RegisterBlocks.TRANSFORMER_MV_LV_COPPER.get());
-        this.dropSelf(RegisterBlocks.TRANSFORMER_MV_LV_RED_COPPER.get());
-        this.dropSelf(RegisterBlocks.TRANSFORMER_MV_LV_GOLD.get());
-        this.dropSelf(RegisterBlocks.TRANSFORMER_MV_LV_RED_GOLD.get());
 
         this.dropSelf(RegisterBlocks.ENERGY_SWITCH.get());
         this.dropSelf(RegisterBlocks.SUBSTATION_HV_MV.get());
@@ -66,6 +56,16 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(RegisterBlocks.TEST_GENERATOR.get());
         this.dropSelf(RegisterBlocks.BATTERY_BLOCK.get());
 
+        this.dropSelf(RegisterBlocks.LV_TRANSFORMER.get());
+        this.dropSelf(RegisterBlocks.CONNECTOR_CABLE.get());
+        this.dropSelf(RegisterBlocks.FLUID_VALVE.get());
+        this.dropSelf(RegisterBlocks.PIPE_TITANIUM.get());
+        this.dropSelf(RegisterBlocks.PIPE_STEEL.get());
+        this.dropSelf(RegisterBlocks.FLUID_COMPRESSOR.get());
+        this.dropSelf(RegisterBlocks.FLUID_SOURCE.get());
+        this.dropSelf(RegisterBlocks.FLUID_TANK.get());
+        this.dropSelf(RegisterBlocks.ANALOG_BAROMETER.get());
+
         this.dropSelf(RegisterBlocks.MISSILE_LAUNCHER.get());
 
         // M350 Concrete variants
@@ -78,7 +78,6 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(RegisterBlocks.BRICK_CONCRETE_CRACKED.get());
         this.dropSelf(RegisterBlocks.BRICK_CONCRETE_BROKEN.get());
         this.dropSelf(RegisterBlocks.BRICK_CONCRETE_MARKED.get());
-        this.dropSelf(RegisterBlocks.CONCRETE_STAIRS.get());
 
 
 

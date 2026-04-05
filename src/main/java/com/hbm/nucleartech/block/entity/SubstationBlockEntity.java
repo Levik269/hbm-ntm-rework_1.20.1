@@ -47,6 +47,13 @@ public class SubstationBlockEntity extends BlockEntity
             return;
         }
 
+        if (level.getGameTime() % 20 == 0) {
+            System.out.println("[Substation] " + worldPosition.toShortString() +
+                    " type=" + type.name +
+                    " inputBuf=" + inputBuffer + " outputBuf=" + outputBuffer +
+                    " inTier=" + type.inputTier.name + " outTier=" + type.outputTier.name);
+        }
+
         if (inputBuffer > 0) {
             long toConvert = Math.min(inputBuffer, type.maxTransfer);
             long converted = (long)(toConvert * (1.0f - type.lossFactor));

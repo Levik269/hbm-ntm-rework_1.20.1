@@ -14,17 +14,28 @@ import java.util.List;
 
 public class AnalogMeterBlockEntity extends BlockEntity implements ICableBlockEntity {
 
-    private long currentLoad = 0;
-    private int overloadTicks = 0;
+    long currentLoad = 0;
+    private long flowAccumulator = 0;
+    long avgFlow = 0;
 
     public AnalogMeterBlockEntity(BlockPos pos, BlockState state) {
         super(RegisterBlocks.ANALOG_METER_BE.get(), pos, state);
     }
 
+    @Override public CableTier getCableTier()          { return CableTier.UNIVERSAL; }
+    @Override public long getCurrentLoad()              { return currentLoad; }
+    @Override public void setCurrentLoad(long load)    { currentLoad = load; }
+
     public void tick() {
         if (level == null || level.isClientSide) return;
-        // логируем каждые 20 тиков (1 секунда)
+
+        // накапливаем нагрузку
+        flowAccumulator += currentLoad;
+
         if (level.getGameTime() % 20 == 0 && level instanceof ServerLevel serverLevel) {
+            avgFlow = flowAccumulator / 20;
+            flowAccumulator = 0;
+
             List<HbmEnergyNetwork.NetworkNode> nodes =
                     HbmEnergyNetwork.findNetwork(serverLevel, worldPosition, CableTier.HV_RED_GOLD);
 
@@ -32,22 +43,26 @@ public class AnalogMeterBlockEntity extends BlockEntity implements ICableBlockEn
             long totalConsumers = nodes.stream().filter(n -> n.consumer() != null).count();
             long totalCables   = nodes.stream().filter(n -> n.cable() != null).count();
 
-            long totalEnergy = nodes.stream()
+            // считаем суммарную мощность провайдеров за последний тик
+            long totalGenerated = nodes.stream()
                     .filter(n -> n.provider() != null)
-                    .mapToLong(n -> n.provider().getEnergyStored())
-                    .sum();
+                    .mapToLong(n -> {
+                        BlockEntity be = serverLevel.getBlockEntity(n.pos());
+                        if (be instanceof IHbmEnergy.Provider p)
+                            return p.getEnergyStored();
+                        return 0;
+                    }).sum();
+
+            float current = CableTier.HV_RED_GOLD.currentAt(avgFlow);
 
             System.out.println("[AnalogMeter] " + worldPosition.toShortString() +
-                    " | load=" + currentLoad + " HBM/t" +
+                    " | avgFlow=" + avgFlow + " HBM/t" +
+                    " | U=" + CableTier.HV_RED_GOLD.voltage + "V" +
+                    " | I=" + String.format("%.2f", current) + "/" + CableTier.HV_RED_GOLD.maxCurrent + "A" +
                     " | providers=" + totalProviders +
                     " | consumers=" + totalConsumers +
                     " | cables=" + totalCables +
-                    " | totalEnergy=" + totalEnergy + " HBM");
+                    " | storedEnergy=" + totalGenerated + " HBM");
         }
     }
-
-    @Override public CableTier getCableTier() { return CableTier.HV_RED_GOLD; }
-    @Override public long getCurrentLoad() { return currentLoad; }
-    @Override public void setCurrentLoad(long load) { this.currentLoad = load; }
-    public int getOverloadTicks() { return overloadTicks; }
 }

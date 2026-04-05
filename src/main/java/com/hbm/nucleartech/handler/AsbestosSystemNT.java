@@ -30,7 +30,7 @@ public class AsbestosSystemNT {
         ServerPlayer player = (ServerPlayer) event.player;
 
         double asb = HbmCapabilities.getData(player).getValue(Type.ASBESTOS);
-        System.out.println("[Debug] Player " + player.getName().getString() + " has asbestos level: " + asb);
+        //System.out.println("[Debug] Player " + player.getName().getString() + " has asbestos level: " + asb);
 
         // лимитируем максимум
         if(asb > MAX_ASBESTOS) asb = MAX_ASBESTOS;

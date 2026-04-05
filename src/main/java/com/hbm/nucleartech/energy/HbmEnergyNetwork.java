@@ -21,25 +21,34 @@ public class HbmEnergyNetwork {
         queue.add(start);
         visited.add(start);
 
+        boolean junctionCheckEnabled = sourceTier.isLV() || sourceTier.isMV() || sourceTier.isHV();
+
         while (!queue.isEmpty()) {
             BlockPos pos = queue.poll();
+            boolean comingFromCable = level.getBlockEntity(pos) instanceof ICableBlockEntity;
             for (Direction dir : Direction.values()) {
                 BlockPos neighbor = pos.relative(dir);
                 if (visited.contains(neighbor)) continue;
                 visited.add(neighbor);
 
                 BlockEntity be = level.getBlockEntity(neighbor);
+
                 if (be == null) continue;
 
                 if (be instanceof ICableBlockEntity cable) {
                     if (sourceTier.canConnectTo(cable.getCableTier())) {
                         nodes.add(new NetworkNode(neighbor, cable, null, null));
-                        queue.add(neighbor);
+                        CableTier ct = cable.getCableTier();
+                        boolean freeBranch = (ct == CableTier.CONNECTOR_COPPER || ct == CableTier.UNIVERSAL);
+                        boolean blocked = junctionCheckEnabled && !freeBranch
+                                && comingFromCable && isCableJunction(level, neighbor, visited, ct);
+                        if (!blocked) {
+                            queue.add(neighbor);
+                        }
                     }
                 } else if (be instanceof IHbmEnergy.Storage storage) {
                     nodes.add(new NetworkNode(neighbor, null, storage, null));
                 } else if (be instanceof IHbmEnergy.Consumer && be instanceof IHbmEnergy.Provider) {
-                    // трансформатор — и потребитель и провайдер
                     IHbmEnergy.Consumer consumer = (IHbmEnergy.Consumer) be;
                     IHbmEnergy.Provider provider = (IHbmEnergy.Provider) be;
                     if (sourceTier.canConnectTo(consumer.getInputTier()))
@@ -59,12 +68,10 @@ public class HbmEnergyNetwork {
             ServerLevel level, BlockPos startPos, CableTier sourceTier) {
 
         Map<BlockPos, Map<BlockPos, Float>> result = new java.util.HashMap<>();
-
         List<NetworkNode> network = findNetwork(level, startPos, sourceTier);
         List<NetworkNode> providers = network.stream()
                 .filter(n -> n.provider() != null).toList();
 
-        // только настоящие провайдеры, не кабели
         List<BlockPos> providerPositions = new ArrayList<>();
         BlockEntity startBe = level.getBlockEntity(startPos);
         if (startBe instanceof IHbmEnergy.Provider)
@@ -73,6 +80,9 @@ public class HbmEnergyNetwork {
             providerPositions.add(n.pos());
 
         for (BlockPos provPos : providerPositions) {
+            BlockEntity provBe = level.getBlockEntity(provPos);
+            long provPower = provBe instanceof IHbmEnergy.Provider p ? p.getEnergyStored() : 0;
+
             Map<BlockPos, Float> accumulated = new java.util.HashMap<>();
             Set<BlockPos> visited = new HashSet<>();
             Queue<BlockPos> queue = new LinkedList<>();
@@ -95,7 +105,9 @@ public class HbmEnergyNetwork {
 
                     if (be instanceof ICableBlockEntity cable) {
                         if (sourceTier.canConnectTo(cable.getCableTier())) {
-                            accumulated.put(neighbor, lossHere + cable.getCableTier().lossFactor);
+                            // I²R потери — реалистичная физика
+                            float segLoss = lossHere + cable.getCableTier().lossFactorAt(provPower);
+                            accumulated.put(neighbor, segLoss);
                             queue.add(neighbor);
                         }
                     } else if (be instanceof IHbmEnergy.Consumer
@@ -118,8 +130,15 @@ public class HbmEnergyNetwork {
 
     public static void distribute(ServerLevel level, BlockPos providerPos,
                                   IHbmEnergy.Provider provider) {
-        long available = provider.extractEnergy(provider.getEnergyStored(), true);
+
+        long available = Math.min(
+                provider.extractEnergy(provider.getEnergyStored(), true),
+                provider.getOutputTier().maxTransfer
+        );
         if (available <= 0) return;
+        if (level.getGameTime() % 20 == 0)
+            System.out.println("[D] from=" + providerPos + " avail=" + available + " tier=" + provider.getOutputTier().name);
+
 
         Map<BlockPos, Float> accumulatedLoss = new java.util.HashMap<>();
         List<NetworkNode> allNodes = new ArrayList<>();
@@ -130,9 +149,14 @@ public class HbmEnergyNetwork {
         visited.add(providerPos);
         accumulatedLoss.put(providerPos, 0f);
 
+        // junction check only applies when provider outputs LV/MV/HV (substation networks)
+        CableTier outTier = provider.getOutputTier();
+        boolean junctionCheckEnabled = outTier.isLV() || outTier.isMV() || outTier.isHV();
+
         while (!queue.isEmpty()) {
             BlockPos pos = queue.poll();
             float lossHere = accumulatedLoss.get(pos);
+            boolean comingFromCable = level.getBlockEntity(pos) instanceof ICableBlockEntity;
 
             for (Direction dir : Direction.values()) {
                 BlockPos neighbor = pos.relative(dir);
@@ -143,16 +167,20 @@ public class HbmEnergyNetwork {
                 if (be == null) continue;
 
                 if (be instanceof ICableBlockEntity cable) {
-                    if (provider.getOutputTier().canConnectTo(cable.getCableTier())) {
-                        accumulatedLoss.put(neighbor, lossHere + cable.getCableTier().lossFactor);
+                    if (outTier.canConnectTo(cable.getCableTier())) {
+                        float segLoss = lossHere + cable.getCableTier().lossFactorAt(available);
+                        accumulatedLoss.put(neighbor, segLoss);
                         allNodes.add(new NetworkNode(neighbor, cable, null, null));
-                        queue.add(neighbor);
+                        CableTier ct = cable.getCableTier();
+                        boolean freeBranch = (ct == CableTier.CONNECTOR_COPPER || ct == CableTier.UNIVERSAL);
+                        boolean blocked = junctionCheckEnabled && !freeBranch
+                                && comingFromCable && isCableJunction(level, neighbor, visited, ct);
+                        if (!blocked) queue.add(neighbor);
                     }
                 } else if (be instanceof IHbmEnergy.Storage storage) {
                     accumulatedLoss.put(neighbor, lossHere);
                     allNodes.add(new NetworkNode(neighbor, null, storage, null));
                 } else if (be instanceof IHbmEnergy.Consumer && be instanceof IHbmEnergy.Provider) {
-                    // трансформатор
                     IHbmEnergy.Consumer consumer = (IHbmEnergy.Consumer) be;
                     IHbmEnergy.Provider prov = (IHbmEnergy.Provider) be;
                     if (provider.getOutputTier().canConnectTo(consumer.getInputTier())) {
@@ -163,10 +191,8 @@ public class HbmEnergyNetwork {
                     accumulatedLoss.put(neighbor, lossHere);
                     allNodes.add(new NetworkNode(neighbor, null, null, prov));
                 } else if (be instanceof IHbmEnergy.Consumer consumer) {
-                    if (provider.getOutputTier().canConnectTo(consumer.getInputTier())) {
-                        accumulatedLoss.put(neighbor, lossHere);
-                        allNodes.add(new NetworkNode(neighbor, null, consumer, null));
-                    }
+                    accumulatedLoss.put(neighbor, lossHere);
+                    allNodes.add(new NetworkNode(neighbor, null, consumer, null));
                 }
             }
         }
@@ -176,38 +202,69 @@ public class HbmEnergyNetwork {
         List<NetworkNode> cableNodes = allNodes.stream()
                 .filter(n -> n.cable() != null).toList();
 
-        if (consumerNodes.isEmpty()) return;
+        if (consumerNodes.isEmpty()) {
+            if (level.getGameTime() % 20 == 0)
+                System.out.println("[D2-EMPTY] " + providerPos + " tier=" + provider.getOutputTier().name
+                        + " cables=" + cableNodes.size() + " total_nodes=" + allNodes.size());
+            return;
+        }
+        if (level.getGameTime() % 20 == 0)
+            System.out.println("[D2] " + providerPos + " consumers=" + consumerNodes.size() + " cables=" + cableNodes.size() + " tier=" + provider.getOutputTier().name);
+
 
         long perConsumer = available / consumerNodes.size();
         long totalTransferred = 0;
 
         for (NetworkNode node : consumerNodes) {
             if (perConsumer <= 0) break;
-            float totalLoss = accumulatedLoss.getOrDefault(node.pos(), 0f);
+            float totalLoss = Math.min(accumulatedLoss.getOrDefault(node.pos(), 0f), 0.95f);
             long loss = (long)(perConsumer * totalLoss);
-            long delivered = Math.max(0, perConsumer - loss);
+            long delivered = perConsumer - loss;
             long accepted = node.consumer().receiveEnergy(delivered, true);
             if (accepted > 0) {
                 provider.extractEnergy(accepted + loss, false);
                 node.consumer().receiveEnergy(accepted, false);
                 totalTransferred += accepted + loss;
+            } else if (level.getGameTime() % 20 == 0) {
+                System.out.println("[D-REJECT] " + node.pos() + " delivered=" + delivered + " accepted=0 (buffer full?)");
             }
         }
 
         for (NetworkNode node : cableNodes) {
             node.cable().setCurrentLoad(totalTransferred);
-            checkOverload(level, node.pos(), node.cable(), totalTransferred);
+            // проверяем перегрузку только для кабелей основного тира провайдера
+            CableTier ct = node.cable().getCableTier();
+            if (ct == outTier || ct == CableTier.UNIVERSAL) {
+                checkOverload(level, node.pos(), node.cable(), totalTransferred);
+            }
         }
+    }
+
+    /** Returns true if cablePos has 2+ unvisited compatible cable neighbors (T/X junction). */
+    private static boolean isCableJunction(ServerLevel level, BlockPos cablePos,
+                                            Set<BlockPos> visited, CableTier sourceTier) {
+        int count = 0;
+        for (Direction d : Direction.values()) {
+            BlockPos adj = cablePos.relative(d);
+            if (visited.contains(adj)) continue;
+            BlockEntity be = level.getBlockEntity(adj);
+            if (be instanceof ICableBlockEntity adjCable
+                    && sourceTier.canConnectTo(adjCable.getCableTier())) {
+                if (++count >= 2) return true;
+            }
+        }
+        return false;
     }
 
     private static void checkOverload(ServerLevel level, BlockPos pos,
                                       ICableBlockEntity cable, long load) {
-        if (load <= cable.getCableTier().maxTransfer * 1.5f) return;
         if (!cable.getCableTier().isOverloaded(load)) return;
         if (!(cable instanceof CableBlockEntity cbe)) return;
 
         System.out.println("[Overload] " + pos + " load=" + load +
                 " max=" + cable.getCableTier().maxTransfer +
+                " current=" + String.format("%.1f", cable.getCableTier().currentAt(load)) +
+                "/" + cable.getCableTier().maxCurrent + "A" +
                 " ticks=" + cbe.getOverloadTicks());
 
         if (cbe.getOverloadTicks() < 60) return;

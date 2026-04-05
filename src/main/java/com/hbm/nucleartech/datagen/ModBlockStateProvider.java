@@ -21,16 +21,16 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
 
-        blockWithItem(RegisterBlocks.TRANSFORMER_HV_MV_GILDED_COPPER);
-        blockWithItem(RegisterBlocks.TRANSFORMER_HV_MV_COPPER);
-        blockWithItem(RegisterBlocks.TRANSFORMER_HV_MV_RED_COPPER);
-        blockWithItem(RegisterBlocks.TRANSFORMER_HV_MV_GOLD);
-        blockWithItem(RegisterBlocks.TRANSFORMER_HV_MV_RED_GOLD);
-        blockWithItem(RegisterBlocks.TRANSFORMER_MV_LV_GILDED_COPPER);
-        blockWithItem(RegisterBlocks.TRANSFORMER_MV_LV_COPPER);
-        blockWithItem(RegisterBlocks.TRANSFORMER_MV_LV_RED_COPPER);
-        blockWithItem(RegisterBlocks.TRANSFORMER_MV_LV_GOLD);
-        blockWithItem(RegisterBlocks.TRANSFORMER_MV_LV_RED_GOLD);
+        blockWithItem(RegisterBlocks.PIPE_TITANIUM);
+        blockWithItem(RegisterBlocks.PIPE_STEEL);
+        blockWithItem(RegisterBlocks.FLUID_COMPRESSOR);
+        blockWithItem(RegisterBlocks.FLUID_SOURCE);
+        blockWithItem(RegisterBlocks.FLUID_TANK);
+        blockWithItem(RegisterBlocks.FLUID_VALVE);
+
+        blockWithItem(RegisterBlocks.LV_TRANSFORMER);
+        blockWithItem(RegisterBlocks.CONNECTOR_CABLE);
+        blockWithItem(RegisterBlocks.ANALOG_BAROMETER);
 
         blockWithItem(RegisterBlocks.ENERGY_SWITCH);
         blockWithItem(RegisterBlocks.SUBSTATION_HV_MV);
@@ -134,13 +134,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
         String name = blockRegistryObject.getId().getPath();
-
         ResourceLocation rl = modLoc("block/" + name);
-
-        if (!models().existingFileHelper.exists(rl, net.minecraft.server.packs.PackType.CLIENT_RESOURCES)) {
-            rl = mcLoc("block/stone");
-        }
-
         simpleBlockWithItem(blockRegistryObject.get(), models().cubeAll(name, rl));
     }
     

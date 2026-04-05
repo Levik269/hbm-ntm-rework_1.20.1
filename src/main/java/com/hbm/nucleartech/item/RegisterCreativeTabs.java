@@ -398,20 +398,22 @@ public class RegisterCreativeTabs {
                     .title(Component.translatable("creativetab.ntm_machines"))
                     .displayItems((itemDisplayParameters, output) -> {
 
-                        output.accept(RegisterBlocks.TRANSFORMER_HV_MV_GILDED_COPPER.get());
-                        output.accept(RegisterBlocks.TRANSFORMER_HV_MV_COPPER.get());
-                        output.accept(RegisterBlocks.TRANSFORMER_HV_MV_RED_COPPER.get());
-                        output.accept(RegisterBlocks.TRANSFORMER_HV_MV_GOLD.get());
-                        output.accept(RegisterBlocks.TRANSFORMER_HV_MV_RED_GOLD.get());
-                        output.accept(RegisterBlocks.TRANSFORMER_MV_LV_GILDED_COPPER.get());
-                        output.accept(RegisterBlocks.TRANSFORMER_MV_LV_COPPER.get());
-                        output.accept(RegisterBlocks.TRANSFORMER_MV_LV_RED_COPPER.get());
-                        output.accept(RegisterBlocks.TRANSFORMER_MV_LV_GOLD.get());
-                        output.accept(RegisterBlocks.TRANSFORMER_MV_LV_RED_GOLD.get());
-
+                        // энергосеть
                         output.accept(RegisterBlocks.ENERGY_SWITCH.get());
                         output.accept(RegisterBlocks.SUBSTATION_HV_MV.get());
                         output.accept(RegisterBlocks.SUBSTATION_MV_LV.get());
+                        output.accept(RegisterBlocks.ANALOG_METER.get());
+
+                        output.accept(RegisterBlocks.LV_TRANSFORMER.get());
+                        output.accept(RegisterBlocks.CONNECTOR_CABLE.get());
+                        output.accept(RegisterBlocks.FLUID_VALVE.get());
+                        output.accept(RegisterBlocks.ANALOG_BAROMETER.get());
+// трубы
+                        output.accept(RegisterBlocks.PIPE_TITANIUM.get());
+                        output.accept(RegisterBlocks.PIPE_STEEL.get());
+                        output.accept(RegisterBlocks.FLUID_COMPRESSOR.get());
+                        output.accept(RegisterBlocks.FLUID_SOURCE.get());
+                        output.accept(RegisterBlocks.FLUID_TANK.get());
                         output.accept(RegisterBlocks.ANALOG_METER.get());
 
                         output.accept(RegisterItems.MISSILE_LINKER.get());

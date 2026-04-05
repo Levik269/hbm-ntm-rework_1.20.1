@@ -7,13 +7,15 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import com.hbm.nucleartech.energy.HbmEnergyNetwork;
+import net.minecraft.server.level.ServerLevel;
 
 public class EnergySwitchBlockEntity extends BlockEntity
         implements IHbmEnergy.Consumer, IHbmEnergy.Provider {
 
     private long buffer = 0;
     private boolean powered = false;
-    private static final long BUFFER_SIZE = 50000;
+    private static final long BUFFER_SIZE = 500000;
 
     public EnergySwitchBlockEntity(BlockPos pos, BlockState state) {
         super(RegisterBlocks.ENERGY_SWITCH_BE.get(), pos, state);
@@ -21,10 +23,10 @@ public class EnergySwitchBlockEntity extends BlockEntity
 
     public void tick() {
         if (level == null || level.isClientSide) return;
-        // обновляем состояние редстоуна каждый тик
         powered = level.getBestNeighborSignal(worldPosition) > 0;
-        // если выключен — сбрасываем буфер
-        if (!powered) buffer = 0;
+        if (!powered) { buffer = 0; return; }
+        if (buffer > 0 && level instanceof ServerLevel sl)
+            HbmEnergyNetwork.distribute(sl, worldPosition, this);
     }
 
     public boolean isPowered() { return powered; }
@@ -49,8 +51,8 @@ public class EnergySwitchBlockEntity extends BlockEntity
     @Override public long getEnergyStored() { return buffer; }
     @Override public long getMaxEnergyStored() { return BUFFER_SIZE; }
     // универсальный — принимает любой тир
-    @Override public CableTier getInputTier() { return CableTier.HV_RED_GOLD; }
-    @Override public CableTier getOutputTier() { return CableTier.HV_RED_GOLD; }
+    @Override public CableTier getInputTier()  { return CableTier.UNIVERSAL; }
+    @Override public CableTier getOutputTier() { return CableTier.UNIVERSAL; }
 
 
     @Override

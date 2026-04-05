@@ -19,6 +19,7 @@ import net.minecraftforge.registries.RegistryObject;
 import com.hbm.nucleartech.block.custom.MissileLauncherBlock;
 import com.hbm.nucleartech.block.entity.MissileLauncherBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.registries.DeferredRegister;
 
 import com.hbm.nucleartech.block.custom.CableBlock;
@@ -30,17 +31,31 @@ import com.hbm.nucleartech.block.entity.TestGeneratorBlockEntity;
 import com.hbm.nucleartech.block.custom.BatteryBlock;
 import com.hbm.nucleartech.block.entity.BatteryBlockEntity;
 
-import com.hbm.nucleartech.block.custom.TransformerBlock;
-import com.hbm.nucleartech.block.entity.TransformerBlockEntity;
-import com.hbm.nucleartech.energy.TransformerTier;
 
 import com.hbm.nucleartech.block.custom.EnergySwitchBlock;
+import com.hbm.nucleartech.block.custom.LvTransformerBlock;
+import com.hbm.nucleartech.block.custom.ConnectorCableBlock;
+import com.hbm.nucleartech.block.custom.FluidValveBlock;
+import com.hbm.nucleartech.block.entity.LvTransformerBlockEntity;
+import com.hbm.nucleartech.block.entity.FluidValveBlockEntity;
 import com.hbm.nucleartech.block.custom.SubstationBlock;
 import com.hbm.nucleartech.block.custom.AnalogMeterBlock;
+import com.hbm.nucleartech.block.custom.AnalogBarometerBlock;
+import com.hbm.nucleartech.block.entity.AnalogBarometerBlockEntity;
 import com.hbm.nucleartech.block.entity.EnergySwitchBlockEntity;
 import com.hbm.nucleartech.block.entity.SubstationBlockEntity;
 import com.hbm.nucleartech.block.entity.AnalogMeterBlockEntity;
 import com.hbm.nucleartech.energy.SubstationType;
+
+import com.hbm.nucleartech.block.custom.PipeBlock;
+import com.hbm.nucleartech.block.custom.FluidCompressorBlock;
+import com.hbm.nucleartech.block.custom.FluidSourceBlock;
+import com.hbm.nucleartech.block.custom.FluidTankBlock;
+import com.hbm.nucleartech.block.entity.PipeBlockEntity;
+import com.hbm.nucleartech.block.entity.FluidCompressorBlockEntity;
+import com.hbm.nucleartech.block.entity.FluidSourceBlockEntity;
+import com.hbm.nucleartech.block.entity.FluidTankBlockEntity;
+import com.hbm.nucleartech.fluid.PipeMaterial;
 
 import java.util.function.Supplier;
 
@@ -48,6 +63,8 @@ public class RegisterBlocks {
 
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, HBM.MOD_ID);
+
+
 
     public static final RegistryObject<Block> BLOCK_WASTE = registerHazardBlock(4500, "block_waste",
             () -> new HazardBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)
@@ -446,7 +463,7 @@ public class RegisterBlocks {
         return toReturn;
     }
 
-    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = // ENTITY HERE
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, HBM.MOD_ID);
 
     public static final RegistryObject<Block> MISSILE_LAUNCHER = registerBlock("missile_launcher",
@@ -536,54 +553,6 @@ public class RegisterBlocks {
                     CABLE_HV_RED_GOLD.get(), CABLE_HV_GILDED_COPPER.get()
             ).build(null));
 
-    public static final RegistryObject<Block> TRANSFORMER_HV_MV_COPPER =
-            registerBlock("transformer_hv_mv_copper", () -> new TransformerBlock(TransformerTier.HV_MV_COPPER,
-                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f).noOcclusion()));
-    public static final RegistryObject<Block> TRANSFORMER_HV_MV_RED_COPPER =
-            registerBlock("transformer_hv_mv_red_copper", () -> new TransformerBlock(TransformerTier.HV_MV_RED_COPPER,
-                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f).noOcclusion()));
-    public static final RegistryObject<Block> TRANSFORMER_HV_MV_GOLD =
-            registerBlock("transformer_hv_mv_gold", () -> new TransformerBlock(TransformerTier.HV_MV_GOLD,
-                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f).noOcclusion()));
-    public static final RegistryObject<Block> TRANSFORMER_HV_MV_RED_GOLD =
-            registerBlock("transformer_hv_mv_red_gold", () -> new TransformerBlock(TransformerTier.HV_MV_RED_GOLD,
-                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f).noOcclusion()));
-    public static final RegistryObject<Block> TRANSFORMER_HV_MV_GILDED_COPPER =
-            registerBlock("transformer_hv_mv_gilded_copper", () -> new TransformerBlock(TransformerTier.HV_MV_GILDED_COPPER,
-                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f).noOcclusion()));
-
-    public static final RegistryObject<Block> TRANSFORMER_MV_LV_COPPER =
-            registerBlock("transformer_mv_lv_copper", () -> new TransformerBlock(TransformerTier.MV_LV_COPPER,
-                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f).noOcclusion()));
-    public static final RegistryObject<Block> TRANSFORMER_MV_LV_RED_COPPER =
-            registerBlock("transformer_mv_lv_red_copper", () -> new TransformerBlock(TransformerTier.MV_LV_RED_COPPER,
-                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f).noOcclusion()));
-    public static final RegistryObject<Block> TRANSFORMER_MV_LV_GOLD =
-            registerBlock("transformer_mv_lv_gold", () -> new TransformerBlock(TransformerTier.MV_LV_GOLD,
-                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f).noOcclusion()));
-    public static final RegistryObject<Block> TRANSFORMER_MV_LV_RED_GOLD =
-            registerBlock("transformer_mv_lv_red_gold", () -> new TransformerBlock(TransformerTier.MV_LV_RED_GOLD,
-                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f).noOcclusion()));
-    public static final RegistryObject<Block> TRANSFORMER_MV_LV_GILDED_COPPER =
-            registerBlock("transformer_mv_lv_gilded_copper", () -> new TransformerBlock(TransformerTier.MV_LV_GILDED_COPPER,
-                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f).noOcclusion()));
-
-    public static final RegistryObject<BlockEntityType<TransformerBlockEntity>> TRANSFORMER_BE =
-            BLOCK_ENTITIES.register("transformer", () -> BlockEntityType.Builder.of(
-                    (pos, state) -> {
-                        Block block = state.getBlock();
-                        if (block instanceof TransformerBlock tb)
-                            return new TransformerBlockEntity(pos, state, tb.getTier());
-                        return new TransformerBlockEntity(pos, state, TransformerTier.HV_MV_COPPER);
-                    },
-                    TRANSFORMER_HV_MV_COPPER.get(), TRANSFORMER_HV_MV_RED_COPPER.get(),
-                    TRANSFORMER_HV_MV_GOLD.get(), TRANSFORMER_HV_MV_RED_GOLD.get(),
-                    TRANSFORMER_HV_MV_GILDED_COPPER.get(),
-                    TRANSFORMER_MV_LV_COPPER.get(), TRANSFORMER_MV_LV_RED_COPPER.get(),
-                    TRANSFORMER_MV_LV_GOLD.get(), TRANSFORMER_MV_LV_RED_GOLD.get(),
-                    TRANSFORMER_MV_LV_GILDED_COPPER.get()
-            ).build(null));
-
     // выключатель
     public static final RegistryObject<Block> ENERGY_SWITCH = registerBlock("energy_switch",
             () -> new EnergySwitchBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(2.0f)));
@@ -616,11 +585,82 @@ public class RegisterBlocks {
             BLOCK_ENTITIES.register("analog_meter", () -> BlockEntityType.Builder
                     .of(AnalogMeterBlockEntity::new, ANALOG_METER.get()).build(null));
 
+    public static final RegistryObject<Block> ANALOG_BAROMETER = registerBlock("analog_barometer",
+            () -> new AnalogBarometerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(2.0f)));
+    public static final RegistryObject<BlockEntityType<AnalogBarometerBlockEntity>> ANALOG_BAROMETER_BE =
+            BLOCK_ENTITIES.register("analog_barometer", () -> BlockEntityType.Builder
+                    .of(AnalogBarometerBlockEntity::new, ANALOG_BAROMETER.get()).build(null));
+
+    // трубы
+    public static final RegistryObject<Block> PIPE_TITANIUM = registerBlock("pipe_titanium",
+            () -> new PipeBlock(PipeMaterial.TITANIUM,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1.5f).noOcclusion()));
+    public static final RegistryObject<Block> PIPE_STEEL = registerBlock("pipe_steel",
+            () -> new PipeBlock(PipeMaterial.STEEL,
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(2.0f).noOcclusion()));
+    public static final RegistryObject<BlockEntityType<PipeBlockEntity>> PIPE_BE =
+            BLOCK_ENTITIES.register("pipe", () -> BlockEntityType.Builder.of(
+                    (pos, state) -> {
+                        Block block = state.getBlock();
+                        if (block instanceof PipeBlock pb)
+                            return new PipeBlockEntity(pos, state, pb.getMaterial());
+                        return new PipeBlockEntity(pos, state, PipeMaterial.TITANIUM);
+                    },
+                    PIPE_TITANIUM.get(), PIPE_STEEL.get()
+            ).build(null));
+
+    // компрессор
+    public static final RegistryObject<Block> FLUID_COMPRESSOR = registerBlock("fluid_compressor",
+            () -> new FluidCompressorBlock(
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f)));
+    public static final RegistryObject<BlockEntityType<FluidCompressorBlockEntity>> FLUID_COMPRESSOR_BE =
+            BLOCK_ENTITIES.register("fluid_compressor", () -> BlockEntityType.Builder
+                    .of(FluidCompressorBlockEntity::new, FLUID_COMPRESSOR.get()).build(null));
+
+    // источник жидкости
+    public static final RegistryObject<Block> FLUID_SOURCE = registerBlock("fluid_source",
+            () -> new FluidSourceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(2.0f)));
+    public static final RegistryObject<BlockEntityType<FluidSourceBlockEntity>> FLUID_SOURCE_BE =
+            BLOCK_ENTITIES.register("fluid_source", () -> BlockEntityType.Builder
+                    .of(FluidSourceBlockEntity::new, FLUID_SOURCE.get()).build(null));
+    // бак
+    public static final RegistryObject<Block> FLUID_TANK = registerBlock("fluid_tank",
+            () -> new FluidTankBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(2.0f)));
+    public static final RegistryObject<BlockEntityType<FluidTankBlockEntity>> FLUID_TANK_BE =
+            BLOCK_ENTITIES.register("fluid_tank", () -> BlockEntityType.Builder
+                    .of(FluidTankBlockEntity::new, FLUID_TANK.get()).build(null));
+
+    // LV трансформатор
+    public static final RegistryObject<Block> LV_TRANSFORMER = registerBlock("lv_transformer",
+            () -> new LvTransformerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(3.0f)));
+    public static final RegistryObject<BlockEntityType<LvTransformerBlockEntity>> LV_TRANSFORMER_BE =
+            BLOCK_ENTITIES.register("lv_transformer", () -> BlockEntityType.Builder
+                    .of(LvTransformerBlockEntity::new, LV_TRANSFORMER.get()).build(null));
+
+    // соединительный провод
+    // соединительный провод
+    public static final RegistryObject<Block> CONNECTOR_CABLE = registerBlock("connector_cable",
+            () -> new ConnectorCableBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)
+                    .strength(1.0f).noOcclusion()));
+    public static final RegistryObject<BlockEntityType<CableBlockEntity>> CONNECTOR_CABLE_BE =
+            BLOCK_ENTITIES.register("connector_cable", () -> BlockEntityType.Builder
+                    .of((pos, state) -> new CableBlockEntity(pos, state, CableTier.CONNECTOR_COPPER),
+                            CONNECTOR_CABLE.get()).build(null));
+
+    // вентиль
+    public static final RegistryObject<Block> FLUID_VALVE = registerBlock("fluid_valve",
+            () -> new FluidValveBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(2.0f)));
+    public static final RegistryObject<BlockEntityType<FluidValveBlockEntity>> FLUID_VALVE_BE =
+            BLOCK_ENTITIES.register("fluid_valve", () -> BlockEntityType.Builder
+                    .of(FluidValveBlockEntity::new, FLUID_VALVE.get()).build(null));
+
 
     public static final RegistryObject<BlockEntityType<MissileLauncherBlockEntity>> MISSILE_LAUNCHER_BE =
             BLOCK_ENTITIES.register("missile_launcher", () ->
                     BlockEntityType.Builder.of(MissileLauncherBlockEntity::new,
                             MISSILE_LAUNCHER.get()).build(null));
+
+
 
     private static <T extends Block>RegistryObject<Item> registerHazardBlockItem(double radiation, String name, RegistryObject<T> block) {
 

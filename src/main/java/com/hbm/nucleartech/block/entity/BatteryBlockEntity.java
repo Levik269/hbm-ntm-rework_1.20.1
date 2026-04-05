@@ -22,7 +22,7 @@ public class BatteryBlockEntity extends BlockEntity implements IHbmEnergy.Storag
         if (level == null || level.isClientSide) return;
         // каждые 20 тиков печатаем уровень заряда в консоль для отладки
         if (level.getGameTime() % 20 == 0) {
-            System.out.println("[Battery] " + worldPosition + " energy: " + energy + "/" + MAX_ENERGY);
+            //System.out.println("[Battery] " + worldPosition + " energy: " + energy + "/" + MAX_ENERGY);
         }
     }
 
