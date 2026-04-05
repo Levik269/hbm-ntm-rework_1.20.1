@@ -42,6 +42,12 @@ public class MissileEntity extends Entity {
         super(type, level);
     }
 
+    // Used by typed entity factories (MISSILE_TACTICAL etc.) so /summon gives the right bomb type by default
+    public MissileEntity(EntityType<? extends MissileEntity> type, Level level, NuclearBombType defaultType) {
+        super(type, level);
+        this.bombType = defaultType;
+    }
+
     public MissileEntity(Level level, double x, double y, double z,
                           double targetX, double targetY, double targetZ,
                           NuclearBombType bombType) {

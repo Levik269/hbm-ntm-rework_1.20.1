@@ -3,6 +3,8 @@ package com.hbm.nucleartech.block.custom;
 import net.minecraft.world.item.ItemStack;
 import com.hbm.nucleartech.block.entity.MissileLauncherBlockEntity;
 import com.hbm.nucleartech.block.RegisterBlocks;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraftforge.network.NetworkHooks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -56,13 +58,14 @@ public class MissileLauncherBlock extends BaseEntityBlock {
         }
 
         if (level.getBlockEntity(pos) instanceof MissileLauncherBlockEntity launcher) {
-            player.sendSystemMessage(net.minecraft.network.chat.Component.literal(
-                    "§6=== Missile Launcher ===\n" +
-                            "§eTarget: " + (int)launcher.getTargetX() + " " +
-                            (int)launcher.getTargetY() + " " + (int)launcher.getTargetZ() + "\n" +
-                            "§aBomb type: " + launcher.getBombTypeName() + "\n" +
-                            (launcher.getCooldown() > 0 ? "§cCooldown: " + launcher.getCooldown() + " ticks" : "§aReady to fire!")
-            ));
+            if (player instanceof ServerPlayer serverPlayer) {
+                NetworkHooks.openScreen(serverPlayer, launcher, buf -> {
+                    buf.writeBlockPos(pos);
+                    buf.writeDouble(launcher.getTargetX());
+                    buf.writeDouble(launcher.getTargetY());
+                    buf.writeDouble(launcher.getTargetZ());
+                });
+            }
         }
         return InteractionResult.SUCCESS;
     }

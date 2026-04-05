@@ -1,4 +1,4 @@
-// 1.20.1	2026-03-28T11:01:51.557218104	Item Models: hbm
+// 1.20.1	2026-04-05T09:13:47.477463192	Item Models: hbm
 9477d4a7991e84c2c937b383f30775ad8368afa4 assets/hbm/models/item/advanced_multimeter.json
 cdfd214c5c6c55600df213ad00db1fc2e2aa9249 assets/hbm/models/item/billet_actinium.json
 69148ec4a8b1ff83e4a53e95a194bd5f93d9bb13 assets/hbm/models/item/billet_am241.json
@@ -180,7 +180,12 @@ e15d4b3935e1bd66e62646f39918705f8b9892c5 assets/hbm/models/item/ingot_verticium.
 8c166b015ace212df6464389020d69bcc7cb977a assets/hbm/models/item/ingot_weidanium.json
 7e4d53e2e2d5c5aca814c814b64820ac11fd0a2e assets/hbm/models/item/ingot_zirconium.json
 3db2718b760a733d82a1e69535ca192d6ee63edd assets/hbm/models/item/m65_mask.json
+b063c7a14ba2930f7773a12eceeb64cc3622c0b5 assets/hbm/models/item/missile_bunker_buster.json
+481b2fb499119e368e38b73f4c9063a6a459c8a0 assets/hbm/models/item/missile_cobalt.json
 bb8dad525f16de114dfa48f6a28501a42a9e435b assets/hbm/models/item/missile_linker.json
+7b9de5b0af0e0361be83d74157baeeef6608ce37 assets/hbm/models/item/missile_standard.json
+b9869dd92c429b251447a360979e19f34cda744b assets/hbm/models/item/missile_tactical.json
+90271326a5a6ed3acd6a28e10e9a565983ab3ff0 assets/hbm/models/item/missile_thermonuclear.json
 7d923957000c5cb76dc04cadd811797f0c6f5104 assets/hbm/models/item/multimeter.json
 4fe588e75391736b175172b1e9b9b2b52ea4e6c7 assets/hbm/models/item/nugget_actinium.json
 f1b178114d42c452de1df67e8eddd6228d57fbae assets/hbm/models/item/nugget_am241.json

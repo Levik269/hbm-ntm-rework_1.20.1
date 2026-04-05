@@ -421,6 +421,12 @@ public class RegisterCreativeTabs {
                         output.accept(RegisterItems.NUKE_STANDARD.get());
                         output.accept(RegisterItems.NUKE_THERMONUCLEAR.get());
                         output.accept(RegisterItems.NUKE_BUNKER_BUSTER.get());
+                        // Missile ammo
+                        output.accept(RegisterItems.MISSILE_TACTICAL.get());
+                        output.accept(RegisterItems.MISSILE_STANDARD.get());
+                        output.accept(RegisterItems.MISSILE_THERMONUCLEAR.get());
+                        output.accept(RegisterItems.MISSILE_BUNKER_BUSTER.get());
+                        output.accept(RegisterItems.MISSILE_COBALT.get());
 
                         output.accept(RegisterBlocks.RADIATION_DECONTAMINATOR.get());
                     })

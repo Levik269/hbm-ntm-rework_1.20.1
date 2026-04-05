@@ -3,6 +3,7 @@ import com.hbm.nucleartech.entity.custom.MissileEntity;
 
 import com.hbm.nucleartech.HBM;
 import com.hbm.nucleartech.entity.custom.NuclearCreeperEntity;
+import com.hbm.nucleartech.explosion.NuclearBombType;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -23,6 +24,31 @@ public class HbmEntities {
                     .<MissileEntity>of(MissileEntity::new, MobCategory.MISC)
                     .sized(0.5f, 2.0f)
                     .build("missile"));
+
+    public static final RegistryObject<EntityType<MissileEntity>> MISSILE_TACTICAL =
+            ENTITY_TYPES.register("missile_tactical", () -> EntityType.Builder
+                    .<MissileEntity>of((type, level) -> new MissileEntity(type, level, NuclearBombType.TACTICAL), MobCategory.MISC)
+                    .sized(0.5f, 2.0f).build("missile_tactical"));
+
+    public static final RegistryObject<EntityType<MissileEntity>> MISSILE_STANDARD =
+            ENTITY_TYPES.register("missile_standard", () -> EntityType.Builder
+                    .<MissileEntity>of((type, level) -> new MissileEntity(type, level, NuclearBombType.STANDARD), MobCategory.MISC)
+                    .sized(0.5f, 2.0f).build("missile_standard"));
+
+    public static final RegistryObject<EntityType<MissileEntity>> MISSILE_THERMONUCLEAR =
+            ENTITY_TYPES.register("missile_thermonuclear", () -> EntityType.Builder
+                    .<MissileEntity>of((type, level) -> new MissileEntity(type, level, NuclearBombType.THERMONUCLEAR), MobCategory.MISC)
+                    .sized(0.5f, 2.0f).build("missile_thermonuclear"));
+
+    public static final RegistryObject<EntityType<MissileEntity>> MISSILE_BUNKER_BUSTER =
+            ENTITY_TYPES.register("missile_bunker_buster", () -> EntityType.Builder
+                    .<MissileEntity>of((type, level) -> new MissileEntity(type, level, NuclearBombType.BUNKER_BUSTER), MobCategory.MISC)
+                    .sized(0.5f, 2.0f).build("missile_bunker_buster"));
+
+    public static final RegistryObject<EntityType<MissileEntity>> MISSILE_COBALT =
+            ENTITY_TYPES.register("missile_cobalt", () -> EntityType.Builder
+                    .<MissileEntity>of((type, level) -> new MissileEntity(type, level, NuclearBombType.COBALT), MobCategory.MISC)
+                    .sized(0.5f, 2.0f).build("missile_cobalt"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

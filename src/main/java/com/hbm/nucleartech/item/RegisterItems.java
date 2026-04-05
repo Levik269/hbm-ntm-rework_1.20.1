@@ -41,6 +41,21 @@ public class RegisterItems {
     public static final RegistryObject<Item> NUKE_BUNKER_BUSTER = ITEMS.register("nuke_bunker_buster",
             () -> new NukeItem(NuclearBombType.BUNKER_BUSTER, new Item.Properties()));
 
+    // ------------- Missiles (launcher ammo) --------------
+    public static final RegistryObject<Item> MISSILE_TACTICAL = ITEMS.register("missile_tactical",
+            () -> new MissileItem(NuclearBombType.TACTICAL, new Item.Properties().stacksTo(16)));
+
+    public static final RegistryObject<Item> MISSILE_STANDARD = ITEMS.register("missile_standard",
+            () -> new MissileItem(NuclearBombType.STANDARD, new Item.Properties().stacksTo(16)));
+
+    public static final RegistryObject<Item> MISSILE_THERMONUCLEAR = ITEMS.register("missile_thermonuclear",
+            () -> new MissileItem(NuclearBombType.THERMONUCLEAR, new Item.Properties().stacksTo(16)));
+
+    public static final RegistryObject<Item> MISSILE_BUNKER_BUSTER = ITEMS.register("missile_bunker_buster",
+            () -> new MissileItem(NuclearBombType.BUNKER_BUSTER, new Item.Properties().stacksTo(16)));
+
+    public static final RegistryObject<Item> MISSILE_COBALT = ITEMS.register("missile_cobalt",
+            () -> new MissileItem(NuclearBombType.COBALT, new Item.Properties().stacksTo(16)));
 
     public static final RegistryObject<Item> PLATE_IRON = ITEMS.register("plate_iron",
             () -> new Item(new Item.Properties()));

@@ -1,6 +1,9 @@
 package com.hbm.nucleartech;
 
 import com.hbm.nucleartech.block.RegisterBlocks;
+import com.hbm.nucleartech.block.menu.RegisterMenus;
+import com.hbm.nucleartech.block.menu.MissileLauncherMenu;
+import com.hbm.nucleartech.block.screen.MissileLauncherScreen;
 import com.hbm.nucleartech.block.custom.RadResistantBlock;
 import com.hbm.nucleartech.entity.HbmEntities;
 import com.hbm.nucleartech.entity.client.NuclearCreeperRenderer;
@@ -14,6 +17,7 @@ import com.hbm.nucleartech.particle.RegisterParticles;
 import com.hbm.nucleartech.sound.RegisterSounds;
 import com.hbm.nucleartech.util.ArmorUtil;
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -66,6 +70,7 @@ public class HBM
         HbmEntities.register(modEventBus);
 //        ClientSetup.init(modEventBus);
 
+        RegisterMenus.register(modEventBus);
         RegisterSounds.SOUNDS.register(modEventBus);
 
         // Register the commonSetup method for modloading
@@ -133,6 +138,7 @@ public class HBM
         public static void onClientSetup(FMLClientSetupEvent event) {
 
             EntityRenderers.register(HbmEntities.NUCLEAR_CREEPER.get(), NuclearCreeperRenderer::new);
+            MenuScreens.register(RegisterMenus.MISSILE_LAUNCHER.get(), MissileLauncherScreen::new);
         }
     }
 }

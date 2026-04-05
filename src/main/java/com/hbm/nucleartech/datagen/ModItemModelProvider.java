@@ -305,6 +305,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(RegisterItems.NUKE_STANDARD);
         simpleItem(RegisterItems.NUKE_THERMONUCLEAR);
         simpleItem(RegisterItems.NUKE_BUNKER_BUSTER);
+
+        simpleItem(RegisterItems.MISSILE_TACTICAL);
+        simpleItem(RegisterItems.MISSILE_STANDARD);
+        simpleItem(RegisterItems.MISSILE_THERMONUCLEAR);
+        simpleItem(RegisterItems.MISSILE_BUNKER_BUSTER);
+        simpleItem(RegisterItems.MISSILE_COBALT);
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
