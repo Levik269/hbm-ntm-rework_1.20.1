@@ -10,6 +10,7 @@
 **Discord**: `hlnikniky1111`, `yadershik`\
 
 **dirtwithwaterz (original port base creator) Channels**:
-[YouTube](https://youtube.com/@dirtwithwaterz?si=3yFbM8tnDzAVRAV4)
-[Twitch](https://m.twitch.tv/dirtwithwaterz)
+[YouTube](https://youtube.com/@dirtwithwaterz?si=3yFbM8tnDzAVRAV4)\
+[Twitch](https://m.twitch.tv/dirtwithwaterz)\
+[Discord Server](https://discord.gg/v6enQywt7)
 
